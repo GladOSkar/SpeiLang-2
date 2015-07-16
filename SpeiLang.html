@@ -4,88 +4,84 @@
 		<style>
 			body {font-family: arial, sans-serif; font-size: 20; font-weight: bold;}
 			.forms {
-				margin:auto;
+				margin:10px;
 				width:300px;
 				background:orange;
 				padding:20px;
 				padding-top: 0px;
+				border-radius: 16px;
 				text-align: center;
 				margin-top:40px;
+				float: left;
 			}
-			h1{padding-top: 20px; margin-bottom: -10px}
-			input, button, select {width: 300px; margin-top: 2; margin-bottom: 8; font-size: 30}
-			button {height: 50px;}
+			h1 {padding-top: 20px;margin-bottom: 0px;}
+			h3 {margin-top: 16px; margin-bottom: 4px; padding: 0px; font-size: 20;}
+			input, button, select {width: 300px; font-size: 30}
+			button {height: 50px; margin-top: 16px;}
 			.half {width: 147px;}
+			.sides {width: 73px;}
 		</style>
 	</head>
 	<body>
-		<div style="display:inline-block;">
-			<div class="forms">
-				<h1>Nabe</h1>
-				<br> &nbsp;&nbsp;Marke - Modell
-				<br> <select class="half">
-						<option value="CAMPAGNOLO">Campagnolo</option>
-						<option value="DARINGONALAWUTZ">Dolski Zajazd</option>
-						<option value="WOLZA">Wolski Zajazd</option>
-					 </select>
-					 <select class="half"></select>
-				<br> Lochkreisdurchmesser WD
-				<br> &nbsp;&nbsp;&nbsp;Links - Rechts
-				<br> <input id="val2" type="text" value="44" class="half">
-					 <input id="val3" type="text" value="44" class="half">
-				<br> Gesamtbreite EBM
-				<br> <input id="val4" type="text" value="130">
-				<br> Abstand WL / WR
-				<br> &nbsp;&nbsp;&nbsp;Links - Rechts
-				<br> <input id="val5" type="text" value="44" class="half">
-					 <input id="val6" type="text" value="44" class="half">
-				<br> Anzahl Speichenlöcher Nabe
-				<br> <input id="val7" type="text" value="36">
-				<br> Speichenlochdurchmesser
-				<br> <input id="val8" type="text" value="2.6">
-			</div>
-			<div class="forms">
-				<br> Anzahl Speichenkreuzungen
-				<br> <input id="val9" type="text" value="3">
-			</div>
+		<div class="forms">
+			<h1>Felge</h1>
+			<h3>&nbsp;&nbsp;Marke - Modell</h3>
+			<input type="text" id="felgenfeld" placeholder="Auswählen..." list="felgenliste">
+				 <datalist id="felgenliste">
+					<option value="cadabra">
+					<option value="Test">
+					<option value="xD">
+				 </datalist>
+			<h3>Felgendurchmesser</h3>
+			<input id="val1" type="number">
+			<h3>Anzahl Speichenlöcher Felge</h3>
+			<input id="val9" type="number">
 		</div>
-		<div style="display:inline-block;">
-			<div class="forms">
-				<h1>Felge</h1>
-				<br> &nbsp;&nbsp;Marke - Modell
-				<br> <select class="half"></select>
-					 <select class="half"></select>
-				<br> Felgendurchmesser
-				<br> <input id="val1" type="text" value="618">
-				<br> Anzahl Speichenlöcher Felge
-				<br> <input id="val10" type="text" value="36">
-			</div>
-			<div class="forms">
-				<br> <br> <button id="SLbutton">Ausrechnen!</button>
-				<br> Länge:
-				<br> &nbsp;&nbsp;&nbsp;Links - Rechts
-				<br> <input id="outl" type="text" class="half">
-					 <input id="outr" type="text" class="half">
-			</div>
+		<div class="forms">
+			<h1>Nabe</h1>
+			<h3>&nbsp;&nbsp;Marke - Modell</h3>
+			<input type="text" id="nabenfeld" placeholder="Auswählen..." list="nabenliste">
+				 <datalist id="nabenliste">
+					<option value="cadabra">
+					<option value="Test">
+					<option value="xD">
+				 </datalist>
+			<h3>Lochkreisdurchmesser</h3>
+			L&nbsp;<input id="val2" type="number" class="sides">
+				 <input id="val3" type="number" class="sides">&nbsp;R
+			<h3>Abstand WL / WR</h3>
+			L&nbsp;<input id="val4" type="number" class="sides">
+				 <input id="val5" type="number" class="sides">&nbsp;R
+			<h3>Anzahl Speichenlöcher Nabe</h3>
+			<input id="val6" type="number">
+			<h3>Speichenlochdurchmesser</h3>
+			<input id="val7" type="text">
+		</div>
+		<div class="forms">
+			<h1>Rechner</h1>
+			<h3>Anzahl Speichenkreuzungen</h3>
+			<input id="val8" type="number" value="3" min="0" max="4" style="width: 42px">
+			<button id="SLbutton">Ausrechnen!</button>
+			<h3>Länge:</h3>
+			L&nbsp;<input id="outl" type="text" style="width: 120px;" readonly>
+			<input id="outr" type="text" style="width: 120px;" readonly>&nbsp;R
 		</div>
 	</body>
 	<script>
-		function getLaengen(RFelge, RLochkreisL, RLochkreisR, NabenBreite, AL, AR, LochZahl, RSpeichenLoch, KreuzungsZahl) {
+		function getLaengen(RFelge, RLochkreisL, RLochkreisR, AL, AR, LochZahl, RSpeichenLoch, KreuzungsZahl) {
 			var coswinkel =  Math.cos((360 / LochZahl * KreuzungsZahl) / 57.3);
-			var BL = NabenBreite - AL;
-			var BR = NabenBreite - AR;
 
 			var LL = Math.sqrt(
 				RFelge * RFelge  +
 				RLochkreisL * RLochkreisL +
-				BL * BL -
+				AL * AL -
 				2 * RFelge * RLochkreisL * coswinkel
 			);
 
 			var LR = Math.sqrt(
 				RFelge * RFelge  +
 				RLochkreisR * RLochkreisR +
-				BR * BR -
+				AR * AR -
 				2 * RFelge * RLochkreisR * coswinkel
 			);
 
@@ -97,31 +93,29 @@
 		function calc() {
 			var vals = [];
 
-			for (i = 1; i < 11; i++) {
+			for (i = 1; i < 10; i++) {
 				vals[i] = document.getElementById("val" + i).value;
 			}
 
-			if (vals[7] == vals[10]) {
+			if (vals[6] == vals[9]) {
 				var ergebnisse = getLaengen(
 					vals[1] * 0.5,		//	1.) FelgenDurchmesser					D1
 					vals[2] * 0.5,		//	2.) NabeLochkreisDurchmesserWDL			D2L
 					vals[3] * 0.5,		//	3.) NabeLochkreisDurchmesserWDR			D2R
-					vals[4] * 0.5,		//	4.) AbstandGabelZuGabelEBM				???(130)
-					vals[5],			//	5.) AbstandRahmenZuSpeichenLoecherWL	AL
-					vals[6],			//	6.) AbstandRahmenZuSpeichenLoecherWR	AR
-					vals[7] * 0.5,		//	7.) AnzahlSpeichenLoecher				Lochzahl
-					vals[8] * 0.5,		//	8.) SpeichenLochDurchmesserNabe			DSL
-					vals[9]				//	9.) AnzahlSpeichenKreuzungen			???(3)
+					vals[4],			//	4.) AbstandMitteZuSpeichenLoecherAL		AL
+					vals[5],			//	5.) AbstandMitteZuSpeichenLoecherAR		AR
+					vals[6] * 0.5,		//	6.) AnzahlSpeichenLoecher				Lochzahl
+					vals[7] * 0.5,		//	7.) SpeichenLochDurchmesserNabe			DSL
+					vals[8]				//	8.) AnzahlSpeichenKreuzungen			???(3)
 				);
 				console.log("Links: " + ergebnisse.links+ "; Rechts: " + ergebnisse.rechts);
 				document.getElementById("outl").value = ergebnisse.links;
 				document.getElementById("outr").value = ergebnisse.rechts;
 			} else {
-				console.log("Ungleiche Speichenanzahl! (Felge: " + vals[10] + " Löcher & Nabe: " + vals[7] + " Löcher!)");
-				alert("Ungleiche Speichenanzahl! (Felge: " + vals[10] + " Löcher & Nabe: " + vals[7] + " Löcher!)");
+				console.log("Ungleiche Speichenanzahl! (Felge: " + vals[9] + " Löcher & Nabe: " + vals[6] + " Löcher!)");
+				alert("Ungleiche Speichenanzahl! (Felge: " + vals[9] + " Löcher & Nabe: " + vals[6] + " Löcher!)");
 				document.getElementById("outl").value = "-";
 				document.getElementById("outr").value = "-";
-				return;
 			};
 		};
 
@@ -130,7 +124,7 @@
 		var felgenDB = new PouchDB('felgen');
 		var remoteCouch = false;
 
-		db.changes({
+		felgenDB.changes({
 			since: 'now',
 			live: true
 		}).on('change', updateTeile);
@@ -151,8 +145,8 @@
 		}
 
 		function updateTeile() {
-			db.allDocs({include_docs: true, descending: true}, function(err, doc) {
-				redrawTodosUI(doc.rows);
+			felgenDB.allDocs({include_docs: true, descending: true}, function(err, doc) {
+				//REDO redrawTodosUI(doc.rows);
 			});
 		}
 
