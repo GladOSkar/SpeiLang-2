@@ -1,197 +1,287 @@
-Hersteller,Name,Vorn/hinten,Lochzahl,DSL,D2L,D2R,AL,AR
-CAMPAGNOLO,"Centaur, 100 mm",v,36,2.5,39,39,37,37
-CAMPAGNOLO,"Centaur, 9/10-fach, 130 mm",h,36,2.5,44,44,39,19
-CAMPAGNOLO,Chorus,v,32,2.8,40,40,35,35
-CAMPAGNOLO,"Chorus, schraub",v,36,2.5,44,44,37,20
-CAMPAGNOLO,"Mirage 8-f. Kassette , 130 mm",h,36,2.5,44,44,36,17
-CAMPAGNOLO,Record  Schraubkranz (symetrisch),h,36,2.5,44,44,30,29
-CAMPAGNOLO,Record 10-Fach,h,36,2,44,45,38,15
-CAMPAGNOLO,"Record OR, 8- fach, 135 mm",h,36,2.5,44,44,36,17
-CAMPAGNOLO,"Record, 100 mm",v,36,2.5,39,39,34,34
-CAMPAGNOLO,"RECORD- HR- Schraub: uraltes Modell, 122 mm",h,36,2,44,44,36,20
-CAMPAGNOLO,"REKORD  SCHRAUBKRANZ , 126 mm",h,36,2.5,44,44,36,21
-CAMPAGNOLO,"SCHRAUBKRANZ , 122mm",h,36,2.5,44,44,36,23
-CAMPAGNOLO,"Veloce, 100 mm",v,36,2.5,40,40,36,36
-CAMPAGNOLO,"Veloce, 130 mm, 8/9-fach",h,36,2.5,45,45,39,18
-CODA,"Performance, 135 mmm 8/9 fach",h,36,2.5,45,45,31,20
-EDCO,"COMPETITION, HR 135 mm, 8/9-fach",h,36,2.5,46,46,36,22
-EDCO,Racer Disk hinten,h,32,2,55,55,33,21
-EDCO,"RACER, 100 mm",v,36,2.5,41,41,30,30
-EDCO,"Racer, 130 mm, 8/9- fach",h,36,2.5,46,46,40,20
-EDCO,"RACER, 8/9-fach, 135 mm",h,36,2.5,46,46,37,22
-FORMULA,Scheibenbremsnabe  100mm,v,36,2.5,51,51,20,35
-GRIMECCA,Disc VR,v,32,2.5,61,61,20,32
-HOHNER,"Spontan TBN, 95 mm, Durchm. r: +3 mm",v,36,3,45,100,34,34
-HÜGI," MTB 8 f., 135 mm",h,36,2.5,45,45,38,20
-HÜGI,240 VR,v,32,2.5,36,36,35,35
-HÜGI,Disc Brake VR für Gustav M Scheibenbremse,v,36,2.5,60,60,26,37
-HÜGI,"MTB- Vorne, verstärkt",v,36,2.5,41,41,35,35
-HÜGI,"ONYX, MTB, 9- fach, 135 mm",h,36,2.5,46,46,32,22
-HÜGI,"TD (Tandem), 140 mm, f. Scheibenbr.",h,40,2.5,60,60,34,24
-MAILLARD,Normandie,v,36,2.5,63,63,36,36
-MAILLARD,"Normandie, 126 mm, schraub",h,36,2.5,62,62,38,20
-MAVIC,"Industriegelagert, 100 mm",v,32,2.5,40,40,29,29
-MAVIC,"Industriegelagert, 126mm, schraub",h,32,2.5,45,45,40,20
-MAXCYCLES,"FRONT, industrie, 100 mm",h,36,2.5,39,39,15,15
-MICHE,"A 1100, Alu, 100mm",v,36,2.5,40,40,36,36
-MICHE,A0302 VR einfach,v,36,2.5,40,40,34,34
-MICHE,"PRIMATO, schraubkr., 126 mm",h,36,2.5,42,42,40,19
-NC-!/,"It's Pete, 110mm (Steckachse)",v,36,2.5,60,60,24,35
-NC-17,"It's Pete, 100",v,36,2.5,60,60,24,36
-PHIL WOOD,"7- fach, schraubkr., 130 mm",h,36,2.5,42,48.6,34,26
-PHIL WOOD,"Hochflansch, 100 mm",v,36,2.5,57,57,20,20
-PHIL WOOD,"KISS OFF, 135 mm, Singlespeed",h,36,2.5,57,57,27,27
-PHIL WOOD,"Silber, 100 mm",v,36,2.5,42,42,36,36
-PHIL WOOD,"Singlespeed, RGS-rechts, 135 mm",h,36,2.5,57,57,26,26
-POINT,"7- fach Kassette, 135 mm",h,36,2.5,43,43,35,19
-POINT,by Formula,h,36,2.5,45,45,32,22
-POINT,"Racing DH, 110 mm Steckachse",v,36,2.5,62,62,34,34
-POINT,"Racing, VR",v,36,2.5,45,45,34,34
-PULSTAR,Pulstar,v,36,2.5,47,47,30,30
-PULSTAR,Pulstar HR,h,36,2.5,47,47,31,19
-QUANDO,"7- fach, schraubkr., 135 mm",h,36,2.5,45,45,37,19
-RENAK,Nabendynamo (verstärktes Getriebe),v,36,2.5,54,54,35,33
-ROHLOFF,"SPEEDHUB 500/14, 135 mm",h,32,2.5,99,99,31,31
-sachs,"torpedo, 3-gang, freilauf",h,36,2.5,58,58,24,26
-Sachs,Spectro P5 mit Rücktritt,h,36,3,75,75,28,28
-Sachs,Torpedo 3-Gang Mod. 55,h,36,3.2,67,67,30,30
-SACHS,"3 x 7, 126 mm (Stahlhülse)",h,36,2.5,67,67,37,18
-SACHS,"3-Gang mit TB, H3120T",h,36,3.2,89,89,31,23
-SACHS,"3000 Kassette, 130 mm, 7- fach",h,36,2.5,45,45,34,21
-SACHS,"3x7, 130 mm (Aluhülse)",h,36,2.5,67,67,39,19
-SACHS,415,h,36,3.2,58,58,40,39
-SACHS,7 V  W6  Schraubkranznabe 126 mm,h,36,2.5,45,45,41,18
-SACHS,"CENTERA, 8- fach, 135 mm",h,36,2.5,45,45,30,22
-SACHS,Dreigang H3111,h,36,3.2,58,58,25,26
-SACHS,"DUALDRIVE, 3x9, 135 mm",h,36,2.5,67,67,34,23
-SACHS,DUOMATIC,h,36,3.2,58,58,25,28
-SACHS,"HT-5020, TB, 126mm, Schraubkranz",h,36,3.2,86,86,37,17
-SACHS,"Maillard , schraub, 126 mm",h,36,2.5,45,45,34,18
-SACHS,"NEOS , 100 mm",v,32,2.5,40,40,29,29
-SACHS,"NEOS , 8- fach, 135 mm",h,32,2.5,45,45,34,17
-SACHS,New Success  7-fach  135mm,h,36,2.5,45,45,38,19
-SACHS,"New Success Sport, 100 mm",v,36,2.5,38,38,28,28
-SACHS,"Orbit 2x6 (127,5 achslänge)",h,36,2.5,54,67,38,19
-SACHS,"Orbit mit Trommelbr., 126 mm",h,36,2.5,87,87,38,20
-SACHS,"Orbit, 130 mm",h,36,2.5,54,67,29,18
-SACHS,Pentasport H5203 oder  H5213,h,36,3.2,68,68,30,29
-SACHS,"PENTASPORT mit Trommelbr., alt, 126mm",h,36,3.2,90,90,31,32
-SACHS,"PENTASPORT, 2 zügig",h,36,2.5,73,73,28,28
-SACHS,"QUARZ,  8-fach, 135mm",h,36,2.5,45,45,32,22
-SACHS,"QUARZ, 100mm",v,36,2.5,39,39,31,31
-SACHS,Spectro 7- Gang mit Freilauf,v,36,2.9,76.1,76.1,34,34
-SACHS,Spectro S3,h,36,3.2,58,58,26,24
-SACHS,SUPER 7-  RBN,h,36,3.2,75,75,36,33
-SACHS,TORPEDO DREIGANG/RÜCKTRITT 515,h,36,3.2,58,58,29,29
-SACHS,"Torpedo Freilauf, Rücktritt",h,36,3.2,53,53,26,25
-SACHS,"Torpedo Jet 1110, Komet T1112",h,36,3.2,50,50,25,25
-SACHS,TORPEDO RÜCKTRITTNABE,h,36,3.2,52,52,27,27
-SACHS,"TRAXX, 100mm",v,36,2.5,39,39,32,32
-SACHS,"TRAXX, HR, 130mm, schraub",h,36,2.5,45,45,38,23
-SACHS,"Trommelbremse  V705 (alt), 100 mm",v,36,2.5,87,87,25,25
-SACHS,"VT 5000, Trommelbremsnabe, 100mm",v,36,2.5,87,87,29,32
-SANSIN,"Schraubkranz, 126mm",h,36,2.5,46,46,36,19
-SCHMIDTS," NABENDYNAMO 26/28 , Mod.: 97`""",v,32,2.5,81,81,29,29
-SCHMIDTS,"SON- Nabendynamo, Mod.:2000",v,36,2.5,70,70,30,30
-shimano,CB-E110 Rücktritt,h,36,2.5,48,48,27,23
-shimano,nexus 8 gang sport,h,36,2.9,92,92,32,24
-shimano,nexus 8- gang sport,h,36,2.9,92,92,31,25
-shimano,XT Voderrad Scheibenbremse 2003,v,32,2.5,62,62,23,34
-Shimano,105 (9-fach),h,32,2.5,45,45,35,19
-Shimano,Deore 8/9 Directional FH- M555,h,36,2.5,37.8,47.3,33.15,21.25
-Shimano,SG-8R25/8Fach-Nabens. o. Ruecktritt,h,36,3,92,92,30,25
-Shimano,Sora,h,36,2.5,45,45,37,16
-SHIMANO," ALTUS  FH-CT90, hinten",h,36,2.5,45,45,37,21
-SHIMANO,"105 SC, 7-fach, 126mm",h,36,2.5,45,45,42,20
-SHIMANO,"105 SC, 8-fach, 130mm",h,36,2.5,45,45,38,20
-SHIMANO,105 vorne 9-fach- Serie 2001,v,32,2.5,38,38,36,36
-SHIMANO,3 C C,h,36,2.5,59,59,16,16
-SHIMANO,"3CC , 122mm, RBN",h,36,2.5,59,59,24,25
-SHIMANO,"600 , FH 6, 7- fach, 126 mm",h,36,2.5,45,45,38,20
-SHIMANO,"600 ULTEGRA , vorn",v,28,2.5,38,38,37,37
-SHIMANO,"ALIVIO  HB-MC 12 ,  Front Hub",v,36,2.5,38,38,32,32
-SHIMANO,"ALIVIO FH-MC 10, hinten,  135 mm",h,36,2.5,45,45,34,20
-SHIMANO,"ALIVIO FH-MC 12, hinten",h,32,2.5,45,45,32,22
-SHIMANO,"DDF- FH-555 S+L, 135mm, Diskbrake",h,36,2.5,38,47,33,21
-SHIMANO,"DDF-Hub, 100 mm, Diskbrake",v,36,2.5,38,44,36,26
-SHIMANO,"DEORE 2000 , 100 mm",v,36,2.5,42,42,36,36
-SHIMANO,"DEORE 2000 ,8/9 Fach, 135 mm",h,36,2.5,45,45,37,22
-SHIMANO,Deore DX FH-M650,h,36,2.5,45,45,31,23
-SHIMANO,Deore FH MT 62,h,36,2.5,45,45,41,37
-SHIMANO,Deore HB MT 60,v,36,2.5,38,38,35,35
-SHIMANO,DEORE LX  HB-M570 VIA M,v,36,2.5,38,38,34,34
-SHIMANO,"Deore LX ,  Parallax,  FH - M 565,  8-f.",h,32,2.5,45,45,35,20
-SHIMANO,"DEORE LX 99`  9-fach., 135 mm",h,36,2.5,45,45,38,22
-SHIMANO,DEORE LX 99` 100 mm,v,36,2.5,38,38,36,36
-SHIMANO,"DEORE LX FH- M560, 130 mm",h,36,2.5,45,45,35,19
-SHIMANO,"DEORE LX FH-M 560, hinten, 8-f.",h,36,2.5,45,45,34,20
-SHIMANO,Deore LX vorne (HB- M 550) kein Paralax!!!,v,36,2.5,36,36,35,35
-SHIMANO,"Deore LX,  Parallax, vorn",v,36,2.5,38,38,35,35
-SHIMANO,"Deore LX, FH-M580, 8/9-fach, 135 mm",h,36,2.5,45,45,38,21
-SHIMANO,"DEORE XT   FH-M737, 7-f.",h,36,2.5,45,45,36,21
-SHIMANO,"DEORE XT  HB-M737, 100 mm",v,36,2.5,37,37,35,35
-SHIMANO,DEORE XT 2003 FH-M752 9-fach,h,36,2.5,45,45,36,19
-SHIMANO,DEORE XT 2003 HB-M752 VR,v,36,2.5,38,38,34,34
-SHIMANO,"DEORE XT FH-M 737, 8-fach, 135mm",h,36,2.5,45,45,36,23
-SHIMANO,Deore XT FH-M730 (UG 6-fach),h,36,2.5,45,45,35.5,20
-SHIMANO,DEORE XT HB-M 730 VR,v,32,2.5,38,38,35,35
-SHIMANO,"DEORE XT, 2000, HB-M750, 100 mm",v,36,2.5,38,38,36,36
-SHIMANO,"DEORE XT, FH- M 750, 135 mm, 9- f.",h,36,2.5,45,45,37,23
-SHIMANO,"Deore XT, hinten,  7-f., 130mm",h,36,2.5,45,45,37,23
-SHIMANO,"DEORE XT, PARALLAX  110,  Mod. 738",v,36,2.5,38,38,36,36
-SHIMANO,"DEORE, 100mm, Mod. 2000",v,36,2.5,42,42,37,37
-SHIMANO,"DEORE, FH-M510, 135 mm",h,36,2.5,45,45,37,21
-SHIMANO,Dura Ace Integrated 8 SIS (Modell 94),h,36,2.5,45,45,35,19
-SHIMANO,"Dura Ace Modell 1994, 100 mm",v,36,2.5,38,38,35,35
-SHIMANO,"Exage  FH - RM 50, 7- fach, 126 mm",h,36,2.5,45,45,37,21
-SHIMANO,"EXAGE FH-451, 7-fach, 126mm, UG",h,36,2.5,45,45,35,23
-SHIMANO,"Exage FH-H 650, 7- fach, 126 mm",h,36,2.5,45,45,35,20
-SHIMANO,"EXAGE HB-RM50, 100 mm",v,36,2.5,38,38,35,35
-SHIMANO,"FH-HG50, 7- fach, 130 mm",h,36,2.5,45,45,35,18
-SHIMANO,"FH-R080 SILENT CLUTCH, 135 mm",h,36,2.5,45,45,34,21
-SHIMANO,FH-R700   m. Rollenbremse,h,36,2.5,74,74,32,19
-SHIMANO,"FH-RD 40, 130mm",h,36,2.5,45,45,37,21
-SHIMANO,"HG 50 mit compact Rollerbrake, 126 mm",h,36,2.5,74,74,33,19
-SHIMANO,"Intego 3/8-Gang, IF-C530, 135 mm,",h,36,2.5,72,72,37,22
-SHIMANO,Inter 3 (SG 3 C 40),h,36,2.8,59,59,28,28
-SHIMANO,"Inter 7,  128 mm",h,36,2.5,83,83,32,23
-SHIMANO,Nexus  Rollerbrakenabe ( Brems-Seite = links),v,36,2.5,52,52,24,34
-SHIMANO,"Nexus 4-Gang, Rollenbr.; b= 127 mm",h,36,2.8,83,83,31,23
-SHIMANO,NEXUS 4Gang m. Rücktritt     Klemmbreite 124mm,h,36,2.5,83,83,31,24
-SHIMANO,"NEXUS 7 GANG M: Rollerbrake, 130mm",h,36,2.5,87,87,31,23
-SHIMANO,"NEXUS 7-Gang mit Rücktrittbremse, 128mm",h,36,2.5,87,87,30,25
-SHIMANO,"Nexus N-70, 100 mm",v,36,2.8,74,74,28,28
-SHIMANO,"NX 10,  Nabenddynamo (98`)",v,36,2.5,77,77,30,30
-SHIMANO,NX-30- Nabendynamo (99`),v,36,2.5,79,79,31,30
-SHIMANO,"NX-50, Nabendynamo m. Rollenbr.",v,36,2.5,80,80,23,31
-SHIMANO,"RSX, 8-fach, 130mm",h,36,2.5,45,45,38,20
-SHIMANO,"Rückbremsnabe CB-E110, 126 mm (spezial!)",h,36,2.5,48,48,36,38
-SHIMANO,"RX 100 , 100mm",v,36,2.5,38,38,35,35
-SHIMANO,"RX 100 , FH A - 550,  7- fach, 126mm",h,36,2.5,45,45,36,18
-SHIMANO,SILENT CLUTCH   FH-RO50,h,36,2.5,45,45,35,24
-SHIMANO,STX  FH-MC 30-CH Spezial Edition 7-fach,h,36,2.5,45,45,35,24
-SHIMANO,"STX , HB - MC 30  - CH, Special edition",v,36,2.5,38,38,34,34
-SHIMANO,"STX -. RC ,  FH - MC 33, 8- fach, 135 mm",h,36,2.5,45,45,36,19
-SHIMANO,"STX, Silent Clutch, 135mm, 7-fach",h,36,2.5,45,45,35,24
-SHIMANO,Ultegra (aus 9- fach Gruppe),v,32,2,38,38,35,35
-SHIMANO,"Ultegra 9fach, 130 mm",h,32,2.5,45,45,34,19
-SHIMANO,"XTR Hinterrad, 8-f., 135 mm",h,32,2.5,45,45,34,29
-SHIMANO,"XTR, FH- M950, 135 mm",h,36,2.5,45,45,36,23
-SHIMANO,"XTR, HB-M950, 100 mm",v,32,2.5,38,38,36,36
-SHIMANO,"XTR- UG (alt), 126 mm",h,36,2.5,45,45,36,20
-STURMEY ARCHER,"SAB 3 Trommelbremsnabe hinten, 3- Gang",h,36,2.9,84,65,38,28
-STURMEY ARCHER,SPRINTER COASTER 5Gang Rücktritt,h,36,2.5,65,65,29,28
-STURMEY ARCHER,STEELITE TROMMELBREMSNABE VORN,v,36,4,83,83,26,30
-STURMEY ARCHER,"Steellite, 100 mm, 90 mm Durchmesser",v,36,2.5,99,49,30,32
-STURMEY ARCHER,"TB Elite, Alu, hinten",h,36,2.5,90,90,41,18
-SUNTOUR,"Diabolo, Schraubkranz",h,36,2.5,44,44,24,42
-SUNTOUR,EDGE  FRONT HUB,v,36,2.5,35,35,34,34
-SUNTOUR,"ID, 100 mjm",v,36,2.5,38,38,33,33
-SUNTOUR,XC pro,h,36,2.5,45,45,34,20
-SUNTOUR,"XC Pro, 100 mm",v,36,2.5,38,38,33,33
-surly,HR singlespeed schraub disc,h,32,2.5,58,58,33,38
-surly,HR- surley- schraubkranz,h,32,2.5,54,54,39,39
-surly,VR- surley,v,32,2.5,54,54,33,33
-TUNE,"Kong, 131 mm, 8/9-fach",h,36,2.5,41,54,36,21
-WHITE INDUSTRIES,"Scheibenbremsnabe HF, Mag., 100 mm",v,36,2.5,74,74,26,34
-WHITE INDUSTRIES,"Scheibenbremsnabe NF, Mag., 135 mm",h,36,2.5,67,67,36,23
+Hersteller;Name;"Vorn/hinten";Lochzahl;DSL;D2L;D2R;AL;AR
+HEINZMANN;"Motor - HR: 870-00-753; Durchmesser: 163 mm";h;36;2.5;100;100;44;25
+HOHNER;Spontan TBN, 95 mm, Durchm. r: +3 mm;v;36;3;45;100;34;34
+HÜGI; MTB 8 f., 135 mm;h;36;2.5;45;45;38;20
+HÜGI;240 VR;v;32;2.5;36;36;35;35
+HÜGI;Disc Brake VR für Gustav M Scheibenbremse;v;36;2.5;60;60;26;37
+HÜGI;DT Swiss cerit mit Scheibenbremse 135mm;h;36;2.4;58;52;35;29
+HÜGI;ONYX, 100 mm;v;36;2.5;40;40;37;37
+HÜGI;ONYX, MTB, 9- fach, 135 mm;h;36;2.5;46;46;32;22
+HÜGI;TD (Tandem), 140 mm, f. Scheibenbr.;h;40;2.5;60;60;34;24
+MAILLARD;Normandie;v;36;2.5;63;63;36;36
+MAILLARD;Normandie, 126 mm, schraub;h;36;2.5;62;62;38;20
+MAVIC;Industriegelagert, 100 mm;v;32;2.5;40;40;29;29
+MAVIC;Industriegelagert, 126mm, schraub;h;32;2.5;45;45;40;20
+MAXCYCLES;FRONT, industrie, 100 mm;h;36;2.5;39;39;15;15
+Maxi-Car;Tandem schraub;h;40;2.5;61;61;39;19
+Maxi-Car;Tandem VR;v;40;2.5;61;61;34;34
+Miche;Pr1mato SYNTESI;v;36;2.4;40;40;30;30
+Miche;primato hochflansch 100mm;v;32;2.5;60;60;31;31
+MICHE;A 1100, Alu, 100mm;v;36;2.5;40;40;36;36
+MICHE;A0302 VR einfach;v;36;2.5;40;40;34;34
+MICHE;Bahn Hochflansch, 120 mm;h;32;2.2;60;60;44;30
+MICHE;Primato Bahn Niederflansch;v;36;2.5;40;40;34;34
+MICHE;Primato Bahn Niederflansch 120 mm;h;36;2.2;47;47;44;30
+MICHE;Primato FLIP-FLOP;h;36;2.5;60;60;31;31
+MICHE;Primato Pista, 120 mm, hochflansch;h;36;2.5;60;60;44;30
+MICHE;Primato Pistard, 100 mm Hochflansch;v;36;2.5;60;60;33;33
+MICHE;Primato, schraubkr., 126 mm;h;36;2.5;42;42;40;19
+MICHE;Racing Box m. Shimano Fl.;h;36;2.5;47;47;40;18
+MICHE;Record Schraubkranz (symetrisch);v;36;2.5;44;44;30;29
+MICHE;RG² Racing 100mm;v;36;2.5;40;40;34;34
+MICHE;RG² Racing 130mm;h;36;2.5;47;47;39;16
+NC-17;It's Pete, 100;v;36;2.5;60;60;24;36
+NC-17;It's Pete, 110mm (Steckachse);v;36;2.5;60;60;24;35
+Novatec;D7225B mit Scheibenbremse;h;32;2.5;58;49;32;18
+NOVATEC;Bahn Flip-Flop Hochfl. 120mm;h;36;2.5;62;62;28;28
+NOVATEC;HR 135mm 9Fach;h;32;2.5;50;50;35;20
+NOVATEC;VR 100mm;v;32;2.5;38;38;35;35
+Nuvinci;N360;h;36;2.9;100;100;26;26
+PAULCOMPONENT;fhub Front 100mm;v;32;2.5;43;43;36.5;36.5
+PHIL WOOD;7- fach, schraubkr., 130 mm;h;36;2.5;42;48.6;34;26
+PHIL WOOD;FLIP FLOP, 130 mm, Fixed/Freew.;h;36;2.5;66;66;31;31
+PHIL WOOD;Hochflansch vorne;v;36;2.5;66;66;34;34
+PHIL WOOD;Kiss-Off Freilauf rechts, 135 mm;h;36;2.5;57;57;39;39
+POINT;7- fach Kassette, 135 mm;h;36;2.5;43;43;35;19
+POINT;by Formula;h;36;2.5;45;45;32;22
+POINT;Racing DH, 110 mm Steckachse;v;36;2.5;62;62;34;34
+POINT;Racing, VR;v;36;2.5;45;45;34;34
+PULSTAR;100 mm;v;36;2.5;47.6;47.6;32.5;32.5
+PULSTAR;Pulstar;v;36;2.5;47;47;30;30
+PULSTAR;Pulstar HR;h;36;2.5;47;47;31;19
+QUANDO;7- fach, schraubkr., 135 mm;h;36;2.5;45;45;37;19
+RENAK;Nabendynamo (verstärktes Getriebe);v;36;2.5;54;54;35;33
+ROHLOFF;SPEEDHUB 500/14, 135 mm;h;32;2.7;100;100;31;31
+SACHS;3-Gang mit TB, H3120T;h;36;3.2;89;89;31;23
+SACHS;3000 Kassette, 130 mm, 7- fach;h;36;2.5;45;45;34;21
+SACHS;3x7, 130 mm (Aluhülse);h;36;2.5;67;67;39;19
+SACHS;415;h;36;3.2;58;58;40;39
+SACHS;7 V  W6  Schraubkranznabe 126 mm;h;36;2.5;45;45;41;18
+SACHS;CENTERA, 8- fach, 135 mm;h;36;2.5;45;45;30;22
+SACHS;Dreigang H3111;h;36;3.2;58;58;25;26
+SACHS;DUALDRIVE, 3x9, 135 mm;h;36;2.5;67;67;34;23
+SACHS;DUOMATIC;h;36;3.2;58;58;25;28
+SACHS;HT-5020, TB, 126mm, Schraubkranz;h;36;3.2;86;86;37;17
+SACHS;Maillard , schraub, 126 mm;h;36;2.5;45;45;34;18
+SACHS;NEOS , 100 mm;v;32;2.5;40;40;29;29
+SACHS;NEOS , 8- fach, 135 mm;h;32;2.5;45;45;34;17
+SACHS;New Success  7-fach  135mm;h;36;2.5;45;45;38;19
+SACHS;New Success Sport, 100 mm;v;36;2.5;38;38;28;28
+SACHS;Orbit 2x6 (127,5 achslänge);h;36;2.5;54;67;38;19
+SACHS;Orbit mit Trommelbr., 126 mm;h;36;2.5;87;87;38;20
+SACHS;Orbit, 130 mm;h;36;2.5;54;67;29;18
+SACHS;Pentasport H5203 oder  H5213;h;36;3.2;68;68;30;29
+SACHS;PENTASPORT mit Trommelbr., alt, 126mm;h;36;3.2;90;90;31;32
+SACHS;PENTASPORT, 2 zügig;h;36;2.5;73;73;28;28
+SACHS;QUARZ,  8-fach, 135mm;h;36;2.5;45;45;32;22
+SACHS;QUARZ, 100mm;v;36;2.5;39;39;31;31
+SACHS;Spectro 7- Gang mit Freilauf;v;36;2.9;76.1;76.1;34;34
+SACHS;Spectro P5 mit Rücktritt;h;36;3;76;76;29;29
+SACHS;Spectro S3;h;36;3.2;58;58;26;24
+SACHS;SUPER 7-  RBN;h;36;3.2;75;75;36;33
+SACHS;Torpedo 3-Gang Mod. 55;h;36;3.2;67;67;30;30
+SACHS;TORPEDO DREIGANG/RÜCKTRITT 515;h;36;3.2;58;58;29;29
+SACHS;Torpedo Jet 1110, Komet T1112;h;36;3.2;50;50;25;25
+SACHS;TORPEDO RÜCKTRITTNABE;h;36;3.2;52;52;27;27
+SACHS;torpedo, 3-gang, freilauf;h;36;3;58;58;26;24
+SACHS;TRAXX, 100mm;v;36;2.5;39;39;32;32
+SACHS;TRAXX, HR, 130mm, schraub;h;36;2.5;45;45;38;23
+SACHS;Trommelbremse  V705 (alt), 100 mm;v;36;2.5;87;87;25;25
+SACHS;VT 5000, Trommelbremsnabe, 100mm;v;36;2.5;87;87;29;32
+SCHMIDTS; NABENDYNAMO 26/28", Mod.: 97`;v;32;2.5;81;81;29;29
+SCHMIDTS;SON 20 Disc (kantig, nicht der runde!);v;36;2.5;70;70;21;29
+SCHMIDTS;SON 20 R;v;36;2.5;54;54;26;26
+SCHMIDTS;SON 28 Klassik;v;36;2.5;70;70;30;30
+SCHMIDTS;SON 28 Klassik DISC;v;36;2.5;70;70;21;30
+SCHMIDTS;SON 28 neu, der runde;v;36;2.5;54;54;32;32
+SCHMIDTS;SON 28 neu, der runde DISC (AB 2012!);v;36;2.5;58;54;22;26
+SCHMIDTS;SONdelux (ab 2012);v;36;2.5;54;54;25;25
+Shimano;105, FH-5800;h;36;2.7;44;45;34;14
+Shimano;Record      Fh7 -RE2;h;32;2.5;44;46;35.16;15.2
+Shimano;Shimano 600 HB-6400;v;36;2.5;39;39;34;34
+Shimano;Shimano-600 FH-6400;h;36;2.5;47;47;32.5;20
+SHIMANO;105 SC, 7-fach, 126mm;h;36;2.5;45;45;42;20
+SHIMANO;105 SC, 8-fach, 130mm;h;36;2.5;45;45;38;20
+SHIMANO;105, FH-5501;h;36;2.5;45;45;34;18
+SHIMANO;105, FH-5600;h;32;2.5;45;45;36;18
+SHIMANO;105, FH-5700;h;36;2.5;45;45;35;19
+SHIMANO;105, HB-5501;v;32;2.5;38;38;36;36
+SHIMANO;105, HB-5600;v;32;2.5;38;38;34;34
+SHIMANO;105, HB-5700;v;36;2.5;38;38;34;34
+SHIMANO;105, HB-5800 vorn;v;32;2.6;38;38;34;34
+SHIMANO;3 x 7, 126 mm (Stahlhülse);h;36;2.5;67;67;37;18
+SHIMANO;3CC;h;36;2.5;59;59;16;16
+SHIMANO;3CC , 122mm, RBN;h;36;2.5;59;59;24;25
+SHIMANO;600;v;36;2.5;38;38;35;35
+SHIMANO;600 , FH 6, 7- fach, 126 mm;h;36;2.5;45;45;32;21
+SHIMANO;Alfine, DH-S500 Nabendynamo mit Scheibenbremse;v;36;2.5;73;73;20;29
+SHIMANO;Alfine, DH-S501;v;36;2.5;70;70;21;29
+SHIMANO;Alfine, SG-S501, 135mm 8-Fach;h;36;2.5;92;92;31;24
+SHIMANO;Alfine, SG-S700, 11Gang;h;36;2.5;93;93;29;24
+SHIMANO;Alivio, FH-MC 10, hinten,  135 mm;h;36;2.5;45;45;34;20
+SHIMANO;Alivio, FH-MC 12, hinten;h;32;2.5;45;45;32;22
+SHIMANO;Alivio, HB-MC 12;v;36;2.5;38;38;32;32
+SHIMANO;CB-E110 Rücktritt;h;36;2.5;48;48;27;23
+SHIMANO;DDF- FH-555 S+L, 135mm, Diskbrake;h;36;2.5;38;47;33;21
+SHIMANO;DDF-Hub, 100 mm, Diskbrake;v;36;2.5;38;44;36;26
+SHIMANO;DEORE DX, FH-M650;h;36;2.5;45;45;31;23
+SHIMANO;DEORE LX COMPETITION, HR 135 mm, 8/9-fach;v;36;2.5;46;46;36;22
+SHIMANO;DEORE LX FH-T675;h;32;2.3;45;45;29;17
+SHIMANO;DEORE LX,  HB-M 570 VIA M;h;32;2.5;45;45;36;19
+SHIMANO;DEORE LX, FH-M560, 130 mm;h;36;2.5;45;45;35;19
+SHIMANO;DEORE LX, FH-M560, hinten, 8-f.;h;36;2.5;45;45;34;20
+SHIMANO;DEORE LX, FH-M565, Parallax,  8-f.;h;32;2.5;45;45;35;20
+SHIMANO;DEORE LX, FH-M580, 8/9-fach, 135 mm;h;36;2.5;45;45;36;19
+SHIMANO;DEORE LX, FH-M585, Disc;h;36;2.5;45;45;35;22
+SHIMANO;DEORE LX, FH-T660;h;36;2.5;45;45;35;20
+SHIMANO;DEORE LX, HB-M550 VR, kein Paralax!!!;v;36;2.5;36;36;35;35
+SHIMANO;DEORE LX, HB-M580;v;36;2.5;38;38;34;34
+SHIMANO;DEORE LX, HB-M585 scheibenbremse;v;36;2.5;44;44;23;34
+SHIMANO;DEORE LX, HB-T660;v;36;2.5;38;38;35;35
+SHIMANO;DEORE XT, FH-M 730, 130mm;h;36;2.5;45;45;37;23
+SHIMANO;DEORE XT, FH-M 732, 135mm;h;36;2;45;45;36;24
+SHIMANO;DEORE XT, FH-M 737, 8-fach, 135mm;h;36;2.5;45;45;31;24
+SHIMANO;DEORE XT, FH-M 750, 135 mm, 9- f.;h;36;2.5;45;45;36;20
+SHIMANO;DEORE XT, FH-M 752, 9-fach;h;36;2.5;45;45;36;20
+SHIMANO;DEORE XT, FH-M 756, Disc Hochfl.;h;36;2.5;61;61;33;20
+SHIMANO;DEORE XT, FH-M 765, Centerlock 135mm.;h;36;2;44.7;44.7;32.7;20.5
+SHIMANO;DEORE XT, FH-M 770;h;36;2.5;44;44;33;20
+SHIMANO;DEORE XT, FH-M 785 disc;v;36;2.5;44;45;34;20
+SHIMANO;DEORE XT, FH-M730 (UG 6-fach);h;36;2.5;45;45;35.5;20
+SHIMANO;DEORE XT, FH-M775 Disc;h;36;2.5;45;45;33;20
+SHIMANO;DEORE XT, FH-T780;h;36;2.5;45;45;33;20
+SHIMANO;DEORE XT, HB-M 730, 100mm;v;32;2.5;38;38;37;37
+SHIMANO;DEORE XT, HB-M 737, 100 mm;v;36;2.5;38;38;35;35
+SHIMANO;DEORE XT, HB-M 738;v;36;2.5;38;38;36;36
+SHIMANO;DEORE XT, HB-M 750, 100 mm 2000;v;36;2.5;38;38;36;36
+SHIMANO;DEORE XT, HB-M 752, 2003 VR;v;36;2.5;38;38;34;34
+SHIMANO;DEORE XT, HB-M 756, Disc Hochfl.;v;36;2.5;61;61;21;34
+SHIMANO;DEORE XT, HB-M 770;v;36;2.5;40;40;34;34
+SHIMANO;DEORE XT, HB-M 785 disc;v;36;2.5;44;41;23;34
+SHIMANO;DEORE, FH-M 525 Disc Hochflansch;h;36;2.5;61;61;32;20
+SHIMANO;DEORE, FH-M510, 135 mm;h;36;2.5;45;45;37;21
+SHIMANO;DEORE, FH-M555, 8/9 Directional;h;36;2.5;37.8;47.3;33.15;21.25
+SHIMANO;DEORE, FH-M590;h;36;2.5;45;45;36;20
+SHIMANO;DEORE, FH-MT 62;h;36;2.5;45;45;41;37
+SHIMANO;DEORE, HB-M510;v;36;2.5;42;42;34;34
+SHIMANO;DEORE, HB-M525 Disc Hochflansch;v;36;2.5;60;60;22;32
+SHIMANO;DEORE, HB-M590;v;36;2.5;38;38;35;35
+SHIMANO;DH-1 135 mm disc;h;36;2.5;61.5;61.5;32;16
+SHIMANO;DURA ACE, FH-7700, 130 mm;h;36;2.5;44;44;35;19
+SHIMANO;DURA ACE, FH-7800, 130 mm;h;36;2.5;45;45;34;21
+SHIMANO;DURA ACE, HB-7800, 100 mm;v;36;2.5;40;40;37;37
+SHIMANO;DURA ACE, Integrated 8 SIS (Modell 94);h;36;2.5;45;45;35;19
+SHIMANO;DURA ACE, Modell 1994, 100 mm;v;36;2.5;38;38;35;35
+SHIMANO;DURA-ACE;v;36;2.5;37.5;37.5;35;35
+SHIMANO;DURA-ACE, FH-9000;h;36;2.5;43;45;36;17
+SHIMANO;DURA-ACE, HB-9000;v;36;2.5;38;38;35;35
+SHIMANO;EXAGE, FH-451, 7-fach, 126mm, UG;h;36;2.5;45;45;35;23
+SHIMANO;EXAGE, FH-H650, 7- fach, 126 mm;h;36;2.5;45;45;35;20
+SHIMANO;EXAGE, FH-RM50, 7- fach, 126 mm;h;36;2.5;45;45;37;21
+SHIMANO;EXAGE, HB-RM50, 100 mm;v;36;2.5;38;38;35;35
+SHIMANO;FH - C070 - 700 CX;h;36;2.5;45;45;34;25
+SHIMANO;FH-6207, 600 7-Fach, UG;h;36;2.5;45;45;32;22
+SHIMANO;FH-CT90,  ALTUS hinten;h;36;2.5;45;45;37;21
+SHIMANO;FH-HG50, 7- fach, 130 mm;h;36;2.5;45;45;35;18
+SHIMANO;FH-M 756 Disc, 135 mm;h;36;2.5;61.5;61.5;35;22
+SHIMANO;FH-MC 33 STX - RC ,  8- fach, 135 mm;h;36;2.5;45;45;36;19
+SHIMANO;FH-R050, SILENT CLUTCH;h;36;2.5;45;45;35;24
+SHIMANO;FH-R080, SILENT CLUTCH, 135 mm;h;36;2.5;45;45;34;21
+SHIMANO;FH-R700, Rollenbremse;h;36;2.5;74;74;32;19
+SHIMANO;FH-RD 40, 130mm;h;36;2.5;45;45;37;21
+SHIMANO;HB-6207;v;36;2.5;38;38;36;36
+SHIMANO;HB-M475 disc;v;36;2.5;60;60;21;33
+SHIMANO;HB-M756 Disc;v;36;2.5;60;60;22;33
+SHIMANO;HB-RM50;v;36;2.5;38;38;35;35
+SHIMANO;HG 50 mit compact Rollerbrake, 126 mm;h;36;2.5;74;74;33;19
+SHIMANO;INTEGO 3/8-Gang, IF-C530, 135 mm,;h;36;2.5;72;72;37;22
+SHIMANO;INTER 3 (SG 3 C 40);h;36;2.8;59;59;28;28
+SHIMANO;INTER 7,  128 mm;h;36;2.5;83;83;32;23
+SHIMANO;Nabendynamo Alfine DH-S501;v;36;2.5;70;70;20;29
+SHIMANO;Nabendynamo DH-3D71;v;36;2.5;74;74;20;29
+SHIMANO;Nabendynamo DH-3N20;v;36;2.5;74;74;28;28
+SHIMANO;Nabendynamo DH-3N30;v;36;2.5;74;74;28;28
+SHIMANO;Nabendynamo DH-3N72;v;36;2.5;70;70;28;28
+SHIMANO;Nabendynamo DH-3N80;v;32;2.5;70;70;28;28
+SHIMANO;Nabendynamo DH-3R30-H;v;36;2.5;74;74;25;15
+SHIMANO;Nabendynamo DH-3R40 Nexus m. Rollenbremse;v;36;2.5;80;80;23;27
+SHIMANO;Nabendynamo DH-T660-3N;v;36;2.5;70;70;30;31
+SHIMANO;Nabendynamo DH-T665;v;36;2.5;70;70;20;29
+SHIMANO;Nabendynamo DH-T670;v;36;2.5;70;70;28;28
+SHIMANO;Nabendynamo DH-T780;v;36;2.5;70;70;28;28
+SHIMANO;Nabendynamo DH-T785 mit Scheibenbremsaufnahme;v;36;2.5;70;70;20;29
+SHIMANO;Nabendynamo HB-NX-32;v;36;2.5;79;79;31;30
+SHIMANO;Nabendynamo K 405, Scheibenbremse;h;36;2.5;74;74;20;28
+SHIMANO;NEXUS 3-Gang, SG-3R40  m. Rollenbremse;h;36;2.5;74;74;28;23
+SHIMANO;NEXUS 4-Gang, Rollenbr. B=127 mm;h;36;2.8;83;83;31;23
+SHIMANO;NEXUS 4-Gang, Rücktritt  B=124mm;h;36;2.5;83;83;31;24
+SHIMANO;NEXUS 7-Gang, Rollerbrake B=130mm;h;36;2.5;87;87;31;23
+SHIMANO;NEXUS 8-Gang PREMIUM;h;36;2.9;92;92;31;25
+SHIMANO;NEXUS Rollerbrakenabe ( Brems-Seite = links);v;36;2.5;52;52;24;34
+SHIMANO;NEXUS SG7-C30- 7Gang, Rücktrittbremse B=128mm;h;36;3;84;84;30;21
+SHIMANO;NX-10,  Nabenddynamo (98`);v;36;2.5;77;77;30;30
+SHIMANO;NX-50, Nabendynamo m. Rollenbr.;v;36;2.5;80;80;23;31
+SHIMANO;RACER, 100 mm;v;36;2.5;41;41;28;28
+SHIMANO;Racer, 130 mm, 8/9- fach;h;36;2.5;46;46;40;20
+SHIMANO;RACER, 8/9-fach, 135 mm;h;36;2.5;46;46;37;22
+SHIMANO;RSX, 8-fach, 130mm;h;36;2.5;45;45;38;20
+SHIMANO;Rückbremsnabe CB-E110, 126 mm (spezial!);h;36;2.5;48;48;36;38
+SHIMANO;RX 100 , 100mm;v;36;2.5;38;38;35;35
+SHIMANO;RX 100 , FH A - 550,  7- fach, 126mm;h;36;2.5;45;45;36;18
+SHIMANO;Scheibenbremsnabe M16, Hochflansch;v;36;2.5;60;60;23;35
+SHIMANO;SG-3R40 - mit 3mm Spacer links (130mm Einbaubreite;h;36;2.5;74;74;25;25
+SHIMANO;SG-8R25 / 8Fach-Nabens. o. Rücktritt;h;36;3;92;92;30;25
+SHIMANO;STX, FH-MC 30-CH Spezial Edition 7-fach;h;36;2.5;45;45;35;24
+SHIMANO;STX, HB-MC30 - CH, Special edition;v;36;2.5;38;38;34;34
+SHIMANO;STX, Silent Clutch, 135mm, 7-fach;h;36;2.5;45;45;35;24
+SHIMANO;Tiagra FH-4400;h;36;2.5;45;45;35;18
+SHIMANO;Tiagra HB 4500;v;36;2.5;38;38;34;34
+SHIMANO;ULTEGRA FH-6500;h;32;2;45;45;35;19
+SHIMANO;Ultegra FH-6600;h;36;2.6;45;45;37;19
+SHIMANO;ULTEGRA FH-6700;h;36;2;45;45;36;19
+SHIMANO;ULTEGRA FH-6800;h;36;2.5;45;45;36;17
+SHIMANO;ULTEGRA HB-6500;v;32;2;38;38;35;35
+SHIMANO;Ultegra HB-6600;v;36;2.6;38;38;31;31
+SHIMANO;ULTEGRA HB-6700;v;36;2;38;38;34;34
+SHIMANO;XTR Hinterrad, 8-f., 135 mm;h;32;2.5;45;45;34;29
+SHIMANO;XTR, FH-M900, 135 mm;h;36;2.5;45;45;34;22
+SHIMANO;XTR, FH-M950, 135 mm;h;36;2.5;45;45;36;23
+SHIMANO;XTR, HB-M 900;v;36;2.5;38;38;35;35
+SHIMANO;XTR, HB-M950, 100 mm;v;32;2.5;38;38;36;36
+SHIMANO;XTR- UG (alt), 126 mm;h;36;2.5;45;45;36;20
+SP Dynamo Hub;Nabendynamo "SD-8" - Scheibenbremse;v;36;2.5;58;52;25;25
+SP Dynamo Hub;PV-8 Nabendynamo;v;36;2.5;52;52;23;23
+SRAM;Automatix für Rollerbrake 130 mm;h;36;2.5;70;70;25;29
+SRAM;Dualdrive 3x8;h;36;2.5;68;68;32;19
+SRAM;i-motion 3 Gang;h;36;3;70;70;27.5;27.5
+SRAM;i-Motion 9 Gang;h;36;2.5;94;94;30;26
+SRAM;P5 Cargo;h;36;3;75;75;29;27
+SRAM;S7;h;36;2.5;75;75;38;30
+SRAM;T3;h;36;3.2;58;58;26;24
+SRAM;Torpedo singlespeed 130mm;h;32;2.5;67;67;29;29
+Sturmey Archer;Nabendynamo m. Trommelbr. X-FDD;v;36;2.5;89;89;30;28
+Sturmey Archer;S2 Kick Shift 120mm;h;36;2.5;67;67;27;25
+Sturmey Archer;SAB 3 Trommelbremsnabe hinten, 3- Gang;h;36;2.9;84;65;38;28
+Sturmey Archer;SPRINTER COASTER, 5 Gang, rücktritt;h;36;2.5;65;65;29;28
+Sturmey Archer;SRF 3;h;36;2.5;67;67;26;26
+Sturmey Archer;SRF 5;h;36;2.5;67;67;28;23
+Sturmey Archer;Steelite, Trommelbremsnabe VR;v;36;4;83;83;26;30
+Sturmey Archer;Steellite, 100 mm, 90 mm Durchmesser;v;36;2.5;99;49;30;32
+Sturmey Archer;TB Elite, Alu, hinten;h;36;2.5;90;90;41;18
+SUNTOUR;Edge, 100 mm;v;36;2.5;35;35;34;34
+SUNTOUR;ID, 100 mm;v;36;2.5;38;38;33;33
+SUNTOUR;XC Pro, 100 mm;v;36;2.5;38;38;33;33
+SUNTOUR;XC pro, 135 mm;h;36;2.5;45;45;34;20
+SURLY;New Hub Flip-Flop fixed/free 130 mm;h;32;2.5;54;54;33;31
+SURLY;Single Speed, 135 mm;h;32;2.5;54;54;39;39
+SURLY;Singlespeed, Disc, 135 mm;h;32;2.5;58;58;35;38
+SURLY;Track, 100 mm;v;32;2.5;54;54;33;33
+SURLY;Track, Flip-Flop, 120 mm;h;32;2.5;54;54;30;30
+TUNE;Kong, 131 mm, 8/9-fach;h;36;2.5;41;54;36;21
+TUNE;MAG 180, 135 mm;h;32;2.5;41;54;37;20
+WHITE INDUSTRIES;Eno, 100 mm;v;32;2.5;39;39;36;36
+WHITE INDUSTRIES;Eno, 130 mm;h;36;2.5;48;48;32;32
+WHITE INDUSTRIES;H-3 - Road, 130 mm;h;36;2.5;40;54;41;18
+WHITE INDUSTRIES;MI5, 100 mm;v;36;2.5;39;39;36;36
+WHITE INDUSTRIES;MI5, 135 mm;h;32;2.5;55;55;35;21
+WHITE INDUSTRIES;Scheibenbremsnabe HF, Mag., 100 mm;v;36;2.5;74;74;26;34
