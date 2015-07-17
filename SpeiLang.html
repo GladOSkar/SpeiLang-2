@@ -1,0 +1,154 @@
+<html lang="de-DE">
+	<head>
+		<script src="pouchdb-3.6.0.min.js"></script>
+		<style>
+			body {font-family: arial, sans-serif; font-size: 20; font-weight: bold;}
+			.forms {
+				margin:10px;
+				width:300px;
+				background:orange;
+				padding:20px;
+				padding-top: 0px;
+				border-radius: 16px;
+				text-align: center;
+				margin-top:40px;
+				float: left;
+			}
+			h1 {padding-top: 20px;margin-bottom: 0px;}
+			h3 {margin-top: 16px; margin-bottom: 4px; padding: 0px; font-size: 20;}
+			input, button, select {width: 300px; font-size: 30}
+			button {height: 50px; margin-top: 16px;}
+			.half {width: 147px;}
+			.sides {width: 73px;}
+		</style>
+	</head>
+	<body>
+		<div class="forms">
+			<h1>Felge</h1>
+			<h3>&nbsp;&nbsp;Marke - Modell</h3>
+			<input type="text" id="felgenfeld" placeholder="Auswählen..." list="felgenliste">
+				 <datalist id="felgenliste">
+					<option value="cadabra">
+					<option value="Test">
+					<option value="xD">
+				 </datalist>
+			<h3>Felgendurchmesser</h3>
+			<input id="val1" type="number">
+			<h3>Anzahl Speichenlöcher Felge</h3>
+			<input id="val9" type="number">
+		</div>
+		<div class="forms">
+			<h1>Nabe</h1>
+			<h3>&nbsp;&nbsp;Marke - Modell</h3>
+			<input type="text" id="nabenfeld" placeholder="Auswählen..." list="nabenliste">
+				 <datalist id="nabenliste">
+					<option value="cadabra">
+					<option value="Test">
+					<option value="xD">
+				 </datalist>
+			<h3>Lochkreisdurchmesser</h3>
+			L&nbsp;<input id="val2" type="number" class="sides">
+				 <input id="val3" type="number" class="sides">&nbsp;R
+			<h3>Abstand WL / WR</h3>
+			L&nbsp;<input id="val4" type="number" class="sides">
+				 <input id="val5" type="number" class="sides">&nbsp;R
+			<h3>Anzahl Speichenlöcher Nabe</h3>
+			<input id="val6" type="number">
+			<h3>Speichenlochdurchmesser</h3>
+			<input id="val7" type="text">
+		</div>
+		<div class="forms">
+			<h1>Rechner</h1>
+			<h3>Anzahl Speichenkreuzungen</h3>
+			<input id="val8" type="number" value="3" min="0" max="4" style="width: 42px">
+			<button id="SLbutton">Ausrechnen!</button>
+			<h3>Länge:</h3>
+			L&nbsp;<input id="outl" type="text" style="width: 120px;" readonly>
+			<input id="outr" type="text" style="width: 120px;" readonly>&nbsp;R
+		</div>
+	</body>
+	<script>
+		function getLaengen(RFelge, RLochkreisL, RLochkreisR, AL, AR, LochZahl, RSpeichenLoch, KreuzungsZahl) {
+			var coswinkel =  Math.cos((360 / LochZahl * KreuzungsZahl) / 57.3);
+
+			var LL = Math.sqrt(
+				RFelge * RFelge  +
+				RLochkreisL * RLochkreisL +
+				AL * AL -
+				2 * RFelge * RLochkreisL * coswinkel
+			);
+
+			var LR = Math.sqrt(
+				RFelge * RFelge  +
+				RLochkreisR * RLochkreisR +
+				AR * AR -
+				2 * RFelge * RLochkreisR * coswinkel
+			);
+
+			LL = (LL - RSpeichenLoch).toFixed(2);
+			LR = (LR - RSpeichenLoch).toFixed(2);
+			return {links : LL, rechts : LR};
+		};
+
+		function calc() {
+			var vals = [];
+
+			for (i = 1; i < 10; i++) {
+				vals[i] = document.getElementById("val" + i).value;
+			}
+
+			if (vals[6] == vals[9]) {
+				var ergebnisse = getLaengen(
+					vals[1] * 0.5,		//	1.) FelgenDurchmesser					D1
+					vals[2] * 0.5,		//	2.) NabeLochkreisDurchmesserWDL			D2L
+					vals[3] * 0.5,		//	3.) NabeLochkreisDurchmesserWDR			D2R
+					vals[4],			//	4.) AbstandMitteZuSpeichenLoecherAL		AL
+					vals[5],			//	5.) AbstandMitteZuSpeichenLoecherAR		AR
+					vals[6] * 0.5,		//	6.) AnzahlSpeichenLoecher				Lochzahl
+					vals[7] * 0.5,		//	7.) SpeichenLochDurchmesserNabe			DSL
+					vals[8]				//	8.) AnzahlSpeichenKreuzungen			???(3)
+				);
+				console.log("Links: " + ergebnisse.links+ "; Rechts: " + ergebnisse.rechts);
+				document.getElementById("outl").value = ergebnisse.links;
+				document.getElementById("outr").value = ergebnisse.rechts;
+			} else {
+				console.log("Ungleiche Speichenanzahl! (Felge: " + vals[9] + " Löcher & Nabe: " + vals[6] + " Löcher!)");
+				alert("Ungleiche Speichenanzahl! (Felge: " + vals[9] + " Löcher & Nabe: " + vals[6] + " Löcher!)");
+				document.getElementById("outl").value = "-";
+				document.getElementById("outr").value = "-";
+			};
+		};
+
+		document.getElementById("SLbutton").addEventListener("click", calc);
+
+		var felgenDB = new PouchDB('felgen');
+		var remoteCouch = false;
+
+		felgenDB.changes({
+			since: 'now',
+			live: true
+		}).on('change', updateTeile);
+
+		function addFelge(pmarke,pmodell,pDM,pAnzahlSpeichen) {
+			var teil = {
+				_id: new Date().toISOString(),
+				marke: pmarke,
+				modell: pmodell,
+				durchmesser: pDM,
+				anzahlspeichen: pAnzahlSpeichen
+			};
+			felgenDB.put(teil, function callback(err, result) {
+				if (!err) {
+					console.log('Erfolgreich eingetragen!');
+				}
+			});
+		}
+
+		function updateTeile() {
+			felgenDB.allDocs({include_docs: true, descending: true}, function(err, doc) {
+				//REDO redrawTodosUI(doc.rows);
+			});
+		}
+
+	</script>
+</html>
