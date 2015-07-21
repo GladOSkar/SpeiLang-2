@@ -1,0 +1,55 @@
+<html lang="de-DE">
+	<head>
+		<meta charset="utf-8">
+		<link href="style.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<div class="forms">
+			<h1>Felge</h1>
+			<h3>&nbsp;&nbsp;Marke - Modell</h3>
+			<input type="text" id="felgenfeld" placeholder="Auswählen..." list="felgenliste">
+				 <datalist id="felgenliste">
+					<option value="ALESA 9021, 622x21">
+					<option value="ALESA 913, 622x13 V- Profil">
+					<option value="ALEX AL-DA 16, 622x17mm, V- Profil">
+				 </datalist>
+			<h3>Felgendurchmesser</h3>
+			<input id="val1" type="number">
+			<h3>Anzahl Speichenlöcher</h3>
+			<input id="val9" type="number">
+		</div>
+		<div class="forms">
+			<h1>Nabe</h1>
+			<h3>&nbsp;&nbsp;Marke - Modell</h3>
+			<input type="text" id="nabenfeld" placeholder="Auswählen..." list="nabenliste">
+				 <datalist id="nabenliste">
+					<option value="cadabra">
+					<option value="Test">
+					<option value="xD">
+				 </datalist>
+			<h3>Lochkreisdurchmesser</h3>
+			L&nbsp;<input id="val2" type="number" class="sides">
+				 <input id="val3" type="number" class="sides">&nbsp;R
+			<h3>Abstand</h3>
+			L&nbsp;<input id="val4" type="number" class="sides">
+				 <input id="val5" type="number" class="sides">&nbsp;R
+			<h3>Speichenlochdurchmesser</h3>
+			<input id="val7" type="text">
+			<h3>Anzahl Speichenlöcher</h3>
+			<input id="val6" type="number">
+		</div>
+		<div class="forms">
+			<h1>Rechner</h1>
+			<h3>Anzahl Speichenkreuzungen</h3>
+			<input id="val8" type="number" value="3" min="0" max="4" style="width: 42px">
+			<button id="SLbutton">Ausrechnen!</button>
+			<h3>Länge:</h3>
+			L&nbsp;<input id="outl" type="text" style="width: 120px;" readonly>
+			<input id="outr" type="text" style="width: 120px;" readonly>&nbsp;R
+		</div>
+	</body>
+	<script src="res/felgenSC-C.json"></script>
+	<script src="res/nabenSC-C.json"></script>
+	<script src="lib/pouchdb-3.6.0.min.js"></script>
+	<script src="main.js"></script>
+</html>

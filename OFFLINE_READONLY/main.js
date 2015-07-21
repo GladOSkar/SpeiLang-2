@@ -60,61 +60,26 @@ function calc() {
 
 document.getElementById("SLbutton").addEventListener("click", calc);
 
-var felgenDB = new PouchDB('felgen');
-var nabenDB = new PouchDB('naben');
-var remoteCouch = false;
+window.onload = function() {
 
-/* felgenDB.changes({
-	since: 'now',
-	live: true
-}).on('change', updateFelgen); */
+	var dl = document.getElementById("felgenliste");
+	dl.innerHTML = "";
+	felgendata.forEach(function (felge) {
+		"use strict";
 
-function callback(err, result) {
-	"use strict";
-
-	if (!err) {
-		console.log('Neues Teil erfolgreich eingetragen!');
-	} else {
-		console.log(err);
-	}
-}
-
-function addFelge() {
-	"use strict";
-
-	var vals = getVals(),
-		teil = {
-			_id: document.getElementById("felgenfeld").value,
-			durchmesser: vals[1],
-			lochzahl: vals[9]
-		};
-
-	felgenDB.put(teil, callback(err, result));
-};
-
-function addNabe() {
-	var vals = getVals();
-
-	var teil = {
-		_id: document.getElementById("nabenfeld").value,
-		lochkreisDML: vals[2],
-		lochkreisDMR: vals[3],
-		abstandL: vals[4],
-		abstandR: vals[5],
-		speichenlochDM: vals[7],
-		lochzahl: vals[6]
-	}
-
-	felgenDB.put(teil, callback(err, result));
-};
-function updateFelgen() {
-	felgenDB.allDocs({include_docs: true, descending: true}, function(err, doc) {
-		for row in doc.rows do {
-			/* var item = document.createElement("option")
-			item.value = row.name;
-			document.getElementById("felgenliste").appendChild() */
-		};
+		var opt = document.createElement("option");
+		opt.value = felge._id;
+		dl.appendChild(opt);
 	});
-};
 
-updateFelgen;
+	dl = document.getElementById("nabenliste");
+	dl.innerHTML = "";
+	nabendata.forEach(function (nabe) {
+		"use strict";
+
+		var opt = document.createElement("option");
+		opt.value = nabe._id;
+		dl.appendChild(opt);
+	});
+
+};

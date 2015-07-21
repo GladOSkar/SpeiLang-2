@@ -1,0 +1,47 @@
+body {
+	font-family: arial, sans-serif;
+	font-size: 20;
+	font-weight: bold;
+}
+
+.forms {
+	margin:10px;
+	width:300px;
+	background:orange;
+	padding:20px;
+	padding-top: 0px;
+	border-radius: 16px;
+	text-align: center;
+	margin-top:40px;
+	float: left;
+}
+
+h1 {
+	padding-top: 20px;
+	margin-bottom: 0px;
+}
+
+h3 {
+	margin-top: 16px;
+	margin-bottom: 4px;
+	padding: 0px;
+	font-size: 20;
+}
+
+input, button {
+	width: 300px;
+	font-size: 30;
+}
+
+button {
+	height: 50px;
+	margin-top: 16px;
+}
+
+.half {
+	width: 147px;
+}
+
+.sides {
+	width: 73px;
+}
