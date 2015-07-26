@@ -58,28 +58,82 @@ function calc() {
 	}
 }
 
-document.getElementById("SLbutton").addEventListener("click", calc);
+function findentry(name, typ) {
+	var teil, data
+	if (typ) {
+		data = nabendata;
+	} else {
+		data = felgendata;
+	}
 
-window.onload = function() {
+	data.some(function (entry) {
+		if (entry._id == name) {
+			teil = entry;
+			return entry._id == name;
+		}
+	});
 
-	var dl = document.getElementById("felgenliste");
+	return teil;
+}
+
+function readfelgen() {
+	var obj, felge = document.getElementById("felgenfeld").value;
+	console.log("hole werte für felge: " + felge + ".")
+	obj = findentry(felge, 0);
+	console.log("gefunden: " + obj);
+	document.getElementById("val1").value = obj.durchmesser;
+	document.getElementById("val9").value = obj.lochzahl;
+	calc();
+}
+
+function readnaben() {
+	var obj, nabe = document.getElementById("nabenfeld").value;
+	console.log("hole werte für nabe: " + nabe + ".")
+	obj = findentry(nabe, 1);
+	console.log("gefunden: " + obj);
+	document.getElementById("val2").value = obj.lochkreisDML;
+	document.getElementById("val3").value = obj.lochkreisDMR;
+	document.getElementById("val4").value = obj.abstandL;
+	document.getElementById("val5").value = obj.abstandR;
+	document.getElementById("val6").value = obj.lochzahl;
+	document.getElementById("val7").value = obj.speichenlochDM;
+	calc();
+}
+
+window.onload = function () {
+	"use strict";
+
+	var dl = document.getElementById("felgenfeld"), phe = document.createElement("option"), phz = document.createElement("option"), vi, i;
+	phe.value = "";
+	phe.innerHTML = "Felge Auswählen...";
 	dl.innerHTML = "";
+	dl.appendChild(phe);
 	felgendata.forEach(function (felge) {
-		"use strict";
-
 		var opt = document.createElement("option");
 		opt.value = felge._id;
+		opt.innerHTML = felge._id;
 		dl.appendChild(opt);
 	});
 
-	dl = document.getElementById("nabenliste");
+	phz.value = "";
+	phz.innerHTML = "Nabe Auswählen...";
+	dl = document.getElementById("nabenfeld");
 	dl.innerHTML = "";
+	dl.appendChild(phz);
 	nabendata.forEach(function (nabe) {
-		"use strict";
-
 		var opt = document.createElement("option");
 		opt.value = nabe._id;
+		opt.innerHTML = nabe._id;
 		dl.appendChild(opt);
 	});
 
+	document.getElementById("felgenfeld").addEventListener("change", readfelgen);
+	document.getElementById("nabenfeld").addEventListener("change", readnaben);
+
+	document.getElementById("SLbutton").addEventListener("click", calc);
+
+	vi = document.querySelectorAll("input:not([readonly])");
+	for (i = 0; i < vi.length; i += 1) {
+		vi[i].addEventListener("change", calc);
+	}
 };

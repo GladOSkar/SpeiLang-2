@@ -18,7 +18,7 @@ var nabendata = [
     "abstandR":34
   },
   {
-    "_id":"H�GI  MTB 8 f., 135 mm",
+    "_id":"HÜGI  MTB 8 f., 135 mm",
     "lochzahl":36,
     "speichenlochDM":2.5,
     "lochkreisDML":45,
@@ -27,7 +27,7 @@ var nabendata = [
     "abstandR":20
   },
   {
-    "_id":"H�GI 240 VR",
+    "_id":"HÜGI 240 VR",
     "lochzahl":32,
     "speichenlochDM":2.5,
     "lochkreisDML":36,
@@ -36,7 +36,7 @@ var nabendata = [
     "abstandR":35
   },
   {
-    "_id":"H�GI Disc Brake VR f�r Gustav M Scheibenbremse",
+    "_id":"HÜGI Disc Brake VR für Gustav M Scheibenbremse",
     "lochzahl":36,
     "speichenlochDM":2.5,
     "lochkreisDML":60,
@@ -45,7 +45,7 @@ var nabendata = [
     "abstandR":37
   },
   {
-    "_id":"H�GI DT Swiss cerit mit Scheibenbremse 135mm",
+    "_id":"HÜGI DT Swiss cerit mit Scheibenbremse 135mm",
     "lochzahl":36,
     "speichenlochDM":2.4,
     "lochkreisDML":58,
@@ -54,7 +54,7 @@ var nabendata = [
     "abstandR":29
   },
   {
-    "_id":"H�GI ONYX, 100 mm",
+    "_id":"HÜGI ONYX, 100 mm",
     "lochzahl":36,
     "speichenlochDM":2.5,
     "lochkreisDML":40,
@@ -63,7 +63,7 @@ var nabendata = [
     "abstandR":37
   },
   {
-    "_id":"H�GI ONYX, MTB, 9- fach, 135 mm",
+    "_id":"HÜGI ONYX, MTB, 9- fach, 135 mm",
     "lochzahl":36,
     "speichenlochDM":2.5,
     "lochkreisDML":46,
@@ -72,7 +72,7 @@ var nabendata = [
     "abstandR":22
   },
   {
-    "_id":"H�GI TD (Tandem), 140 mm, f. Scheibenbr.",
+    "_id":"HÜGI TD (Tandem), 140 mm, f. Scheibenbr.",
     "lochzahl":40,
     "speichenlochDM":2.5,
     "lochkreisDML":60,
@@ -261,7 +261,7 @@ var nabendata = [
     "abstandR":29
   },
   {
-    "_id":"MICHE RG� Racing 100mm",
+    "_id":"MICHE RG² Racing 100mm",
     "lochzahl":36,
     "speichenlochDM":2.5,
     "lochkreisDML":40,
@@ -270,7 +270,7 @@ var nabendata = [
     "abstandR":34
   },
   {
-    "_id":"MICHE RG� Racing 130mm",
+    "_id":"MICHE RG² Racing 130mm",
     "lochzahl":36,
     "speichenlochDM":2.5,
     "lochkreisDML":47,
@@ -459,7 +459,7 @@ var nabendata = [
     "abstandR":19
   },
   {
-    "_id":"RENAK Nabendynamo (verst�rktes Getriebe)",
+    "_id":"RENAK Nabendynamo (verstärktes Getriebe)",
     "lochzahl":36,
     "speichenlochDM":2.5,
     "lochkreisDML":54,
@@ -495,7 +495,7 @@ var nabendata = [
     "abstandR":21
   },
   {
-    "_id":"SACHS 3x7, 130 mm (Aluh�lse)",
+    "_id":"SACHS 3x7, 130 mm (Aluhülse)",
     "lochzahl":36,
     "speichenlochDM":2.5,
     "lochkreisDML":67,
@@ -612,7 +612,7 @@ var nabendata = [
     "abstandR":28
   },
   {
-    "_id":"SACHS Orbit 2x6 (127,5 achsl�nge)",
+    "_id":"SACHS Orbit 2x6 (127,5 achslänge)",
     "lochzahl":36,
     "speichenlochDM":2.5,
     "lochkreisDML":54,
@@ -657,7 +657,7 @@ var nabendata = [
     "abstandR":32
   },
   {
-    "_id":"SACHS PENTASPORT, 2 z�gig",
+    "_id":"SACHS PENTASPORT, 2 zägig",
     "lochzahl":36,
     "speichenlochDM":2.5,
     "lochkreisDML":73,
@@ -693,7 +693,7 @@ var nabendata = [
     "abstandR":34
   },
   {
-    "_id":"SACHS Spectro P5 mit R�cktritt",
+    "_id":"SACHS Spectro P5 mit Rücktritt",
     "lochzahl":36,
     "speichenlochDM":3,
     "lochkreisDML":76,
@@ -729,7 +729,7 @@ var nabendata = [
     "abstandR":30
   },
   {
-    "_id":"SACHS TORPEDO DREIGANG/R�CKTRITT 515",
+    "_id":"SACHS TORPEDO DREIGANG/RÜCKTRITT 515",
     "lochzahl":36,
     "speichenlochDM":3.2,
     "lochkreisDML":58,
@@ -747,7 +747,7 @@ var nabendata = [
     "abstandR":25
   },
   {
-    "_id":"SACHS TORPEDO R�CKTRITTNABE",
+    "_id":"SACHS TORPEDO RÜCKTRITTNABE",
     "lochzahl":36,
     "speichenlochDM":3.2,
     "lochkreisDML":52,
@@ -882,7 +882,7 @@ var nabendata = [
     "abstandR":14
   },
   {
-    "_id":"Shimano Record      Fh7 -RE2",
+    "_id":"Shimano Record Fh7 -RE2",
     "lochzahl":32,
     "speichenlochDM":2.5,
     "lochkreisDML":44,
@@ -990,7 +990,7 @@ var nabendata = [
     "abstandR":34
   },
   {
-    "_id":"SHIMANO 3 x 7, 126 mm (Stahlh�lse)",
+    "_id":"SHIMANO 3 x 7, 126 mm (Stahlhülse)",
     "lochzahl":36,
     "speichenlochDM":2.5,
     "lochkreisDML":67,
@@ -1098,7 +1098,7 @@ var nabendata = [
     "abstandR":32
   },
   {
-    "_id":"SHIMANO CB-E110 R�cktritt",
+    "_id":"SHIMANO CB-E110 Rücktritt",
     "lochzahl":36,
     "speichenlochDM":2.5,
     "lochkreisDML":48,
@@ -1935,7 +1935,7 @@ var nabendata = [
     "abstandR":23
   },
   {
-    "_id":"SHIMANO NEXUS 4-Gang, R�cktritt  B=124mm",
+    "_id":"SHIMANO NEXUS 4-Gang, Rücktritt  B=124mm",
     "lochzahl":36,
     "speichenlochDM":2.5,
     "lochkreisDML":83,
@@ -1971,7 +1971,7 @@ var nabendata = [
     "abstandR":34
   },
   {
-    "_id":"SHIMANO NEXUS SG7-C30- 7Gang, R�cktrittbremse B=128mm",
+    "_id":"SHIMANO NEXUS SG7-C30- 7Gang, Rücktrittbremse B=128mm",
     "lochzahl":36,
     "speichenlochDM":3,
     "lochkreisDML":84,
@@ -2034,7 +2034,7 @@ var nabendata = [
     "abstandR":20
   },
   {
-    "_id":"SHIMANO R�ckbremsnabe CB-E110, 126 mm (spezial!)",
+    "_id":"SHIMANO Rückbremsnabe CB-E110, 126 mm (spezial!)",
     "lochzahl":36,
     "speichenlochDM":2.5,
     "lochkreisDML":48,
@@ -2079,7 +2079,7 @@ var nabendata = [
     "abstandR":25
   },
   {
-    "_id":"SHIMANO SG-8R25 / 8Fach-Nabens. o. R�cktritt",
+    "_id":"SHIMANO SG-8R25 / 8Fach-Nabens. o. Rücktritt",
     "lochzahl":36,
     "speichenlochDM":3,
     "lochkreisDML":92,
@@ -2268,7 +2268,7 @@ var nabendata = [
     "abstandR":23
   },
   {
-    "_id":"SRAM Automatix f�r Rollerbrake 130 mm",
+    "_id":"SRAM Automatix für Rollerbrake 130 mm",
     "lochzahl":36,
     "speichenlochDM":2.5,
     "lochkreisDML":70,
@@ -2367,7 +2367,7 @@ var nabendata = [
     "abstandR":28
   },
   {
-    "_id":"Sturmey Archer SPRINTER COASTER, 5 Gang, r�cktritt",
+    "_id":"Sturmey Archer SPRINTER COASTER, 5 Gang, Rücktritt",
     "lochzahl":36,
     "speichenlochDM":2.5,
     "lochkreisDML":65,
