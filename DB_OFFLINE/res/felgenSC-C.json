@@ -1,4 +1,4 @@
-[
+var felgendata = [
   {
     "_id":"ALEXRIMS DM18, 20\". 18-406",
     "lochzahl":36,
@@ -40,7 +40,7 @@
     "durchmesser":606
   },
   {
-    "_id":"AMBROSIO V-Profil ohne �sen 622-13,5",
+    "_id":"AMBROSIO V-Profil ohne Ösen 622-13,5",
     "lochzahl":32,
     "durchmesser":601
   },
@@ -540,22 +540,22 @@
     "durchmesser":393
   },
   {
-    "_id":"RIGIDA Big Bull - 26\" -  559 x 25 mm -  einfach ge�st",
+    "_id":"RIGIDA Big Bull - 26\" -  559 x 25 mm -  einfach geöst",
     "lochzahl":36,
     "durchmesser":540
   },
   {
-    "_id":"RIGIDA Big Bull - 28\" - 622 x 25 mm - doppelt ge�st",
+    "_id":"RIGIDA Big Bull - 28\" - 622 x 25 mm - doppelt geöst",
     "lochzahl":36,
     "durchmesser":602
   },
   {
-    "_id":"RIGIDA CHRINA - 28\" - 622 x 13 mm - doppelt ge�st",
+    "_id":"RIGIDA CHRINA - 28\" - 622 x 13 mm - doppelt geöst",
     "lochzahl":36,
     "durchmesser":608
   },
   {
-    "_id":"RIGIDA Chrina - 28\" - 622 x 13 mm - einfach ge�st",
+    "_id":"RIGIDA Chrina - 28\" - 622 x 13 mm - einfach geöst",
     "lochzahl":36,
     "durchmesser":608
   },
@@ -565,7 +565,7 @@
     "durchmesser":539
   },
   {
-    "_id":"RIGIDA Disc Bull 559, einfach ge�st",
+    "_id":"RIGIDA Disc Bull 559, einfach geöst",
     "lochzahl":36,
     "durchmesser":538
   },
@@ -640,7 +640,7 @@
     "durchmesser":602
   },
   {
-    "_id":"RIGIDA Sphinx - 622 doppelt ge�st",
+    "_id":"RIGIDA Sphinx - 622 doppelt geöst",
     "lochzahl":36,
     "durchmesser":607
   },
@@ -695,7 +695,7 @@
     "durchmesser":545
   },
   {
-    "_id":"RIGIDA ZAC 19 , 622x19,  einfach ge�st",
+    "_id":"RIGIDA ZAC 19 , 622x19,  einfach geöst",
     "lochzahl":36,
     "durchmesser":609
   },
@@ -705,7 +705,7 @@
     "durchmesser":545
   },
   {
-    "_id":"RIGIDA ZAC 19 - 622x19 doppelt ge�st",
+    "_id":"RIGIDA ZAC 19 - 622x19 doppelt geöst",
     "lochzahl":36,
     "durchmesser":609
   },
@@ -765,7 +765,7 @@
     "durchmesser":548
   },
   {
-    "_id":"RYDE Andra 210, unge�st, gepunzt",
+    "_id":"RYDE Andra 210, ungeöst, gepunzt",
     "lochzahl":36,
     "durchmesser":601.7
   },
@@ -790,7 +790,7 @@
     "durchmesser":604
   },
   {
-    "_id":"SCH�RMANN Alloy Ultra, 622x13",
+    "_id":"SCHÜRMANN Alloy Ultra, 622x13",
     "lochzahl":36,
     "durchmesser":604
   },
@@ -800,17 +800,17 @@
     "durchmesser":571
   },
   {
-    "_id":"SUN RIMS 0� XC, TCB , 559x24",
+    "_id":"SUN RIMS 0° XC, TCB , 559x24",
     "lochzahl":36,
     "durchmesser":544
   },
   {
-    "_id":"SUN RIMS 0�XC TBC, 622-14",
+    "_id":"SUN RIMS 0° XC TBC, 622-14",
     "lochzahl":36,
     "durchmesser":610
   },
   {
-    "_id":"SUN RIMS 0�XC, TBC, 559-14",
+    "_id":"SUN RIMS 0° XC, TBC, 559-14",
     "lochzahl":36,
     "durchmesser":544
   },
@@ -939,4 +939,4 @@
     "lochzahl":36,
     "durchmesser":602
   }
-]
+];

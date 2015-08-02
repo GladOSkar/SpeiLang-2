@@ -1,5 +1,7 @@
+<!DOCTYPE html>
 <html lang="de-DE">
 	<head>
+		<title>SpeiLang 2</title>
 		<meta charset="utf-8">
 		<link href="style.css" rel="stylesheet" type="text/css">
 	</head>
@@ -7,12 +9,12 @@
 		<div class="forms">
 			<h1>Felge</h1>
 			<h3>&nbsp;&nbsp;Marke - Modell</h3>
-			<input type="text" id="felgenfeld" placeholder="Auswählen..." list="felgenliste">
-				 <datalist id="felgenliste">
-					<option value="ALESA 9021, 622x21">
-					<option value="ALESA 913, 622x13 V- Profil">
-					<option value="ALEX AL-DA 16, 622x17mm, V- Profil">
-				 </datalist>
+			<select id="felgenfeld">
+				<option value="">Bitte Auswählen...</option>
+				<option value="ALESA 9021, 622x21">ALESA 9021, 622x21</option>
+				<option value="ALESA 913, 622x13 V- Profil">ALESA 913, 622x13 V- Profil</option>
+				<option value="ALEX AL-DA 16, 622x17mm, V- Profil">ALEX AL-DA 16, 622x17mm, V- Profil</option>
+			</select>
 			<h3>Felgendurchmesser</h3>
 			<input id="val1" type="number">
 			<h3>Anzahl Speichenlöcher</h3>
@@ -21,12 +23,12 @@
 		<div class="forms">
 			<h1>Nabe</h1>
 			<h3>&nbsp;&nbsp;Marke - Modell</h3>
-			<input type="text" id="nabenfeld" placeholder="Auswählen..." list="nabenliste">
-				 <datalist id="nabenliste">
-					<option value="cadabra">
-					<option value="Test">
-					<option value="xD">
-				 </datalist>
+			<select id="nabenfeld">
+				<option value="">Bitte Auswählen...</option>
+				<option value="cadabra">Cadabra</option>
+				<option value="Test">Test</option>
+				<option value="xD">xD</option>
+			</select>
 			<h3>Lochkreisdurchmesser</h3>
 			L&nbsp;<input id="val2" type="number" class="sides">
 				 <input id="val3" type="number" class="sides">&nbsp;R
@@ -47,9 +49,8 @@
 			L&nbsp;<input id="outl" type="text" style="width: 120px;" readonly>
 			<input id="outr" type="text" style="width: 120px;" readonly>&nbsp;R
 		</div>
+		<script src="res/felgenSC-C.json"></script>
+		<script src="res/nabenSC-C.json"></script>
+		<script src="main.js"></script>
 	</body>
-	<script src="res/felgenSC-C.json"></script>
-	<script src="res/nabenSC-C.json"></script>
-	<script src="lib/pouchdb-3.6.0.min.js"></script>
-	<script src="main.js"></script>
 </html>

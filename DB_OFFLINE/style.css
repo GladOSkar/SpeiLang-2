@@ -28,9 +28,10 @@ h3 {
 	font-size: 20;
 }
 
-input, button {
+input, button, select {
+	margin: auto;
 	width: 300px;
-	font-size: 30;
+	font-size: 20;
 }
 
 button {
