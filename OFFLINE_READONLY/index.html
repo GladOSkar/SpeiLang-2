@@ -10,7 +10,7 @@
 			<h1>Felge</h1>
 			<h3>&nbsp;&nbsp;Marke - Modell</h3>
 			<select id="felgenfeld">
-				<option value="">Bitte Auswählen...</option>
+				<option value="">Felge Auswählen...</option>
 				<option value="ALESA 9021, 622x21">ALESA 9021, 622x21</option>
 				<option value="ALESA 913, 622x13 V- Profil">ALESA 913, 622x13 V- Profil</option>
 				<option value="ALEX AL-DA 16, 622x17mm, V- Profil">ALEX AL-DA 16, 622x17mm, V- Profil</option>
@@ -24,7 +24,7 @@
 			<h1>Nabe</h1>
 			<h3>&nbsp;&nbsp;Marke - Modell</h3>
 			<select id="nabenfeld">
-				<option value="">Bitte Auswählen...</option>
+				<option value="">Nabe Auswählen...</option>
 				<option value="cadabra">Cadabra</option>
 				<option value="Test">Test</option>
 				<option value="xD">xD</option>
@@ -44,13 +44,13 @@
 			<h1>Rechner</h1>
 			<h3>Anzahl Speichenkreuzungen</h3>
 			<input id="val8" type="number" value="3" min="0" max="4" style="width: 42px">
-			<button id="SLbutton">Ausrechnen!</button>
 			<h3>Länge:</h3>
 			L&nbsp;<input id="outl" type="text" style="width: 120px;" readonly>
 			<input id="outr" type="text" style="width: 120px;" readonly>&nbsp;R
+			<div id="blocker">Keine Auswahl getroffen</div>
 		</div>
-		<script src="res/felgenSC-C.json"></script>
-		<script src="res/nabenSC-C.json"></script>
+		<script src="../db_files/felgenSC-C.json"></script>
+		<script src="../db_files/nabenSC-C.json"></script>
 		<script src="main.js"></script>
 	</body>
 </html>

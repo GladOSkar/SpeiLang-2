@@ -45,7 +45,7 @@ var felgendata = [
     "durchmesser":601
   },
   {
-    "_id":"Araya RM 20 26 Zoll",
+    "_id":"ARAYA RM 20 26 Zoll",
     "lochzahl":36,
     "durchmesser":549
   },
@@ -175,17 +175,17 @@ var felgendata = [
     "durchmesser":554
   },
   {
-    "_id":"H PLUS SON Archetype, 17x622",
+    "_id":"H+SON Archetype, 17x622",
     "lochzahl":36,
     "durchmesser":593
   },
   {
-    "_id":"H PLUS SON SL42 , 13x622",
+    "_id":"H+SON SL42 , 13x622",
     "lochzahl":36,
     "durchmesser":556
   },
   {
-    "_id":"H PLUS SON TB14, 17x622",
+    "_id":"H+SON TB14, 17x622",
     "lochzahl":36,
     "durchmesser":612
   },
@@ -200,7 +200,7 @@ var felgendata = [
     "durchmesser":340
   },
   {
-    "_id":"Halo White Line 28''",
+    "_id":"HALO White Line 28''",
     "lochzahl":36,
     "durchmesser":609
   },
@@ -220,42 +220,42 @@ var felgendata = [
     "durchmesser":537
   },
   {
-    "_id":"mavic 26\"  317",
+    "_id":"MAVIC 26\"  317",
     "lochzahl":36,
     "durchmesser":544
   },
   {
-    "_id":"mavic SPUTNIK,  622-19",
+    "_id":"MAVIC SPUTNIK,  622-19",
     "lochzahl":36,
     "durchmesser":604
   },
   {
-    "_id":"Mavic A 719",
+    "_id":"MAVIC A 719",
     "lochzahl":36,
     "durchmesser":602
   },
   {
-    "_id":"Mavic ENDEAVOUR,  622x17",
+    "_id":"MAVIC ENDEAVOUR,  622x17",
     "lochzahl":36,
     "durchmesser":603
   },
   {
-    "_id":"Mavic KONKAV,   622x19",
+    "_id":"MAVIC KONKAV,   622x19",
     "lochzahl":36,
     "durchmesser":616
   },
   {
-    "_id":"Mavic Strong, 559x19 mm",
+    "_id":"MAVIC Strong, 559x19 mm",
     "lochzahl":36,
     "durchmesser":548
   },
   {
-    "_id":"Mavic TN 719 disc",
+    "_id":"MAVIC TN 719 disc",
     "lochzahl":36,
     "durchmesser":604
   },
   {
-    "_id":"Mavic TN 719 disc 29\"",
+    "_id":"MAVIC TN 719 disc 29\"",
     "lochzahl":36,
     "durchmesser":604
   },
@@ -775,7 +775,7 @@ var felgendata = [
     "durchmesser":606
   },
   {
-    "_id":"salsa X-PLORER,  622 x 19",
+    "_id":"SALSA X-PLORER,  622 x 19",
     "lochzahl":36,
     "durchmesser":591
   },
@@ -795,7 +795,7 @@ var felgendata = [
     "durchmesser":604
   },
   {
-    "_id":"Soma Weymouth 650b",
+    "_id":"SOMA Weymouth 650b",
     "lochzahl":36,
     "durchmesser":571
   },
@@ -870,7 +870,7 @@ var felgendata = [
     "durchmesser":540
   },
   {
-    "_id":"Tioga Schwarz-Weiss, DH, 559x27 mm",
+    "_id":"TIOGA Schwarz-Weiss, DH, 559x27 mm",
     "lochzahl":36,
     "durchmesser":549
   },

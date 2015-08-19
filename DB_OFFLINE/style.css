@@ -2,36 +2,49 @@ body {
 	font-family: arial, sans-serif;
 	font-size: 20;
 	font-weight: bold;
+	margin: 0px;
+	padding: 0px;
+	position: static;
 }
 
 .forms {
-	margin:10px;
-	width:300px;
-	background:orange;
-	padding:20px;
-	padding-top: 0px;
+	margin: 10px;`
+	width: 300px;
+	background: orange;
+	padding: 20px;
 	border-radius: 16px;
 	text-align: center;
-	margin-top:40px;
+	margin-top: 40px;
 	float: left;
+	position: relative;
+}
+
+#blocker {
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+	width: 296px;
+	height: 18px;
+	background-color: green;
+	border-radius: 8px;
+	padding: 12px;
+	color: white;
 }
 
 h1 {
-	padding-top: 20px;
-	margin-bottom: 0px;
+	margin: 0px;
 }
 
 h3 {
 	margin-top: 16px;
 	margin-bottom: 4px;
 	padding: 0px;
-	font-size: 20;
+	font-size: 20px;
 }
 
 input, button, select {
-	margin: auto;
 	width: 300px;
-	font-size: 20;
+	font-size: 20px;
 }
 
 button {
@@ -39,10 +52,42 @@ button {
 	margin-top: 16px;
 }
 
-.half {
-	width: 147px;
+input[type="radio"] {
+	width: 16px;
 }
 
 .sides {
 	width: 73px;
+}
+
+#ShowFormButton {
+	background-color: magenta;
+	color: white;
+	font-size: 40px;
+	font-weight: normal;
+	position: fixed;
+	height: 80px;
+	width: 80px;
+	border-radius: 40px;
+	text-align: center;
+	bottom: 40px;
+	right: 40px;
+	z-index: 1000;
+	transition: all 0.2s ease-in-out;
+	cursor: pointer;
+}
+
+#ShowFormButton div {
+	position: absolute;
+	top: 18px;
+	left: 28px;
+}
+
+#form {
+	box-shadow: 0px 0px 0px 1000px rgba(0, 0, 0, 0.8);
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	display: none;
 }

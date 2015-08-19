@@ -6,11 +6,12 @@
 		<link href="style.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
+		<button onclick="parsefiles();" id="REB">Reset & Einlesen</button>
 		<div class="forms">
 			<h1>Felge</h1>
 			<h3>&nbsp;&nbsp;Marke - Modell</h3>
 			<select id="felgenfeld">
-				<option value="">Bitte Auswählen...</option>
+				<option value="">Felge Auswählen...</option>
 				<option value="ALESA 9021, 622x21">ALESA 9021, 622x21</option>
 				<option value="ALESA 913, 622x13 V- Profil">ALESA 913, 622x13 V- Profil</option>
 				<option value="ALEX AL-DA 16, 622x17mm, V- Profil">ALEX AL-DA 16, 622x17mm, V- Profil</option>
@@ -24,7 +25,7 @@
 			<h1>Nabe</h1>
 			<h3>&nbsp;&nbsp;Marke - Modell</h3>
 			<select id="nabenfeld">
-				<option value="">Bitte Auswählen...</option>
+				<option value="">Nabe Auswählen...</option>
 				<option value="cadabra">Cadabra</option>
 				<option value="Test">Test</option>
 				<option value="xD">xD</option>
@@ -44,13 +45,33 @@
 			<h1>Rechner</h1>
 			<h3>Anzahl Speichenkreuzungen</h3>
 			<input id="val8" type="number" value="3" min="0" max="4" style="width: 42px">
-			<button id="SLbutton">Ausrechnen!</button>
 			<h3>Länge:</h3>
 			L&nbsp;<input id="outl" type="text" style="width: 120px;" readonly>
 			<input id="outr" type="text" style="width: 120px;" readonly>&nbsp;R
+			<div id="blocker">Keine Auswahl getroffen</div>
 		</div>
-		<script src="res/felgenSC-C.json"></script>
-		<script src="res/nabenSC-C.json"></script>
-		<script src="main.js"></script>
+		<div id="ShowFormButton"><div>+</div></div>
+		<div id="form" class="forms">
+			<h1>Neuer Datenbankeintrag</h1>
+			<h3>Marke</h3>
+			<input type="text">
+				<datalist>
+				</datalist>
+			<h3>Name</h3>
+			<input type="text">
+			<h3>Typ</h3>
+			<input type="radio" id="felgenradio" name="typ">
+			<label for="felgenradio">Felge</label>
+			<input type="radio" id="nabenradio" name="typ" checked>
+			<label for="nabenradio">Nabe</label>
+			<div id="datafields">
+				<!--### Dynamisch generierte Felder! ###-->
+			</div>
+			<button id="submitbutton">✓ Speichern</button>
+		</div>
+		<script src="../db_files/felgenSC-C.json" type="text/javascript" charset="utf-8"></script>
+		<script src="../db_files/nabenSC-C.json" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/pouchdb-3.6.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="main.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 </html>

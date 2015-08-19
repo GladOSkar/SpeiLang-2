@@ -126,7 +126,7 @@ var nabendata = [
     "abstandR":15
   },
   {
-    "_id":"Maxi-Car Tandem schraub",
+    "_id":"MAXI-CAR Tandem schraub",
     "lochzahl":40,
     "speichenlochDM":2.5,
     "lochkreisDML":61,
@@ -135,7 +135,7 @@ var nabendata = [
     "abstandR":19
   },
   {
-    "_id":"Maxi-Car Tandem VR",
+    "_id":"MAXI-CAR Tandem VR",
     "lochzahl":40,
     "speichenlochDM":2.5,
     "lochkreisDML":61,
@@ -144,7 +144,7 @@ var nabendata = [
     "abstandR":34
   },
   {
-    "_id":"Miche Pr1mato SYNTESI",
+    "_id":"MICHE Pr1mato SYNTESI",
     "lochzahl":36,
     "speichenlochDM":2.4,
     "lochkreisDML":40,
@@ -153,7 +153,7 @@ var nabendata = [
     "abstandR":30
   },
   {
-    "_id":"Miche primato hochflansch 100mm",
+    "_id":"MICHE primato hochflansch 100mm",
     "lochzahl":32,
     "speichenlochDM":2.5,
     "lochkreisDML":60,
@@ -297,7 +297,7 @@ var nabendata = [
     "abstandR":35
   },
   {
-    "_id":"Novatec D7225B mit Scheibenbremse",
+    "_id":"NOVATEC D7225B mit Scheibenbremse",
     "lochzahl":32,
     "speichenlochDM":2.5,
     "lochkreisDML":58,
@@ -333,7 +333,7 @@ var nabendata = [
     "abstandR":35
   },
   {
-    "_id":"Nuvinci N360",
+    "_id":"NUVINCI N360",
     "lochzahl":36,
     "speichenlochDM":2.9,
     "lochkreisDML":100,
@@ -873,7 +873,7 @@ var nabendata = [
     "abstandR":25
   },
   {
-    "_id":"Shimano 105, FH-5800",
+    "_id":"SHIMANO 105, FH-5800",
     "lochzahl":36,
     "speichenlochDM":2.7,
     "lochkreisDML":44,
@@ -882,7 +882,7 @@ var nabendata = [
     "abstandR":14
   },
   {
-    "_id":"Shimano Record Fh7 -RE2",
+    "_id":"SHIMANO Record Fh7 -RE2",
     "lochzahl":32,
     "speichenlochDM":2.5,
     "lochkreisDML":44,
@@ -891,7 +891,7 @@ var nabendata = [
     "abstandR":15.2
   },
   {
-    "_id":"Shimano Shimano 600 HB-6400",
+    "_id":"SHIMANO 600 HB-6400",
     "lochzahl":36,
     "speichenlochDM":2.5,
     "lochkreisDML":39,
@@ -900,7 +900,7 @@ var nabendata = [
     "abstandR":34
   },
   {
-    "_id":"Shimano Shimano-600 FH-6400",
+    "_id":"SHIMANO 600 FH-6400",
     "lochzahl":36,
     "speichenlochDM":2.5,
     "lochkreisDML":47,
@@ -2340,7 +2340,7 @@ var nabendata = [
     "abstandR":29
   },
   {
-    "_id":"Sturmey Archer Nabendynamo m. Trommelbr. X-FDD",
+    "_id":"STURMEY ARCHER Nabendynamo m. Trommelbr. X-FDD",
     "lochzahl":36,
     "speichenlochDM":2.5,
     "lochkreisDML":89,
@@ -2349,7 +2349,7 @@ var nabendata = [
     "abstandR":28
   },
   {
-    "_id":"Sturmey Archer S2 Kick Shift 120mm",
+    "_id":"STURMEY ARCHER S2 Kick Shift 120mm",
     "lochzahl":36,
     "speichenlochDM":2.5,
     "lochkreisDML":67,
@@ -2358,7 +2358,7 @@ var nabendata = [
     "abstandR":25
   },
   {
-    "_id":"Sturmey Archer SAB 3 Trommelbremsnabe hinten, 3- Gang",
+    "_id":"STURMEY ARCHER SAB 3 Trommelbremsnabe hinten, 3- Gang",
     "lochzahl":36,
     "speichenlochDM":2.9,
     "lochkreisDML":84,
@@ -2367,7 +2367,7 @@ var nabendata = [
     "abstandR":28
   },
   {
-    "_id":"Sturmey Archer SPRINTER COASTER, 5 Gang, Rücktritt",
+    "_id":"STURMEY ARCHER SPRINTER COASTER, 5 Gang, Rücktritt",
     "lochzahl":36,
     "speichenlochDM":2.5,
     "lochkreisDML":65,
@@ -2376,7 +2376,7 @@ var nabendata = [
     "abstandR":28
   },
   {
-    "_id":"Sturmey Archer SRF 3",
+    "_id":"STURMEY ARCHER SRF 3",
     "lochzahl":36,
     "speichenlochDM":2.5,
     "lochkreisDML":67,
@@ -2385,7 +2385,7 @@ var nabendata = [
     "abstandR":26
   },
   {
-    "_id":"Sturmey Archer SRF 5",
+    "_id":"STURMEY ARCHER SRF 5",
     "lochzahl":36,
     "speichenlochDM":2.5,
     "lochkreisDML":67,
@@ -2394,7 +2394,7 @@ var nabendata = [
     "abstandR":23
   },
   {
-    "_id":"Sturmey Archer Steelite, Trommelbremsnabe VR",
+    "_id":"STURMEY ARCHER Steelite, Trommelbremsnabe VR",
     "lochzahl":36,
     "speichenlochDM":4,
     "lochkreisDML":83,
@@ -2403,7 +2403,7 @@ var nabendata = [
     "abstandR":30
   },
   {
-    "_id":"Sturmey Archer Steellite, 100 mm, 90 mm Durchmesser",
+    "_id":"STURMEY ARCHER Steellite, 100 mm, 90 mm Durchmesser",
     "lochzahl":36,
     "speichenlochDM":2.5,
     "lochkreisDML":99,
@@ -2412,7 +2412,7 @@ var nabendata = [
     "abstandR":32
   },
   {
-    "_id":"Sturmey Archer TB Elite, Alu, hinten",
+    "_id":"STURMEY ARCHER TB Elite, Alu, hinten",
     "lochzahl":36,
     "speichenlochDM":2.5,
     "lochkreisDML":90,

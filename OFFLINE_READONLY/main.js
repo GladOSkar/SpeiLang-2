@@ -31,6 +31,8 @@ function getVals() {
 	return vals;
 }
 
+var blocker = document.getElementById("blocker");
+
 function calc() {
 	"use strict";
 
@@ -50,11 +52,23 @@ function calc() {
 		console.log("Links: " + ergebnisse.links + "; Rechts: " + ergebnisse.rechts);
 		document.getElementById("outl").value = ergebnisse.links;
 		document.getElementById("outr").value = ergebnisse.rechts;
+
+		blocker.style.display = "none";
 	} else {
-		console.log("Ungleiche Speichenanzahl! (Felge: " + vals[9] + " Löcher & Nabe: " + vals[6] + " Löcher!)");
-		alert("Ungleiche Speichenanzahl! (Felge: " + vals[9] + " Löcher & Nabe: " + vals[6] + " Löcher!)");
-		document.getElementById("outl").value = "-";
-		document.getElementById("outr").value = "-";
+		if ((!(document.getElementById("felgenfeld").value == "")) && (!(document.getElementById("nabenfeld").value == ""))) {
+			console.log("Ungleiche Speichenanzahl! (Felge: " + vals[9] + " Löcher & Nabe: " + vals[6] + " Löcher!)");
+
+			blocker.style.backgroundColor = "red";
+			blocker.innerHTML = "Ungleiche Speichenlochanzahl";
+			blocker.style.display = "block";
+
+			document.getElementById("outl").value = "-";
+			document.getElementById("outr").value = "-";
+		} else {
+			blocker.style.backgroundColor = "green";
+			blocker.innerHTML = "Keine Auswahl getroffen"
+			blocker.style.display = "block";
+		}
 	}
 }
 
@@ -129,8 +143,6 @@ window.onload = function () {
 
 	document.getElementById("felgenfeld").addEventListener("change", readfelgen);
 	document.getElementById("nabenfeld").addEventListener("change", readnaben);
-
-	document.getElementById("SLbutton").addEventListener("click", calc);
 
 	vi = document.querySelectorAll("input:not([readonly])");
 	for (i = 0; i < vi.length; i += 1) {
