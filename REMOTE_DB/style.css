@@ -91,3 +91,8 @@ input[type="radio"] {
 	transform: translate(-50%,-50%);
 	display: none;
 }
+
+#legende {
+	border-radius: 16px;
+	margin-top: 16px;
+}

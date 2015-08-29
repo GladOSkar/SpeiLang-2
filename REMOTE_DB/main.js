@@ -93,36 +93,6 @@ function callback(err, result) {
 	}
 }
 
-function addFelge() {
-	"use strict";
-
-	var vals = getVals(),
-		felge = {
-			_id: document.getElementById("felgenfeld").value,
-			durchmesser: vals[1],
-			lochzahl: vals[9]
-		};
-
-	felgenDB.put(felge, callback(err, result));
-}
-
-function addNabe() {
-	"use strict";
-
-	var vals = getVals(),
-		nabe = {
-			_id: document.getElementById("nabenfeld").value,
-			lochkreisDML: vals[2],
-			lochkreisDMR: vals[3],
-			abstandL: vals[4],
-			abstandR: vals[5],
-			speichenlochDM: vals[7],
-			lochzahl: vals[6]
-		};
-
-	//nabenDB.put(nabe, callback(err, result));
-}
-
 function findentry(name, typ) {		//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	var teil;
 	if (typ) {
@@ -321,7 +291,7 @@ function getNEValues() {
 
 function updateAbstyp() {
 	if (document.getElementById("aussenabs").checked) {
-		document.getElementById("abstyparea").innerHTML = "<h3>Gesamtbreite</h3><input type=\"number\" id=\"iEBM\">";
+		document.getElementById("abstyparea").innerHTML = "<h3>Gesamtbreite</h3><input type=\"number\" id=\"iEBM\" value=\"130\">";
 	} else {
 		document.getElementById("abstyparea").innerHTML = "";
 	};
@@ -335,11 +305,13 @@ function updatedfs(typ) {
 	if (typ) {
 		console.log("zeige formular für naben...");
 
+		document.getElementById("legende").style.display = "block";
+
 		dfs.innerHTML += "<h3>Anzahl Speichenlöcher</h3>";
 		dfs.innerHTML += "<input type=\"number\" id=\"ilochzahl\">";
 
 		dfs.innerHTML += "<h3>Speichenlochdurchmesser</h3>";
-		dfs.innerHTML += "<input type=\"number\" id=\"ispeichenlochDM\">";
+		dfs.innerHTML += "<input type=\"number\" id=\"ispeichenlochDM\" step=\"0.05\">";
 
 		dfs.innerHTML += "<h3>Lochkreisdurchmesser</h3>";
 		dfs.innerHTML += "L&nbsp;<input type=\"number\" id=\"ilochkreisDML\" class=\"sides\">";
@@ -361,7 +333,9 @@ function updatedfs(typ) {
 		updateAbstyp();
 
 	} else {
-		console.log("zeige formular für felgen...");//
+		console.log("zeige formular für felgen...");
+
+		document.getElementById("legende").style.display = "none";
 
 		dfs.innerHTML += "<h3>Anzahl Speichenlöcher</h3>";
 		dfs.innerHTML += "<input type=\"number\" id=\"ilochzahl\">";
@@ -384,11 +358,12 @@ function showform() {
 		document.getElementById("form").style.display = "block";
 		document.getElementById("ShowFormButton").style.transform = "rotate(45deg)";
 		document.getElementById("ShowFormButton").style.backgroundColor = "red";
+		document.querySelector("body").addEventListener("click", bgcl(Event))
 	} else {
-
 		document.getElementById("form").style.display = "none";
 		document.getElementById("ShowFormButton").style.transform = "rotate(0deg)";
 		document.getElementById("ShowFormButton").style.backgroundColor = "magenta";
+		document.querySelector("body").removeEventListener("click", bgcl(Event))
 	};
 
 	document.getElementById("felgenradio").onchange = function() {
@@ -402,11 +377,24 @@ function showform() {
 	console.log("event listeners set");
 }
 
+function bgcl(evt) {
+	if (evt.target != document.getElementById("form")) {
+		showform;
+	};
+};
+
 function addToDB() {
 	var newpart = getNEValues();
 	if (newpart) {
-		console.log("trage folgendes Objekt in DB ein:");
-		console.log(newpart);
+		if (document.getElementById("nabenradio").checked) {
+			console.log("trage folgende Nabe in DB ein:");
+			console.log(newpart);
+			//nabenDB.put(newpart);
+		} else {
+			console.log("trage folgende Felge in DB ein:");
+			console.log(newpart);
+			//felgenDB.put(newpart);
+		};
 		showform();
 	} else {
 		console.log("Fehlerhafte Eingabe. Trage nichts ein.");
