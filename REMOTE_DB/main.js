@@ -70,12 +70,24 @@ function calc() {
 	}
 }
 
-var formvisible = false;
+var formvisible = false, settingsvisible = false;
+
+function valchg(what) {
+	if (what == "f") {
+		document.querySelector("#felgenform .save").className = "sfb save";
+		document.querySelector("#felgenform .save").addEventListener("click", deletefelge);
+	};
+	if (what == "n") {
+		document.querySelector("#nabenform .save").className = "sfb save";
+	};
+
+	calc();
+}
 
 var dfs = document.getElementById("datafields");
 
-var felgenDB = new PouchDB('http://localhost:5984/felgen');
-var nabenDB = new PouchDB('http://localhost:5984/naben');
+var felgenDB = new PouchDB('http://192.168.178.28:5984/felgen');
+var nabenDB = new PouchDB('http://192.168.178.28:5984/naben');
 var remoteCouch = false;
 
 felgenDB.changes({
@@ -91,6 +103,22 @@ function callback(err, result) {
 	} else {
 		console.log(err);
 	}
+}
+
+function deletefelge() {
+	console.log("Felge löschen?");
+}
+
+function deletenabe() {
+	console.log("Nabe löschen?");
+}
+
+function savefelge() {
+	console.log("Felge überschreiben?");
+}
+
+function savenabe() {
+	console.log("Nabe überschreiben?");
 }
 
 function findentry(name, typ) {		//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -117,31 +145,61 @@ function findentry(name, typ) {		//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
 
 function readfelgen() {
-	var felge = document.getElementById("felgenfeld").value;
-	console.log("hole werte für felge: " + felge + ".")
-	findentry(felge, 0).then(function (teil) {
-		console.log("zeichne:");
-		console.log(teil);
-		document.getElementById("val1").value = teil.durchmesser;
-		document.getElementById("val9").value = teil.lochzahl;
-		calc();
+	var felge = document.getElementById("felgenfeld").value, vi = [];
+
+	if (felge) {
+		document.querySelector("#felgenform .delete").className = "sfb delete";
+		document.querySelector("#felgenform .delete").addEventListener("click", deletefelge);
+		console.log("hole werte für felge: " + felge + ".")
+		findentry(felge, 0).then(function (teil) {
+			console.log("zeichne:");
+			console.log(teil);
+			document.getElementById("val1").value = teil.durchmesser;
+			document.getElementById("val9").value = teil.lochzahl;
+			calc();
 	});
+	} else {
+		document.querySelector("#felgenform .delete").className = "sfb delete hidden";
+		document.querySelector("#felgenform .delete").removeEventListener("click", deletefelge);
+		document.querySelector("#felgenform .save").className = "sfb save hidden";
+		document.querySelector("#felgenform .save").removeEventListener("click", savefelge);
+
+		vi = document.querySelectorAll("input:not([readonly])");
+		for (i = 0; i < 2; i += 1) {
+			vi[i].value = "";
+		};
+	};
 }
 
 function readnaben() {
 	var nabe = document.getElementById("nabenfeld").value;
-	console.log("hole werte für nabe: " + nabe + ".")
-	findentry(nabe, 1).then(function (teil) {
-		console.log("gefunden: ");
-		console.log(teil);
-		document.getElementById("val2").value = teil.lochkreisDML;
-		document.getElementById("val3").value = teil.lochkreisDMR;
-		document.getElementById("val4").value = teil.abstandL;
-		document.getElementById("val5").value = teil.abstandR;
-		document.getElementById("val6").value = teil.lochzahl;
-		document.getElementById("val7").value = teil.speichenlochDM;
-		calc();
+
+	if (nabe) {
+		document.querySelector("#nabenform .delete").className = "sfb delete";
+		document.querySelector("#felgenform .delete").addEventListener("click", deletenabe);
+		console.log("hole werte für nabe: " + nabe + ".")
+		findentry(nabe, 1).then(function (teil) {
+			console.log("gefunden: ");
+			console.log(teil);
+			document.getElementById("val2").value = teil.lochkreisDML;
+			document.getElementById("val3").value = teil.lochkreisDMR;
+			document.getElementById("val4").value = teil.abstandL;
+			document.getElementById("val5").value = teil.abstandR;
+			document.getElementById("val6").value = teil.lochzahl;
+			document.getElementById("val7").value = teil.speichenlochDM;
+			calc();
 	});
+	} else {
+		document.querySelector("#nabenform .delete").className = "sfb delete hidden";
+		document.querySelector("#nabenform .delete").removeEventListener("click", deletenabe);
+		document.querySelector("#nabenform .save").className = "sfb save hidden";
+		document.querySelector("#nabenform .save").removeEventListener("click", savenabe);
+
+		vi = document.querySelectorAll("input:not([readonly])");
+		for (i = 2; i < 8; i += 1) {
+			vi[i].value = "";
+		};
+	};
 }
 
 function paint() {
@@ -188,8 +246,8 @@ function paint() {
 }
 
 function parsefiles() {
-	var ans, bt = document.getElementById("REB").innerHTML;
-	bt = "Arbeite...";
+	var ans, bt = document.getElementById("REB");
+	bt.innerHTML = "Arbeite...";
 
 	felgenDB.allDocs({
 		include_docs: true,
@@ -214,7 +272,7 @@ function parsefiles() {
 	Promise.all([felgenDB.bulkDocs(felgendata),
 				 nabenDB.bulkDocs(nabendata)]).then(function (arrayOfResults) {
 		paint();
-		bt = "Reset & Einlesen";
+		bt.innerHTML = "Reset & Einlesen";
 	}).catch(function (err) {
 		console.log(err);
 	});
@@ -250,10 +308,20 @@ window.onload = function () {
 
 	vi = document.querySelectorAll("input:not([readonly])");
 	for (i = 0; i < 9; i += 1) {
-		vi[i].addEventListener("change", calc);
+		if (i<2) {vi[i].addEventListener("change", function(){valchg("f");});} else
+		if (i<8) {vi[i].addEventListener("change", function(){valchg("n");});} else
+		{vi[i].addEventListener("change", function(){valchg("");});};
 	};
 
-	document.getElementById("ShowFormButton").addEventListener("click", showform);
+	document.getElementById("ShowFormButton").addEventListener("click", function(){
+    	showPopup("atdb");
+	});
+
+	document.getElementById("SettingsButton").addEventListener("click", function(){
+    	showPopup("set");
+	});
+
+	document.getElementById("backdrop").addEventListener("click", showPopup)
 
 	updatedfs(document.getElementById("nabenradio").checked);
 
@@ -346,25 +414,38 @@ function updatedfs(typ) {
 	};
 }
 
+function showSettings() {
+	"use strict";
+
+	console.log("showing settings");
+
+	if (!settingsvisible) {
+		document.getElementById("settings").style.display = "block";
+		document.getElementById("SettingsButton").className = "hidden";
+		document.getElementById("ShowFormButton").className = "active";
+	} else {
+		document.getElementById("settings").style.display = "none";
+		document.getElementById("SettingsButton").className = "";
+		document.getElementById("ShowFormButton").className = "";
+	};
+
+	settingsvisible = !settingsvisible;
+}
+
 function showform() {
 	"use strict";
-	//TODO: lay form over ui
 
 	console.log("showing form");
 
-	formvisible = !formvisible;
-
-	if (formvisible) {
+	if (!formvisible) {
 		document.getElementById("form").style.display = "block";
-		document.getElementById("ShowFormButton").style.transform = "rotate(45deg)";
-		document.getElementById("ShowFormButton").style.backgroundColor = "red";
-		document.querySelector("body").addEventListener("click", bgcl(Event))
+		document.getElementById("ShowFormButton").className = "active";
 	} else {
 		document.getElementById("form").style.display = "none";
-		document.getElementById("ShowFormButton").style.transform = "rotate(0deg)";
-		document.getElementById("ShowFormButton").style.backgroundColor = "magenta";
-		document.querySelector("body").removeEventListener("click", bgcl(Event))
+		document.getElementById("ShowFormButton").className = "";
 	};
+
+	formvisible = !formvisible;
 
 	document.getElementById("felgenradio").onchange = function() {
     	updatedfs(false);
@@ -377,11 +458,30 @@ function showform() {
 	console.log("event listeners set");
 }
 
-function bgcl(evt) {
-	if (evt.target != document.getElementById("form")) {
-		showform;
+function showPopup(which) {
+	document.getElementById("backdrop").style.display = "block";
+	if (which == "atdb") {
+		if (settingsvisible) {
+			document.getElementById("backdrop").style.display = "none";
+			showSettings();
+		} else {
+			if (formvisible) {document.getElementById("backdrop").style.display = "none";};
+			showform();
+		};
+	} else {
+		if (formvisible) {
+			showform();
+			if (which == "set") {
+				showSettings();
+			} else {
+				document.getElementById("backdrop").style.display = "none";
+			};
+		} else {
+			if (settingsvisible) {document.getElementById("backdrop").style.display = "none";};
+			showSettings();
+		};
 	};
-};
+}
 
 function addToDB() {
 	var newpart = getNEValues();
