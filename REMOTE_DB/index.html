@@ -38,8 +38,18 @@
 			</g>
 		</svg>
 		<div id="felgenform" class="forms">
-			<div class="save sfb hidden"><svg style="margin-top:11px;" viewBox="0 0 80 80" height="20px"><use xlink:href="#floppy"/></svg></div>
-			<div class="delete sfb hidden"><svg style="margin-top:11px;" viewBox="0 0 80 80" height="20px"><use xlink:href="#bin"/></svg></div>
+			<div class="save sfb hidden">
+				<svg viewBox="0 0 80 80" height="20px"><use xlink:href="#floppy"/></svg>
+				<h2>ÜBERSCHREIBEN?</h2>
+				<p>Sind sie sich sicher, dass sie diese Felge überschreiben wollen?</p>
+				<div class="btn" onclick="cpu(this);">Abbrechen</div><div class="btn" onclick="savefelge();">Überschreiben</div>
+			</div>
+			<div class="delete sfb hidden">
+				<svg viewBox="0 0 80 80" height="20px"><use xlink:href="#bin"/></svg>
+				<h2>LÖSCHEN?</h2>
+				<p>Sind sie sich sicher, dass sie diese Felge löschen wollen?</p>
+				<div class="btn" onclick="cpu(this);">Abbrechen</div><div class="btn" onclick="deletefelge();">Löschen</div>
+			</div>
 
 			<h1>Felge</h1>
 			<h3>&nbsp;&nbsp;Marke - Modell</h3>
@@ -55,8 +65,18 @@
 			<input id="val9" type="number">
 		</div>
 		<div id="nabenform" class="forms">
-			<div class="save sfb hidden"><svg style="margin-top:11px;" viewBox="0 0 80 80" height="20px"><use xlink:href="#floppy"/></svg></div>
-			<div class="delete sfb hidden"><svg style="margin-top:11px;" viewBox="0 0 80 80" height="20px"><use xlink:href="#bin"/></svg></div>
+			<div class="save sfb hidden">
+				<svg viewBox="0 0 80 80" height="20px"><use xlink:href="#floppy"/></svg>
+				<h2>ÜBERSCHREIBEN?</h2>
+				<p>Sind sie sich sicher, dass sie diese Nabe überschreiben wollen?</p>
+				<div class="btn" onclick="cpu(this);">Abbrechen</div><div class="btn" onclick="savenabe();">Überschreiben</div>
+			</div>
+			<div class="delete sfb hidden">
+				<svg viewBox="0 0 80 80" height="20px"><use xlink:href="#bin"/></svg>
+				<h2>LÖSCHEN?</h2>
+				<p>Sind sie sich sicher, dass sie diese Nabe löschen wollen?</p>
+				<div class="btn" onclick="cpu(this);">Abbrechen</div><div class="btn" onclick="deletenabe();">Löschen</div>
+			</div>
 
 			<h1>Nabe</h1>
 			<h3>&nbsp;&nbsp;Marke - Modell</h3>
@@ -112,8 +132,8 @@
 		<div id="settings" class="forms">
 			<button onclick="parsefiles();" id="REB">Reset & Einlesen</button>
 		</div>
-		<!--<script src="../db_files/felgenSC-C.json" type="text/javascript" charset="utf-8"></script>
-		<script src="../db_files/nabenSC-C.json" type="text/javascript" charset="utf-8"></script>-->
+		<script src="../db_files/felgenSC-C.json" type="text/javascript" charset="utf-8"></script>
+		<script src="../db_files/nabenSC-C.json" type="text/javascript" charset="utf-8"></script>
 		<script src="lib/pouchdb-4.0.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="main.js" type="text/javascript" charset="utf-8"></script>
 	</body>

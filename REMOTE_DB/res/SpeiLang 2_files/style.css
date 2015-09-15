@@ -42,7 +42,7 @@ body {
 	box-shadow: 0px 0px 4px 0px;
 	z-index: 42;
 	transform: scale(1);
-	transition: all 0.25s cubic-bezier(.5, 0, .5, 1.5);
+	transition: all 0.2s cubic-bezier(.5, 0, .5, 1.5);
 }
 
 .sfb.hidden {
@@ -50,9 +50,9 @@ body {
 }
 
 .sfb.expanded {
-	right: -277px;
+	right: -297px;
 	height: 160px;
-	width: 300px;
+	width: 320px;
 	z-index: 84;
 }
 
@@ -68,31 +68,6 @@ body {
 .sfb svg {
 	margin: 11px;
 	float: left;
-}
-
-.sfb h2 {
-	margin: 16px 30px 8px;
-}
-
-.sfb p {
-	margin: 4px 16px;
-}
-
-.sfb .btn {
-	display: inline-block;
-	padding: 10px;
-	margin: 10px;
-	border-radius: 4px;
-	background: rgba(255,255,255,0.4);
-	cursor: pointer;
-}
-
-.sfb .btn:hover {
-	background: rgba(255,255,255,0.5);
-}
-
-.sfb .btn:active {
-	background: rgba(255,255,255,0.3);
 }
 
 #blocker {
@@ -146,7 +121,7 @@ input[type="radio"] {
 	border-radius: 50%;
 	box-shadow: black 0px 0px 6px 0px;
 	z-index: 123;
-	transition: all 0.25s cubic-bezier(.5, 0, .5, 1.5);
+	transition: all 0.2s cubic-bezier(.5, 0, .5, 1.5);
 }
 
 #SettingsButton.hidden {
@@ -182,7 +157,7 @@ input[type="radio"] {
 	bottom: 50px;
 	right: 50px;
 	z-index: 128;
-	transition: all 0.25s cubic-bezier(.5, 0, .5, 1.5);
+	transition: all 0.2s cubic-bezier(.5, 0, .5, 1.5);
 	cursor: pointer;
 }
 
