@@ -36,7 +36,7 @@ function calc() {
 
 	var vals = getVals(), ergebnisse;
 
-	if (vals[6] === vals[9]) {
+	if ((vals[6] === vals[9]) && (vals[6] != 0)) {
 		ergebnisse = getLaengen(
 			vals[1] * 0.5,		//	1.) FelgenDurchmesser					D1
 			vals[2] * 0.5,		//	2.) NabeLochkreisDurchmesserWDL			D2L
@@ -127,7 +127,6 @@ function cpu(el) {
 				el.parentElement.addEventListener("click", savefelge);
 			}, 250);
 		};
-
 	};
 	console.log("popup closed")
 }
@@ -142,6 +141,8 @@ function deletefelge() {
 			document.querySelector("#felgenform .delete").classList.remove("expanded");
 			document.getElementById("felgenfeld").selectedIndex = "0";
 			readfelgen();
+			paint();
+			document.querySelector("#felgenform .delete").addEventListener("click", deletefelge);
 		}).catch(function (err) {
 			console.log(err);
 			alert("Fehler beim Löschen, bitte nochmal versuchen.");
@@ -163,6 +164,8 @@ function deletenabe() {
 			document.querySelector("#nabenform .delete").classList.remove("expanded");
 			document.getElementById("nabenfeld").selectedIndex = "0";
 			readnaben();
+			paint();
+			document.querySelector("#nabenform .delete").addEventListener("click", deletenabe);
 		}).catch(function (err) {
 			console.log(err);
 			alert("Fehler beim Löschen, bitte nochmal versuchen.");
@@ -188,6 +191,8 @@ function savefelge() {
 			console.log(response);
 			document.querySelector("#felgenform .save").classList.remove("expanded");
 			readfelgen();
+			paint();
+			document.querySelector("#felgenform .save").addEventListener("click", savefelge);
 		}).catch(function (err) {
 			alert("Fehler beim Eintragen, bitte nochmal versuchen.");
 			console.log(err);
@@ -217,6 +222,8 @@ function savenabe() {
 			console.log(response);
 			document.querySelector("#nabenform .save").classList.remove("expanded");
 			readnaben();
+			paint();
+			document.querySelector("#nabenform .save").addEventListener("click", savenabe);
 		}).catch(function (err) {
 			alert("Fehler beim Eintragen, bitte nochmal versuchen.");
 			console.log(err);
@@ -228,7 +235,7 @@ function savenabe() {
 	};
 }
 
-function findentry(name, typ) {		//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+function findentry(name, typ) {
 	var teil;
 	if (typ) {
 		teil = nabenDB.get(name).then(function (nabe) {
@@ -465,7 +472,6 @@ function updatedfs(typ) {
 
 		dfs.innerHTML += "L&nbsp;<input type=\"number\" id=\"iabstandL\" class=\"sides\">";
 		dfs.innerHTML += "<input type=\"number\" id=\"iabstandR\" class=\"sides\">&nbsp;R";
-
 	} else {
 		console.log("zeige formular für felgen...");
 
@@ -476,7 +482,6 @@ function updatedfs(typ) {
 
 		dfs.innerHTML += "<h3>Felgendurchmesser</h3>";
 		dfs.innerHTML += "<input type=\"number\" id=\"idurchmesser\">";
-
 	};
 }
 
@@ -501,12 +506,12 @@ function showSettings() {
 function showform() {
 	"use strict";
 
-	console.log("showing form");
-
 	if (!formvisible) {
+		console.log("showing form");
 		document.getElementById("form").style.display = "block";
 		document.getElementById("ShowFormButton").className = "active";
 	} else {
+		console.log("hiding form");
 		document.getElementById("form").style.display = "none";
 		document.getElementById("ShowFormButton").className = "";
 	};
@@ -531,7 +536,9 @@ function showPopup(which) {
 			document.getElementById("backdrop").style.display = "none";
 			showSettings();
 		} else {
-			if (formvisible) {document.getElementById("backdrop").style.display = "none";};
+			if (formvisible) {
+				document.getElementById("backdrop").style.display = "none";
+			};
 			showform();
 		};
 	} else {
@@ -543,7 +550,9 @@ function showPopup(which) {
 				document.getElementById("backdrop").style.display = "none";
 			};
 		} else {
-			if (settingsvisible) {document.getElementById("backdrop").style.display = "none";};
+			if (settingsvisible) {
+				document.getElementById("backdrop").style.display = "none";
+			};
 			showSettings();
 		};
 	};
@@ -558,6 +567,7 @@ function addToDB() {
 			nabenDB.put(newpart).then(function (response) {
 				console.log("Eintragen:");
 				console.log(response);
+				paint();
 			}).catch(function (err) {
 				console.log(err);
 				alert("Fehler beim Eintragen, bitte nochmal versuchen.");
@@ -568,12 +578,13 @@ function addToDB() {
 			felgenDB.put(newpart).then(function (response) {
 				console.log("Eintragen:");
 				console.log(response);
+				paint();
 			}).catch(function (err) {
 				console.log(err);
 				alert("Fehler beim Eintragen, bitte nochmal versuchen.");
 			});
 		};
-		showform();
+		showPopup("atdb");
 	} else {
 		alert("Fehlerhafte Eingabe. Trage nichts ein.");
 	};
