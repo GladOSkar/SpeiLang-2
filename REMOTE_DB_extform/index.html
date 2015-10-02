@@ -38,24 +38,22 @@
 			</g>
 		</svg>
 		<div id="felgenform" class="forms">
-			<div class="delete sfb hidden">
-				<svg viewBox="0 0 80 80" height="20px"><use xlink:href="#bin"/></svg>
-				<h2>LÖSCHEN?</h2>
-				<p>Sind sie sich sicher, dass sie diese Felge löschen wollen?</p>
-				<div class="btn" onclick="cpu(this);">Abbrechen</div><div class="btn" onclick="deletefelge();">Löschen</div>
-			</div>
 			<div class="save sfb hidden">
 				<svg viewBox="0 0 80 80" height="20px"><use xlink:href="#floppy"/></svg>
 				<h2>SPEICHERN?</h2>
 				<p>Sind sie sich sicher, dass sie diese Felge überschreiben wollen?</p>
 				<div class="btn" onclick="cpu(this);">Abbrechen</div><div class="btn" onclick="savefelge();">Überschreiben</div>
 				<div class="nameinputs">
-					<h3>Marke</h3>
 					<input type="text">
-					<h3>Name</h3>
 					<input type="text">
 				</div>
-				<div class="btn" onclick="savenewfelge(this);">Als neue Felge Speichern...</div>
+				<div class="btn">Als neue Felge Speichern...</div>
+			</div>
+			<div class="delete sfb hidden">
+				<svg viewBox="0 0 80 80" height="20px"><use xlink:href="#bin"/></svg>
+				<h2>LÖSCHEN?</h2>
+				<p>Sind sie sich sicher, dass sie diese Felge löschen wollen?</p>
+				<div class="btn" onclick="cpu(this);">Abbrechen</div><div class="btn" onclick="deletefelge();">Löschen</div>
 			</div>
 
 			<h1>Felge</h1>
@@ -72,24 +70,18 @@
 			<input id="val9" type="number">
 		</div>
 		<div id="nabenform" class="forms">
-			<div class="delete sfb hidden">
-				<svg viewBox="0 0 80 80" height="20px"><use xlink:href="#bin"/></svg>
-				<h2>LÖSCHEN?</h2>
-				<p>Sind sie sich sicher, dass sie diese Nabe löschen wollen?</p>
-				<div class="btn" onclick="cpu(this);">Abbrechen</div><div class="btn" onclick="deletenabe();">Löschen</div>
-			</div>
 			<div class="save sfb hidden">
 				<svg viewBox="0 0 80 80" height="20px"><use xlink:href="#floppy"/></svg>
 				<h2>SPEICHERN?</h2>
 				<p>Sind sie sich sicher, dass sie diese Nabe überschr+95eiben wollen?</p>
 				<div class="btn" onclick="cpu(this);">Abbrechen</div><div class="btn" onclick="savenabe();">Überschreiben</div>
-				<div class="nameinputs">
-					<h3>Marke</h3>
-					<input type="text">
-					<h3>Name</h3>
-					<input type="text">
-				</div>
-				<div class="btn" onclick="savenewnabe(this);">Als neue Nabe Speichern...</div>
+				<div class="btn">Als neue Nabe Speichern...</div>
+			</div>
+			<div class="delete sfb hidden">
+				<svg viewBox="0 0 80 80" height="20px"><use xlink:href="#bin"/></svg>
+				<h2>LÖSCHEN?</h2>
+				<p>Sind sie sich sicher, dass sie diese Nabe löschen wollen?</p>
+				<div class="btn" onclick="cpu(this);">Abbrechen</div><div class="btn" onclick="deletenabe();">Löschen</div>
 			</div>
 
 			<h1>Nabe</h1>
@@ -119,18 +111,33 @@
 			<h3>Länge:</h3>
 			L&nbsp;<input id="outl" type="text" style="width: 80px;" readonly>
 			<input id="outr" type="text" style="width: 80px;" readonly>&nbsp;R
-			<div id="blocker">Bitte Alles Ausfüllen</div>
+			<div id="blocker">Keine Auswahl getroffen</div>
 		</div>
-		<div id="settings">
-			<svg viewBox="0 0 80 80" height="42px">
-				<use xlink:href="#gear"/>
-			</svg>
-			<h2>Einstellungen</h2>
-			<div class="btn">Exportieren...</div>
-			<div class="btn">Importieren...</div>
+		<div id="SettingsButton"><svg style="margin-top:11px; margin-left:11px" viewBox="0 0 80 80" height="42px"><use xlink:href="#gear"/></svg></div>
+		<div id="ShowFormButton"><div>+</div></div>
+		<div id="backdrop"></div>
+		<div id="form" class="forms">
+			<h1>Neuer Datenbankeintrag</h1>
+			<h3>Marke</h3>
+			<input type="text">
+				<datalist>
+				</datalist>
+			<h3>Name</h3>
+			<input type="text">
+			<h3>Typ</h3>
+			<input type="radio" id="felgenradio" name="typ">
+			<label for="felgenradio">Felge</label>
+			<input type="radio" id="nabenradio" name="typ" checked>
+			<label for="nabenradio">Nabe</label>
+			<img src="res/nabe.png" id="legende">
+			<div id="datafields">
+				<!--### Dynamisch generierte Felder! ###-->
+			</div>
+			<button id="submitbutton">✓ Speichern</button>
+		</div>
+		<div id="settings" class="forms">
 			<button onclick="parsefiles();" id="REB">Reset & Einlesen</button>
 		</div>
-		<div id="backdrop"></div>
 		<script src="../db_files/felgenSC-C.json" type="text/javascript" charset="utf-8"></script>
 		<script src="../db_files/nabenSC-C.json" type="text/javascript" charset="utf-8"></script>
 		<script src="lib/pouchdb-4.0.1.min.js" type="text/javascript" charset="utf-8"></script>

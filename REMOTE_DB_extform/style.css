@@ -9,7 +9,7 @@ body {
 }
 
 .forms {
-	margin: 7px;`
+	margin: 8px;`
 	width: 280px;
 	background: #f0f0f0;
 	padding: 20px;
@@ -29,10 +29,6 @@ body {
 .save {
 	background: orange;
 	top: 55px;
-}
-
-.delete.hidden + .save {
-	top: 8px;
 }
 
 .sfb {
@@ -55,17 +51,13 @@ body {
 
 .sfb.expanded {
 	right: -277px;
-	height: 150px;
+	height: 160px;
 	width: 300px;
 	z-index: 84;
 }
 
 .sfb.save.expanded {
-	height: 210px;
-}
-
-.sfb.save.expanded.new {
-	height: 390px;
+	height: 216px;
 }
 
 .sfb.expanded:hover {
@@ -77,20 +69,20 @@ body {
 	z-index: 84;
 }
 
-svg {
+.sfb svg {
 	margin: 11px;
 	float: left;
 }
 
-h2 {
-	margin: 10px 30px 8px;
+.sfb h2 {
+	margin: 16px 30px 8px;
 }
 
 .sfb p {
 	margin: 4px 16px;
 }
 
-.btn {
+.sfb .btn {
 	display: inline-block;
 	padding: 10px;
 	margin: 10px;
@@ -99,26 +91,12 @@ h2 {
 	cursor: pointer;
 }
 
-.btn:hover {
+.sfb .btn:hover {
 	background: rgba(255,255,255,0.5);
 }
 
-.btn:active {
+.sfb .btn:active {
 	background: rgba(255,255,255,0.3);
-}
-
-.nameinputs {
-	transition: all .25s cubic-bezier(.5, 0, .5, 1.5);
-	height: 0px;
-	overflow: hidden;
-}
-
-.sfb.save.expanded.new > .nameinputs {
-	height: 164px;
-}
-
-.nameinputs > input {
-	margin: 2px;
 }
 
 #blocker {
@@ -131,14 +109,6 @@ h2 {
 	border-radius: 4px;
 	padding: 12px;
 	color: white;
-	overflow: hidden;
-	transition: all .25s cubic-bezier(.5, 0, .5, 1.5);
-}
-
-#blocker.hidden {
-	height: 0px;
-	padding-top: 0px;
-	padding-bottom: 0px;s
 }
 
 h1 {
@@ -152,37 +122,93 @@ h3 {
 	font-size: 20px;
 }
 
-input, select {
+input, button, select {
 	width: 260px;
 	font-size: 20px;
 }
 
 button {
 	height: 50px;
-	display: none;
+	margin-top: 16px;
+}
+
+input[type="radio"] {
+	width: 16px;
 }
 
 .sides {
 	width: 73px;
 }
 
-#settings {
+#SettingsButton {
 	position: fixed;
-	bottom: 42px;
-	right: 42px;
+	bottom: 160px;
+	right: 68px;
 	background: #00f;
-	color: white;
 	height: 64px;
 	width: 64px;
-	border-radius: 42px;
+	border-radius: 50%;
 	box-shadow: black 0px 0px 6px 0px;
 	z-index: 123;
-	transition: all .25s cubic-bezier(.5, 0, .5, 1.5);
-	overflow: hidden;
+	transition: all 0.25s cubic-bezier(.5, 0, .5, 1.5);
 }
 
-#settings:hover {
+#SettingsButton.hidden {
+	bottom: 68px;
+	transform: rotate(64deg);
+	z-index: 111;
+}
+
+#SettingsButton:hover {
 	transform: scale(1.6) rotate(64deg);
+	z-index: 150;
+}
+
+#SettingsButton.hidden:hover {
+	transform: scale(1) rotate(0deg);
+}
+
+#SettingsButton.hidden:hover + #ShowFormButton {
+	z-index: 5000;
+}
+
+#ShowFormButton {
+	background-color: #0c0;
+	color: white;
+	font-size: 50px;
+	font-weight: normal;
+	position: fixed;
+	height: 100px;
+	width: 100px;
+	border-radius: 50px;
+	box-shadow: black 0px 0px 8px 0px;
+	text-align: center;
+	bottom: 50px;
+	right: 50px;
+	z-index: 128;
+	transition: all 0.25s cubic-bezier(.5, 0, .5, 1.5);
+	cursor: pointer;
+}
+
+#ShowFormButton.active {
+	transform: rotate(45deg);
+	background: red;
+}
+
+#ShowFormButton:hover {
+	transform: scale(1.6) rotate(90deg)!important;
+	z-index: 160!important;
+}
+
+#ShowFormButton.active:hover {
+	transform: scale(1.6) rotate(135deg)!important;
+	z-index: 160!important;
+}
+
+#ShowFormButton div {
+	position: absolute;
+	top: 23px;
+	left: 35px;
 }
 
 #backdrop {
@@ -194,19 +220,25 @@ button {
 	background: rgba(0,0,0,0.65);
 }
 
-#settings.expanded {
-	bottom: 50%;
-	right: 50%;
-	transform: translate(50%,50%);
+#settings {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
 	z-index: 120;
-	height: 120px;
-	width: 416px;
+	display: none;
 }
 
-#settings.expanded:hover {
-	transform: translate(50%,50%);
+#form {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	z-index: 120;
+	display: none;
 }
 
-#settings h2 {
-	margin-top: 18px;
+#legende {
+	border-radius: 16px;
+	margin-top: 16px;
 }

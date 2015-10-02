@@ -36,7 +36,7 @@ function calc() {
 
 	var vals = getVals(), ergebnisse;
 
-	if ((vals[6] === vals[9]) && (everythingisfilledOK("a"))) {
+	if ((vals[6] === vals[9]) && (vals[6] != 0)) {
 		ergebnisse = getLaengen(
 			vals[1] * 0.5,		//	1.) FelgenDurchmesser					D1
 			vals[2] * 0.5,		//	2.) NabeLochkreisDurchmesserWDL			D2L
@@ -48,74 +48,42 @@ function calc() {
 			vals[8]				//	8.) AnzahlSpeichenKreuzungen			???(3)
 		);
 		console.log("Links: " + ergebnisse.links + "; Rechts: " + ergebnisse.rechts);
-		outl.value = ergebnisse.links;
-		outr.value = ergebnisse.rechts;
+		document.getElementById("outl").value = ergebnisse.links;
+		document.getElementById("outr").value = ergebnisse.rechts;
 
-		blocker.classList.add("hidden");
+		blocker.style.display = "none";
 	} else {
-		if (everythingisfilledOK("a")) {
+		if ((document.getElementById("felgenfeld").value) && (document.getElementById("nabenfeld").value)) {
 			console.log("Ungleiche Speichenanzahl! (Felge: " + vals[9] + " Löcher & Nabe: " + vals[6] + " Löcher!)");
 
 			blocker.style.backgroundColor = "red";
 			blocker.innerHTML = "Ungleiche Speichenlochanzahl";
-			blocker.classList.remove("hidden")
+			blocker.style.display = "block";
 
-			outl.value = "";
-			outr.value = "";
+			document.getElementById("outl").value = "-";
+			document.getElementById("outr").value = "-";
 		} else {
 			blocker.style.backgroundColor = "green";
-			blocker.innerHTML = "Bitte Alles Ausfüllen";
-			blocker.classList.remove("hidden");
+			blocker.innerHTML = "Keine Auswahl getroffen"
+			blocker.style.display = "block";
 		}
 	}
 }
 
-var settingsvisible = false;
-
-function everythingisfilledOK(where) {
-	var ans = true, l, i;
-
-	if (where == "f") {
-		//check felgenfelder
-		l = document.querySelectorAll("#felgenform > input");
-	} else if (where == "n") {
-		//check nabenfelder
-		l = document.querySelectorAll("#nabenform > input");
-	} else {
-		//check alle felder
-		if (!((val1.value && val9.value) && val8.value)) {
-			ans = false;
-		}
-		l = document.querySelectorAll("#nabenform > input");
-	};
-	for (i = 0; i < l.length; i++) {
-		if (l[i].value == "") {
-			ans = false;
-			return ans;
-		};
-	};
-	return ans;
-}
+var formvisible = false, settingsvisible = false;
 
 function valchg(what) {
-	if (everythingisfilledOK(what)) {
-		if (what == "f") {
-			document.querySelector("#felgenform .save").classList.remove("hidden");
-		};
-		if (what == "n") {
-			document.querySelector("#nabenform .save").classList.remove("hidden");
-		};
-	} else {
-		if (what == "f") {
-			document.querySelector("#felgenform .save").classList.add("hidden");
-		};
-		if (what == "n") {
-			document.querySelector("#nabenform .save").classList.add("hidden");
-		};
+	if (what == "f") {
+		document.querySelector("#felgenform .save").classList.remove("hidden");
+	};
+	if (what == "n") {
+		document.querySelector("#nabenform .save").classList.remove("hidden");
 	};
 
 	calc();
 }
+
+var dfs = document.getElementById("datafields");
 
 var felgenDB = new PouchDB('http://localhost:5984/felgen');
 var nabenDB = new PouchDB('http://localhost:5984/naben');
@@ -138,7 +106,6 @@ function callback(err, result) {
 
 function cpu(el) {
 	el.parentElement.classList.remove("expanded");
-	el.parentElement.classList.remove("new");
 
 	if (el.parentElement.parentElement.id == "nabenform") {
 		if (el.parentElement.classList.contains("delete")) {
@@ -166,13 +133,13 @@ function cpu(el) {
 
 function deletefelge() {
 	if (document.querySelector("#felgenform .delete").classList.contains("expanded")) {
-		felgenDB.get(felgenfeld.value).then(function(felge) {
+		felgenDB.get(document.getElementById("felgenfeld").value).then(function(felge) {
 			return felgenDB.remove(felge);
 		}).then(function (result) {
 			console.log("Löschen:");
 			console.log(result);
 			document.querySelector("#felgenform .delete").classList.remove("expanded");
-			felgenfeld.selectedIndex = "0";
+			document.getElementById("felgenfeld").selectedIndex = "0";
 			readfelgen();
 			paint();
 			document.querySelector("#felgenform .delete").addEventListener("click", deletefelge);
@@ -189,13 +156,13 @@ function deletefelge() {
 
 function deletenabe() {
 	if (document.querySelector("#nabenform .delete").classList.contains("expanded")) {
-		nabenDB.get(document.nabenfeld.value).then(function(nabe) {
+		nabenDB.get(document.getElementById("nabenfeld").value).then(function(nabe) {
 			return nabenDB.remove(nabe);
 		}).then(function (result) {
 			console.log("Löschen:");
 			console.log(result);
 			document.querySelector("#nabenform .delete").classList.remove("expanded");
-			nabenfeld.selectedIndex = "0";
+			document.getElementById("nabenfeld").selectedIndex = "0";
 			readnaben();
 			paint();
 			document.querySelector("#nabenform .delete").addEventListener("click", deletenabe);
@@ -212,12 +179,12 @@ function deletenabe() {
 
 function savefelge() {
 	if (document.querySelector("#felgenform .save").classList.contains("expanded")) {
-		felgenDB.get(felgenfeld.value).then(function(felge) {
+		felgenDB.get(document.getElementById("felgenfeld").value).then(function(felge) {
 			return felgenDB.put({
 				_id: felge._id,
 				_rev: felge._rev,
-				durchmesser: val1.value,
-				lochzahl: val9.value
+				durchmesser: document.getElementById("val1").value,
+				lochzahl: document.getElementById("val9").value
 			});
 		}).then(function(response) {
 			console.log("Speichern:");
@@ -237,52 +204,39 @@ function savefelge() {
 	};
 }
 
-function savenewfelge(btn) {
-	if (document.querySelector("#felgenform .save").classList.contains("new")) {
-		//check
-		if ((document.querySelector("#felgenform .nameinputs input").value) &&
-			(document.querySelectorAll("#felgenform .nameinputs input")[1].value)) {
-			var nid = document.querySelector("#felgenform .nameinputs input").value.toUpperCase() + " " + document.querySelectorAll("#felgenform .nameinputs input")[1].value;
+function savenewfelge() {
+	//ask for name
+	//document.querySelector("#felgenform .save .nameinputs").style.height = ;
 
-			felgenDB.put({
-				_id: nid,
-				durchmesser: val1.value,
-				lochzahl: val9.value
-			}).then(function(response) {
-				console.log("Neue Felge Speichern:");
-				console.log(response);
-				document.querySelector("#felgenform .save").classList.remove("expanded");
-				document.querySelector("#felgenform .save").classList.remove("new");
-				btn.innerHTML += "...";
-				readfelgen();
-				paint();
-				document.querySelector("#felgenform .save").addEventListener("click", savefelge);
-			}).catch(function (err) {
-				alert("Fehler beim Eintragen, bitte nochmal versuchen.");
-				console.log(err);
-			});
-		} else {
-			alert("Bitte beide Felder ausfüllen!");
-		};
-	} else {
-		//ask for name
-		document.querySelector("#felgenform .save").classList.add("new");
-		btn.innerHTML = btn.innerHTML.slice(0,-3);
-	};
+	felgenDB.put({
+		_id: felge._id,
+		durchmesser: document.getElementById("val1").value,
+		lochzahl: document.getElementById("val9").value
+	}).then(function(response) {
+		console.log("Neue Felge Speichern:");
+		console.log(response);
+		document.querySelector("#felgenform .save").classList.remove("expanded");
+		readfelgen();
+		paint();
+		document.querySelector("#felgenform .save").addEventListener("click", savefelge);
+	}).catch(function (err) {
+		alert("Fehler beim Eintragen, bitte nochmal versuchen.");
+		console.log(err);
+	});
 }
 
 function savenabe() {
 	if (document.querySelector("#nabenform .save").classList.contains("expanded")) {
-		nabenDB.get(nabenfeld.value).then(function(nabe) {
+		nabenDB.get(document.getElementById("nabenfeld").value).then(function(nabe) {
 			return nabenDB.put({
 				_id: nabe._id,
 				_rev: nabe._rev,
-				lochkreisDML: val2.value,
-				lochkreisDMR: val3.value,
-				abstandL: val4.value,
-				abstandR: val5.value,
-				lochzahl: val6.value,
-				speichenlochDM:	val7.value
+				lochkreisDML: document.getElementById("val2").value,
+				lochkreisDMR: document.getElementById("val3").value,
+				abstandL: document.getElementById("val4").value,
+				abstandR: document.getElementById("val5").value,
+				lochzahl: document.getElementById("val6").value,
+				speichenlochDM:	document.getElementById("val7").value
 				});
 		}).then(function(response) {
 			console.log("Speichern:");
@@ -299,44 +253,6 @@ function savenabe() {
 		document.querySelector("#nabenform .save").removeEventListener("click", savenabe);
 		console.log("Nabe überschreiben?");
 		document.querySelector("#nabenform .save").classList.add("expanded");
-	};
-}
-
-function savenewnabe(btn) {
-	if (document.querySelector("#nabenform .save").classList.contains("new")) {
-		//check
-		if ((document.querySelector("#nabenform .nameinputs input").value) &&
-			(document.querySelectorAll("#nabenform .nameinputs input")[1].value)) {
-			var nid = document.querySelector("#nabenform .nameinputs input").value.toUpperCase() + " " + document.querySelectorAll("#nabenform .nameinputs input")[1].value;
-
-			nabenDB.put({
-				_id: nid,
-				lochkreisDML: val2.value,
-				lochkreisDMR: val3.value,
-				abstandL: val4.value,
-				abstandR: val5.value,
-				lochzahl: val6.value,
-				speichenlochDM:	val7.value
-			}).then(function(response) {
-				console.log("Neue Nabe Speichern:");
-				console.log(response);
-				document.querySelector("#nabenform .save").classList.remove("expanded");
-				document.querySelector("#nabenform .save").classList.remove("new");
-				btn.innerHTML += "...";
-				readnaben();
-				paint();
-				document.querySelector("#nabenform .save").addEventListener("click", savenabe);
-			}).catch(function (err) {
-				alert("Fehler beim Eintragen, bitte nochmal versuchen.");
-				console.log(err);
-			});
-		} else {
-			alert("Bitte beide Felder ausfüllen!");
-		};
-	} else {
-		//ask for name
-		document.querySelector("#nabenform .save").classList.add("new");
-		btn.innerHTML = btn.innerHTML.slice(0,-3);
 	};
 }
 
@@ -364,21 +280,21 @@ function findentry(name, typ) {
 }
 
 function readfelgen() {
-	var felge = felgenfeld.value, vi = [];
+	var felge = document.getElementById("felgenfeld").value, vi = [];
 
-	if (felgenfeld.value) {
+	if (felge) {
 		document.querySelector("#felgenform .delete").classList.remove("hidden");
-		console.log("hole werte für felge: " + felgenfeld.value + ".")
-		findentry(felgenfeld.value, 0).then(function (teil) {
+		console.log("hole werte für felge: " + felge + ".")
+		findentry(felge, 0).then(function (teil) {
 			console.log("zeichne...");
-			val1.value = teil.durchmesser;
-			val9.value = teil.lochzahl;
+			document.getElementById("val1").value = teil.durchmesser;
+			document.getElementById("val9").value = teil.lochzahl;
 			calc();
 	});
 	} else {
 		document.querySelector("#felgenform .delete").classList.add("hidden");
 
-		var vi = document.querySelectorAll("#felgenform input");
+		vi = document.querySelectorAll("#felgenform input");
 		for (i = 0; i < vi.length; i++) {
 			vi[i].value = "";
 		};
@@ -387,23 +303,25 @@ function readfelgen() {
 }
 
 function readnaben() {
-	if (nabenfeld) {
+	var nabe = document.getElementById("nabenfeld").value;
+
+	if (nabe) {
 		document.querySelector("#nabenform .delete").classList.remove("hidden");
-		console.log("hole werte für nabe: " + nabenfeld.value + ".")
-		findentry(nabenfeld.value, 1).then(function (teil) {
+		console.log("hole werte für nabe: " + nabe + ".")
+		findentry(nabe, 1).then(function (teil) {
 			console.log("zeichne...");
-			val2.value = teil.lochkreisDML;
-			val3.value = teil.lochkreisDMR;
-			val4.value = teil.abstandL;
-			val5.value = teil.abstandR;
-			val6.value = teil.lochzahl;
-			val7.value = teil.speichenlochDM;
+			document.getElementById("val2").value = teil.lochkreisDML;
+			document.getElementById("val3").value = teil.lochkreisDMR;
+			document.getElementById("val4").value = teil.abstandL;
+			document.getElementById("val5").value = teil.abstandR;
+			document.getElementById("val6").value = teil.lochzahl;
+			document.getElementById("val7").value = teil.speichenlochDM;
 			calc();
 	});
 	} else {
 		document.querySelector("#nabenform .delete").classList.add("hidden");
 
-		var vi = document.querySelectorAll("#nabenform input");
+		vi = document.querySelectorAll("#nabenform input");
 		for (i = 0; i < vi.length; i++) {
 			vi[i].value = "";
 		};
@@ -413,12 +331,14 @@ function readnaben() {
 
 function paint() {
 	var phe = document.createElement("option"),
-		phz = document.createElement("option");
+		phz = document.createElement("option"),
+		fl = document.getElementById("felgenfeld"),
+		nl = document.getElementById("nabenfeld");
 
 	phe.value = "";
 	phe.innerHTML = "Felge Auswählen...";
-	felgenfeld.innerHTML = "";
-	felgenfeld.appendChild(phe);
+	fl.innerHTML = "";
+	fl.appendChild(phe);
 
 	felgenDB.allDocs({
 		include_docs: true,
@@ -427,7 +347,7 @@ function paint() {
 			var opt = document.createElement("option");
 			opt.value = felge.doc._id;
 			opt.innerHTML = felge.doc._id;
-			felgenfeld.appendChild(opt);
+			fl.appendChild(opt);
 		});
 	}).catch(function (err) {
 		console.log(err);
@@ -435,8 +355,8 @@ function paint() {
 
 	phz.value = "";
 	phz.innerHTML = "Nabe Auswählen...";
-	nabenfeld.innerHTML = "";
-	nabenfeld.appendChild(phz);
+	nl.innerHTML = "";
+	nl.appendChild(phz);
 
 	nabenDB.allDocs({
 		include_docs: true,
@@ -445,7 +365,7 @@ function paint() {
 			var opt = document.createElement("option");
 			opt.value = nabe.doc._id;
 			opt.innerHTML = nabe.doc._id;
-			nabenfeld.appendChild(opt);
+			nl.appendChild(opt);
 		});
 	}).catch(function (err) {
 		console.log(err);
@@ -453,8 +373,8 @@ function paint() {
 }
 
 function parsefiles() {
-	var ans;
-	REB.innerHTML = "Arbeite...";
+	var ans, bt = document.getElementById("REB");
+	bt.innerHTML = "Arbeite...";
 
 	felgenDB.allDocs({
 		include_docs: true,
@@ -479,7 +399,7 @@ function parsefiles() {
 	Promise.all([felgenDB.bulkDocs(felgendata),
 				 nabenDB.bulkDocs(nabendata)]).then(function (arrayOfResults) {
 		paint();
-		REB.innerHTML = "Reset & Einlesen";
+		bt.innerHTML = "Reset & Einlesen";
 	}).catch(function (err) {
 		console.log(err);
 	});
@@ -492,8 +412,8 @@ window.onload = function () {
 
 	paint();
 
-	felgenfeld.addEventListener("change", readfelgen);
-	nabenfeld.addEventListener("change", readnaben);
+	document.getElementById("felgenfeld").addEventListener("change", readfelgen);
+	document.getElementById("nabenfeld").addEventListener("change", readnaben);
 
 	document.querySelector("#felgenform .delete").addEventListener("click", deletefelge);
 	document.querySelector("#nabenform .delete").addEventListener("click", deletenabe);
@@ -501,24 +421,91 @@ window.onload = function () {
 	document.querySelector("#nabenform .save").addEventListener("click", savenabe);
 
 	vi = document.querySelectorAll("#felgenform > input");
+	console.log(vi);
 	for (i = 0; i < vi.length; i++) {
 		vi[i].addEventListener("change", function(){valchg("f");});
-		vi[i].addEventListener("keyup", function(){valchg("f");});
+		vi[i].addEventListener("keypress", function(){valchg("f");});
 	};
 
 	vi = document.querySelectorAll("#nabenform > input");
+	console.log(vi);
 	for (i = 0; i < vi.length; i++) {
 		vi[i].addEventListener("change", function(){valchg("n");});
-		vi[i].addEventListener("keyup", function(){valchg("n");});
+		vi[i].addEventListener("keypress", function(){valchg("n");});
 	};
 
 	vi = document.querySelector("#rechnerform > input");
 	vi.addEventListener("change", function(){valchg("");});
-	vi.addEventListener("keyup", function(){valchg("");});
+	vi.addEventListener("keypress", function(){valchg("");});
 
-	settings.addEventListener("click", showSettings)
+	document.getElementById("ShowFormButton").addEventListener("click", function() {
+    	showPopup("atdb");
+	});
 
-	backdrop.addEventListener("click", showSettings)
+	document.getElementById("SettingsButton").addEventListener("click", function() {
+    	showPopup("set");
+	});
+
+	document.getElementById("backdrop").addEventListener("click", showPopup)
+
+	updatedfs(document.getElementById("nabenradio").checked);
+
+	document.getElementById("submitbutton").addEventListener("click", addToDB);
+}
+
+function getNEValues() {
+	var i, valid = true, teil = {}, inputs = [];
+
+	inputs = document.querySelectorAll("#form input:not([type=\"radio\"])");
+
+	teil._id = inputs[0].value.toUpperCase() + " " + inputs[1].value;
+
+	for (i = 2; i < inputs.length; i++) {
+		teil[inputs[i].id.substring(1)] = inputs[i].value;
+	};
+
+	if (valid) {
+		return teil;
+	} else {
+		return false;
+	};
+}
+
+function updatedfs(typ) {
+	"use strict";
+
+	dfs.innerHTML = "";
+
+	if (typ) {
+		console.log("zeige formular für naben...");
+
+		document.getElementById("legende").style.display = "block";
+
+		dfs.innerHTML += "<h3>Anzahl Speichenlöcher</h3>";
+		dfs.innerHTML += "<input type=\"number\" id=\"ilochzahl\">";
+
+		dfs.innerHTML += "<h3>Speichenlochdurchmesser</h3>";
+		dfs.innerHTML += "<input type=\"number\" id=\"ispeichenlochDM\" step=\"0.05\">";
+
+		dfs.innerHTML += "<h3>Lochkreisdurchmesser</h3>";
+		dfs.innerHTML += "L&nbsp;<input type=\"number\" id=\"ilochkreisDML\" class=\"sides\">";
+		dfs.innerHTML += "<input type=\"number\" id=\"ilochkreisDMR\" class=\"sides\">&nbsp;R";
+
+		dfs.innerHTML += "<h3>Abstand (zur Mitte)</h3>";
+
+		dfs.innerHTML += "L&nbsp;<input type=\"number\" id=\"iabstandL\" class=\"sides\">";
+		dfs.innerHTML += "<input type=\"number\" id=\"iabstandR\" class=\"sides\">&nbsp;R";
+	} else {
+		console.log("zeige formular für felgen...");
+
+		document.getElementById("legende").style.display = "none";
+
+		dfs.innerHTML += "<h3>Anzahl Speichenlöcher</h3>";
+		dfs.innerHTML += "<input type=\"number\" id=\"ilochzahl\">";
+
+		dfs.innerHTML += "<h3>Felgendurchmesser</h3>";
+		dfs.innerHTML += "<input type=\"number\" id=\"idurchmesser\">";
+	};
 }
 
 function showSettings() {
@@ -527,12 +514,101 @@ function showSettings() {
 	console.log("showing settings");
 
 	if (!settingsvisible) {
-		backdrop.style.display = "block";
-		settings.classList.add("expanded");
+		document.getElementById("settings").style.display = "block";
+		document.getElementById("SettingsButton").className = "hidden";
+		document.getElementById("ShowFormButton").className = "active";
 	} else {
-		backdrop.style.display = "none";
-		settings.classList.remove("expanded");
+		document.getElementById("settings").style.display = "none";
+		document.getElementById("SettingsButton").className = "";
+		document.getElementById("ShowFormButton").className = "";
 	};
 
 	settingsvisible = !settingsvisible;
+}
+
+function showform() {
+	"use strict";
+
+	if (!formvisible) {
+		console.log("showing form");
+		document.getElementById("form").style.display = "block";
+		document.getElementById("ShowFormButton").className = "active";
+	} else {
+		console.log("hiding form");
+		document.getElementById("form").style.display = "none";
+		document.getElementById("ShowFormButton").className = "";
+	};
+
+	formvisible = !formvisible;
+
+	document.getElementById("felgenradio").onchange = function() {
+    	updatedfs(false);
+ 	};
+
+	document.getElementById("nabenradio").onchange = function() {
+		updatedfs(true);
+	};
+
+	console.log("event listeners set");
+}
+
+function showPopup(which) {
+	document.getElementById("backdrop").style.display = "block";
+	if (which == "atdb") {
+		if (settingsvisible) {
+			document.getElementById("backdrop").style.display = "none";
+			showSettings();
+		} else {
+			if (formvisible) {
+				document.getElementById("backdrop").style.display = "none";
+			};
+			showform();
+		};
+	} else {
+		if (formvisible) {
+			showform();
+			if (which == "set") {
+				showSettings();
+			} else {
+				document.getElementById("backdrop").style.display = "none";
+			};
+		} else {
+			if (settingsvisible) {
+				document.getElementById("backdrop").style.display = "none";
+			};
+			showSettings();
+		};
+	};
+}
+
+function addToDB() {
+	var newpart = getNEValues();
+	if (newpart) {
+		if (document.getElementById("nabenradio").checked) {
+			console.log("trage folgende Nabe in DB ein:");
+			console.log(newpart);
+			nabenDB.put(newpart).then(function (response) {
+				console.log("Eintragen:");
+				console.log(response);
+				paint();
+			}).catch(function (err) {
+				console.log(err);
+				alert("Fehler beim Eintragen, bitte nochmal versuchen.");
+			});
+		} else {
+			console.log("trage folgende Felge in DB ein:");
+			console.log(newpart);
+			felgenDB.put(newpart).then(function (response) {
+				console.log("Eintragen:");
+				console.log(response);
+				paint();
+			}).catch(function (err) {
+				console.log(err);
+				alert("Fehler beim Eintragen, bitte nochmal versuchen.");
+			});
+		};
+		showPopup("atdb");
+	} else {
+		alert("Fehlerhafte Eingabe. Trage nichts ein.");
+	};
 }

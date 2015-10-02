@@ -1,4 +1,4 @@
 #To Do
--Input validating
+-Batch edit / ex- & import
 
--suggested values
+-Input validating?
