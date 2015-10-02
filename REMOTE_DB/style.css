@@ -43,7 +43,7 @@ body {
 	right: -20px;
 	border-radius: 21px;
 	overflow: hidden;
-	box-shadow: 0px 0px 4px 0px;
+	box-shadow: black 0px 0px 4px 0px;
 	z-index: 42;
 	transform: scale(1);
 	transition: all 0.25s cubic-bezier(.5, 0, .5, 1.5);
