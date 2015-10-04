@@ -47,24 +47,24 @@
 			<div class="save sfb hidden">
 				<svg viewBox="0 0 80 80" height="20px"><use xlink:href="#floppy"/></svg>
 				<h2>SPEICHERN?</h2>
-				<p>Sind sie sich sicher, dass sie diese Felge überschreiben wollen?</p>
-				<div class="btn" onclick="cpu(this);">Abbrechen</div><div class="btn" onclick="savefelge();">Überschreiben</div>
+				<p class="ovw">
+					Sind sie sich sicher, dass sie diese Felge überschreiben wollen?
+				</p>
 				<div class="nameinputs">
 					<h3>Marke</h3>
 					<input type="text">
 					<h3>Name</h3>
 					<input type="text">
 				</div>
+				<div class="btn" onclick="cpu(this);">Abbrechen</div>
+				<div class="btn ovwbtn" onclick="savefelge();">Überschreiben</div>
 				<div class="btn" onclick="savenewfelge(this);">Als neue Felge Speichern...</div>
 			</div>
 
 			<h1>Felge</h1>
-			<h3>&nbsp;&nbsp;Marke - Modell</h3>
+			<h3>Name</h3>
 			<select id="felgenfeld">
 				<option value="">Felge Auswählen...</option>
-				<option value="ALESA 9021, 622x21">ALESA 9021, 622x21</option>
-				<option value="ALESA 913, 622x13 V- Profil">ALESA 913, 622x13 V- Profil</option>
-				<option value="ALEX AL-DA 16, 622x17mm, V- Profil">ALEX AL-DA 16, 622x17mm, V- Profil</option>
 			</select>
 			<h3>Felgendurchmesser</h3>
 			<input id="val1" type="number">
@@ -93,12 +93,9 @@
 			</div>
 
 			<h1>Nabe</h1>
-			<h3>&nbsp;&nbsp;Marke - Modell</h3>
+			<h3>Name</h3>
 			<select id="nabenfeld">
 				<option value="">Nabe Auswählen...</option>
-				<option value="cadabra">Cadabra</option>
-				<option value="Test">Test</option>
-				<option value="xD">xD</option>
 			</select>
 			<h3>Lochkreisdurchmesser</h3>
 			L&nbsp;<input id="val2" type="number" class="sides">

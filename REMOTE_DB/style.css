@@ -53,6 +53,10 @@ body {
 	transform: scale(0);
 }
 
+.sfb:not(.expanded) > h2 {
+	margin-left: 42px;
+}
+
 .sfb.expanded {
 	right: -277px;
 	height: 150px;
@@ -65,7 +69,7 @@ body {
 }
 
 .sfb.save.expanded.new {
-	height: 390px;
+	height: 246px;
 }
 
 .sfb.expanded:hover {
@@ -78,7 +82,9 @@ body {
 }
 
 svg {
-	margin: 11px;
+	position: absolute;
+	top: 11px;
+	left: 11px;
 	float: left;
 }
 
@@ -107,6 +113,21 @@ h2 {
 	background: rgba(255,255,255,0.3);
 }
 
+p.ovw {
+	transition: all .25s cubic-bezier(.5, 0, .5, 1.5);
+	overflow: hidden;
+	height: auto;
+}
+
+.sfb.save.expanded.new > p.ovw {
+	height: 0px;
+	margin: 0px;
+}
+
+.sfb.save.expanded.new > .ovwbtn {
+	display: none;
+}
+
 .nameinputs {
 	transition: all .25s cubic-bezier(.5, 0, .5, 1.5);
 	height: 0px;
@@ -114,7 +135,7 @@ h2 {
 }
 
 .sfb.save.expanded.new > .nameinputs {
-	height: 164px;
+	height: auto;
 }
 
 .nameinputs > input {
@@ -152,6 +173,10 @@ h3 {
 	font-size: 20px;
 }
 
+.sfb h3 {
+	margin-top: 8px;
+}
+
 input, select {
 	width: 260px;
 	font-size: 20px;
@@ -167,6 +192,7 @@ button {
 }
 
 #settings {
+	text-align: center;
 	position: fixed;
 	bottom: 42px;
 	right: 42px;
@@ -174,15 +200,20 @@ button {
 	color: white;
 	height: 64px;
 	width: 64px;
-	border-radius: 42px;
+	border-radius: 32px;
 	box-shadow: black 0px 0px 6px 0px;
 	z-index: 123;
+	transform:  rotate(-64deg);
 	transition: all .25s cubic-bezier(.5, 0, .5, 1.5);
 	overflow: hidden;
 }
 
 #settings:hover {
-	transform: scale(1.6) rotate(64deg);
+	transform: scale(1.6);
+}
+
+#settings:not(.expanded) > h2 {
+	margin-left: 64px;
 }
 
 #backdrop {
@@ -199,8 +230,9 @@ button {
 	right: 50%;
 	transform: translate(50%,50%);
 	z-index: 120;
-	height: 120px;
-	width: 416px;
+	height: auto;
+	width: 80%;
+	max-width: 416px;
 }
 
 #settings.expanded:hover {

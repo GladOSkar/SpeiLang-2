@@ -58,7 +58,7 @@ function calc() {
 
 			blocker.style.backgroundColor = "red";
 			blocker.innerHTML = "Ungleiche Speichenlochanzahl";
-			blocker.classList.remove("hidden")
+			blocker.classList.remove("hidden");
 
 			outl.value = "";
 			outr.value = "";
@@ -69,8 +69,6 @@ function calc() {
 		}
 	}
 }
-
-var settingsvisible = false;
 
 function everythingisfilledOK(where) {
 	var ans = true, l, i;
@@ -126,19 +124,17 @@ felgenDB.changes({
 	live: true
 }).on('change', paint);
 
-function callback(err, result) {
-	"use strict";
-
-	if (!err) {
-		console.log('Neues Teil erfolgreich eingetragen!');
-	} else {
-		console.log(err);
-	}
-}
+nabenDB.changes({
+	since: 'now',
+	live: true
+}).on('change', paint);
 
 function cpu(el) {
 	el.parentElement.classList.remove("expanded");
-	el.parentElement.classList.remove("new");
+	if (el.parentElement.classList.contains("new")) {
+		el.parentElement.lastChild.previousSibling.innerHTML = "Als neue Felge Speichern...";
+		el.parentElement.classList.remove("new");
+	};
 
 	if (el.parentElement.parentElement.id == "nabenform") {
 		if (el.parentElement.classList.contains("delete")) {
@@ -161,7 +157,7 @@ function cpu(el) {
 			}, 250);
 		};
 	};
-	console.log("popup closed")
+	console.log("popup closed");
 }
 
 function deletefelge() {
@@ -232,8 +228,13 @@ function savefelge() {
 		});
 	} else {
 		document.querySelector("#felgenform .save").removeEventListener("click", savefelge);
-		console.log("Felge überschreiben?");
+		console.log("Felge speichern / überschreiben?");
 		document.querySelector("#felgenform .save").classList.add("expanded");
+		if (felgenfeld.value) {
+
+		} else {
+			savenewfelge(document.querySelectorAll("#felgenform .save .btn")[2]);
+		};
 	};
 }
 
@@ -253,7 +254,7 @@ function savenewfelge(btn) {
 				console.log(response);
 				document.querySelector("#felgenform .save").classList.remove("expanded");
 				document.querySelector("#felgenform .save").classList.remove("new");
-				btn.innerHTML += "...";
+				btn.innerHTML = "Als neue Felge Speichern...";
 				readfelgen();
 				paint();
 				document.querySelector("#felgenform .save").addEventListener("click", savefelge);
@@ -267,7 +268,7 @@ function savenewfelge(btn) {
 	} else {
 		//ask for name
 		document.querySelector("#felgenform .save").classList.add("new");
-		btn.innerHTML = btn.innerHTML.slice(0,-3);
+		btn.innerHTML = "Speichern";
 	};
 }
 
@@ -516,23 +517,24 @@ window.onload = function () {
 	vi.addEventListener("change", function(){valchg("");});
 	vi.addEventListener("keyup", function(){valchg("");});
 
-	settings.addEventListener("click", showSettings)
+	settings.addEventListener("click", showSettings);
 
-	backdrop.addEventListener("click", showSettings)
+	backdrop.addEventListener("click", showSettings);
+
+	felgenfeld.selectedIndex = "0";
+	nabenfeld.selectedIndex = "0";
 }
 
 function showSettings() {
 	"use strict";
 
-	console.log("showing settings");
-
-	if (!settingsvisible) {
-		backdrop.style.display = "block";
-		settings.classList.add("expanded");
-	} else {
+	if (settings.classList.contains("expanded")) {
+		console.log("closing settings");
 		backdrop.style.display = "none";
 		settings.classList.remove("expanded");
+	} else {
+		console.log("showing settings");
+		backdrop.style.display = "block";
+		settings.classList.add("expanded");
 	};
-
-	settingsvisible = !settingsvisible;
 }
