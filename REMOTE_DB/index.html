@@ -42,14 +42,13 @@
 				<svg viewBox="0 0 80 80" height="20px"><use xlink:href="#bin"/></svg>
 				<h2>LÖSCHEN?</h2>
 				<p>Sind sie sich sicher, dass sie diese Felge löschen wollen?</p>
-				<div class="btn" onclick="cpu(this);">Abbrechen</div><div class="btn" onclick="deletefelge();">Löschen</div>
+				<div class="btn" onclick="cpu(this);">Abbrechen</div>
+				<div class="btn" onclick="deletefelge();">Löschen</div>
 			</div>
 			<div class="save sfb hidden">
 				<svg viewBox="0 0 80 80" height="20px"><use xlink:href="#floppy"/></svg>
 				<h2>SPEICHERN?</h2>
-				<p class="ovw">
-					Sind sie sich sicher, dass sie diese Felge überschreiben wollen?
-				</p>
+				<p class="ovw">Sind sie sich sicher, dass sie diese Felge überschreiben wollen?</p>
 				<div class="nameinputs">
 					<h3>Marke</h3>
 					<input type="text">
@@ -81,14 +80,15 @@
 			<div class="save sfb hidden">
 				<svg viewBox="0 0 80 80" height="20px"><use xlink:href="#floppy"/></svg>
 				<h2>SPEICHERN?</h2>
-				<p>Sind sie sich sicher, dass sie diese Nabe überschr+95eiben wollen?</p>
-				<div class="btn" onclick="cpu(this);">Abbrechen</div><div class="btn" onclick="savenabe();">Überschreiben</div>
+				<p class="ovw">Sind sie sich sicher, dass sie diese Nabe überschr+95eiben wollen?</p>
 				<div class="nameinputs">
 					<h3>Marke</h3>
 					<input type="text">
 					<h3>Name</h3>
 					<input type="text">
 				</div>
+				<div class="btn" onclick="cpu(this);">Abbrechen</div>
+				<div class="btn ovwbtn" onclick="savenabe();">Überschreiben</div>
 				<div class="btn" onclick="savenewnabe(this);">Als neue Nabe Speichern...</div>
 			</div>
 
@@ -123,9 +123,12 @@
 				<use xlink:href="#gear"/>
 			</svg>
 			<h2>Einstellungen</h2>
-			<div class="btn">Exportieren...</div>
+			<div class="btn" onclick="exportDB();">Exportieren...</div>
+			<a id="exportlink" style="display:none;">Hier :)</a>
 			<div class="btn">Importieren...</div>
-			<button onclick="parsefiles();" id="REB">Reset & Einlesen</button>
+			<a class="btn" href="http://localhost:5984/_utils/fauxton/" target="_blank">Datenbankzugriff...</a>
+			<div class="btn">Hilfe...</div>
+			<div class="btn" onclick="parsefiles();" id="REB">Reset & Einlesen</div>
 		</div>
 		<div id="backdrop"></div>
 		<script src="../db_files/felgenSC-C.json" type="text/javascript" charset="utf-8"></script>

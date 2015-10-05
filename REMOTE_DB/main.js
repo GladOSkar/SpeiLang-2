@@ -230,9 +230,7 @@ function savefelge() {
 		document.querySelector("#felgenform .save").removeEventListener("click", savefelge);
 		console.log("Felge speichern / überschreiben?");
 		document.querySelector("#felgenform .save").classList.add("expanded");
-		if (felgenfeld.value) {
-
-		} else {
+		if (!felgenfeld.value) {
 			savenewfelge(document.querySelectorAll("#felgenform .save .btn")[2]);
 		};
 	};
@@ -298,8 +296,11 @@ function savenabe() {
 		});
 	} else {
 		document.querySelector("#nabenform .save").removeEventListener("click", savenabe);
-		console.log("Nabe überschreiben?");
+		console.log("Nabe speichern / überschreiben?");
 		document.querySelector("#nabenform .save").classList.add("expanded");
+		if (!nabenfeld.value) {
+			savenewnabe(document.querySelectorAll("#nabenform .save .btn")[2]);
+		};
 	};
 }
 
@@ -323,7 +324,7 @@ function savenewnabe(btn) {
 				console.log(response);
 				document.querySelector("#nabenform .save").classList.remove("expanded");
 				document.querySelector("#nabenform .save").classList.remove("new");
-				btn.innerHTML += "...";
+				btn.innerHTML = "Als neue Nabe Speichern...";
 				readnaben();
 				paint();
 				document.querySelector("#nabenform .save").addEventListener("click", savenabe);
@@ -337,7 +338,7 @@ function savenewnabe(btn) {
 	} else {
 		//ask for name
 		document.querySelector("#nabenform .save").classList.add("new");
-		btn.innerHTML = btn.innerHTML.slice(0,-3);
+		btn.innerHTML = "Speichern";
 	};
 }
 
@@ -388,7 +389,7 @@ function readfelgen() {
 }
 
 function readnaben() {
-	if (nabenfeld) {
+	if (nabenfeld.value) {
 		document.querySelector("#nabenform .delete").classList.remove("hidden");
 		console.log("hole werte für nabe: " + nabenfeld.value + ".")
 		findentry(nabenfeld.value, 1).then(function (teil) {
@@ -532,9 +533,44 @@ function showSettings() {
 		console.log("closing settings");
 		backdrop.style.display = "none";
 		settings.classList.remove("expanded");
+		settings.addEventListener("click", showSettings);
 	} else {
 		console.log("showing settings");
 		backdrop.style.display = "block";
 		settings.classList.add("expanded");
+		settings.removeEventListener("click", showSettings);
 	};
+}
+
+function getdocfromans(ans) {
+	delete ans.doc._rev;
+	return JSON.stringify(ans.doc);
+}
+
+function exportDB() {
+	var data = "[["
+	felgenDB.allDocs({
+		include_docs: true,
+	}).then(function (result) {
+
+		data += result.rows.map(getdocfromans);
+		data += "],["
+
+		nabenDB.allDocs({
+			include_docs: true,
+		}).then(function (result) {
+			data += result.rows.map(getdocfromans);
+			data += "]]";
+
+			exportlink.setAttribute("href","data:text/json;charset=utf-8," + encodeURIComponent(data));
+			var d = new Date();
+			exportlink.setAttribute("download","SpeiLang_Export_" + d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate() + ".json");
+			exportlink.click();
+
+		}).catch(function (err) {
+			console.log(err);
+		});
+	}).catch(function (err) {
+		console.log(err);
+	});
 }
