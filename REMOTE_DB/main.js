@@ -117,7 +117,6 @@ function valchg(what) {
 
 var felgenDB = new PouchDB('http://localhost:5984/felgen');
 var nabenDB = new PouchDB('http://localhost:5984/naben');
-var remoteCouch = false;
 
 felgenDB.changes({
 	since: 'now',
@@ -454,39 +453,6 @@ function paint() {
 	});
 }
 
-function parsefiles() {
-	var ans;
-	REB.innerHTML = "Arbeite...";
-
-	felgenDB.allDocs({
-		include_docs: true,
-	}).then(function (result) {
-		result.rows.forEach(function (felge) {
-			felgenDB.remove(felge);
-		});
-	}).catch(function (err) {
-		console.log(err);
-	});
-
-	nabenDB.allDocs({
-		include_docs: true,
-	}).then(function (result) {
-		result.rows.forEach(function (nabe) {
-			nabenDB.remove(nabe);
-		});
-	}).catch(function (err) {
-		console.log(err);
-	});
-
-	Promise.all([felgenDB.bulkDocs(felgendata),
-				 nabenDB.bulkDocs(nabendata)]).then(function (arrayOfResults) {
-		paint();
-		REB.innerHTML = "Reset & Einlesen";
-	}).catch(function (err) {
-		console.log(err);
-	});
-}
-
 window.onload = function () {
 	"use strict";
 
@@ -533,12 +499,18 @@ function showSettings() {
 		console.log("closing settings");
 		backdrop.style.display = "none";
 		settings.classList.remove("expanded");
-		settings.addEventListener("click", showSettings);
+		closer.classList.add("hidden");
+		setTimeout(function(){
+			settings.addEventListener("click", showSettings);
+		}, 200);
 	} else {
 		console.log("showing settings");
 		backdrop.style.display = "block";
 		settings.classList.add("expanded");
 		settings.removeEventListener("click", showSettings);
+		setTimeout(function(){
+			closer.classList.remove("hidden");
+		}, 300);
 	};
 }
 
@@ -548,6 +520,9 @@ function getdocfromans(ans) {
 }
 
 function exportDB() {
+
+	spinnergear.classList.add("spinning");
+
 	var data = "[["
 	felgenDB.allDocs({
 		include_docs: true,
@@ -566,11 +541,64 @@ function exportDB() {
 			var d = new Date();
 			exportlink.setAttribute("download","SpeiLang_Export_" + d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate() + ".json");
 			exportlink.click();
-
+			showSettings();
+			spinnergear.classList.remove("spinning");
 		}).catch(function (err) {
 			console.log(err);
 		});
 	}).catch(function (err) {
 		console.log(err);
 	});
+}
+
+function importDB(file,final) {
+	if (window.confirm("Sind sie sich sicher, dass sie die momentane Datenbank mit der aus der folgenden Datei ersetzen wollen?\n · Name: " + file.name + "\n · Zuletzt geändert am: " + file.lastModifiedDate.toLocaleDateString() + "\n · Größe: " + file.size + " bytes")) {
+
+		var reader = new FileReader();
+
+		reader.onload = (function(theFile) {
+			return function(evt) {
+				var goodtogo = true;
+				try {
+					data = JSON.parse(evt.target.result);
+				} catch(err) {
+					alert("Ungültige Datenbankdatei!\n" + err);
+					goodtogo = false;
+				};
+
+				if (goodtogo) {
+
+					spinnergear.classList.add("spinning");
+
+					Promise.all([
+						felgenDB.destroy(),
+						nabenDB.destroy()
+					]).then(function(arrayOfResults) {
+						if (arrayOfResults.every(obj => obj.ok)) {
+							felgenDB = new PouchDB('http://localhost:5984/felgen');
+							nabenDB = new PouchDB('http://localhost:5984/naben');
+
+							Promise.all([
+								felgenDB.bulkDocs(data[0]),
+								nabenDB.bulkDocs(data[1])
+							]).then(function() {
+								paint();
+								showSettings();
+								spinnergear.classList.remove("spinning");
+							}).catch(function (err) {
+								alert("Unbekannter Fehler beim einlesen der Datenbank");
+								console.log(err);
+							});
+						} else {
+							alert("Fehler beim Löschen der alten Datenbank");
+						};
+					}).catch(function (err) {
+						console.log(err);
+					});
+				};
+			};
+		})(file);
+
+		reader.readAsText(file)
+	};
 }

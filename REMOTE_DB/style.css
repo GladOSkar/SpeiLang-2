@@ -46,7 +46,7 @@ body {
 	box-shadow: black 0px 0px 4px 0px;
 	z-index: 42;
 	transform: scale(1);
-	transition: all 0.25s cubic-bezier(.5, 0, .5, 1.5);
+	transition: all 0.25s cubic-bezier(.5, 0, .5, 2);
 }
 
 .sfb.hidden {
@@ -101,7 +101,9 @@ h2 {
 	padding: 10px;
 	margin: 10px;
 	border-radius: 4px;
-	background: rgba(255,255,255,0.4);
+	background: rgba(255,255,255,0.3);
+	text-decoration: none;
+	color: white;
 	cursor: pointer;
 }
 
@@ -110,11 +112,11 @@ h2 {
 }
 
 .btn:active {
-	background: rgba(255,255,255,0.3);
+	background: rgba(255,255,255,0.4);
 }
 
 p.ovw {
-	transition: all .25s cubic-bezier(.5, 0, .5, 1.5);
+	transition: all .25s cubic-bezier(.5, 0, .5, 2);
 	overflow: hidden;
 	height: 36px;
 }
@@ -129,7 +131,7 @@ p.ovw {
 }
 
 .nameinputs {
-	transition: all .25s cubic-bezier(.5, 0, .5, 1.5);
+	transition: all .25s cubic-bezier(.5, 0, .5, 2);
 	height: 0px;
 	overflow: hidden;
 }
@@ -153,7 +155,7 @@ p.ovw {
 	padding: 12px;
 	color: white;
 	overflow: hidden;
-	transition: all .25s cubic-bezier(.5, 0, .5, 1.5);
+	transition: all .25s cubic-bezier(.5, 0, .5, 2);
 }
 
 #blocker.hidden {
@@ -199,7 +201,7 @@ input, select {
 	box-shadow: black 0px 0px 6px 0px;
 	z-index: 123;
 	transform:  rotate(-64deg);
-	transition: all .25s cubic-bezier(.5, 0, .5, 1.5);
+	transition: all .25s cubic-bezier(.5, 0, .5, 2);
 	overflow: hidden;
 }
 
@@ -221,13 +223,14 @@ input, select {
 }
 
 #settings.expanded {
+	overflow: visible;
 	bottom: 50%;
 	right: 50%;
 	transform: translate(50%,50%);
 	z-index: 120;
-	height: auto;
+	height: 192px;
 	width: 80%;
-	max-width: 316px;
+	max-width: 300px;
 }
 
 #settings.expanded:hover {
@@ -238,7 +241,43 @@ input, select {
 	margin-top: 18px;
 }
 
-a {
-	text-decoration: none;
-	color: white;
+#closer {
+	position: absolute;
+	top: -16px;
+	right: -16px;
+	box-shadow: black 0px 0px 8px 0px;
+	background: red;
+	border-radius: 50%;
+	transition: all .25s cubic-bezier(.5, 0, .5, 2);
+	transform: rotate(45deg);
+	font-weight: 100;
+	font-size: 42px;
+	height: 48px;
+	width: 48px;
+}
+
+#closer svg {
+	stroke: white;
+	stroke-width: 3px;
+	top: 16px;
+	left: 16px;
+	height: 16px;
+	width: 16px;
+}
+
+#closer:hover {
+	transform: rotate(45deg) scale(1.3);
+}
+
+#closer.hidden {
+	transform: rotate(45deg) scale(0.001);
+}
+
+@keyframes spin {
+	from {transform: rotate(0deg);}
+	to {transform: rotate(360deg);}
+}
+
+#spinnergear.spinning {
+	animation: spin 4s linear infinite;
 }

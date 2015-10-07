@@ -118,17 +118,23 @@
 			<input id="outr" type="text" style="width: 80px;" readonly>&nbsp;R
 			<div id="blocker">Bitte Alles Ausfüllen</div>
 		</div>
-		<div id="settings">
-			<svg viewBox="0 0 80 80" height="42px">
+		<div id="settings" class="">
+			<svg id="spinnergear" viewBox="0 0 80 80" height="42px">
 				<use xlink:href="#gear"/>
 			</svg>
+			<div id="closer" class="hidden" onclick="showSettings();">
+				<svg>
+					<line y1="8" y2="8" x1="16"/>
+					<line x1="8" x2="8" y2="16"/>
+				</svg>
+			</div>
 			<h2>Einstellungen</h2>
-			<div class="btn" onclick="exportDB();">Exportieren...</div>
+			<div class="btn" onclick="exportDB();">Exportieren</div>
 			<a id="exportlink" style="display:none;">Hier :)</a>
-			<div class="btn">Importieren...</div>
-			<a class="btn" href="http://localhost:5984/_utils/fauxton/" target="_blank">Datenbankzugriff...</a>
-			<div class="btn">Hilfe...</div>
-			<div class="btn" onclick="parsefiles();" id="REB">Reset & Einlesen</div>
+			<div class="btn" onclick="fileinput.click();">Importieren</div>
+			<input type="file" id="fileinput" onchange="importDB(this.files[0],false);" hidden>
+			<a class="btn" href="http://localhost:5984/_utils/fauxton/" target="_blank">Datenbankzugriff</a>
+			<div class="btn">Hilfe</div>
 		</div>
 		<div id="backdrop"></div>
 		<script src="../db_files/felgenSC-C.json" type="text/javascript" charset="utf-8"></script>
