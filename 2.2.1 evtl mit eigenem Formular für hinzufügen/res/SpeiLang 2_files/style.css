@@ -1,0 +1,215 @@
+body {
+	font-family: arial, sans-serif;
+	font-size: 20;
+	font-weight: bold;
+	margin: 0px;
+	padding: 0px;
+	position: static;
+	background: #cef
+}
+
+.forms {
+	margin: 8px;`
+	width: 300px;
+	background: #f0f0f0;
+	padding: 20px;
+	border-radius: 6px;
+	text-align: center;
+	margin-top: 40px;
+	float: left;
+	position: relative;
+	box-shadow: 0px 0px 8px 0px
+}
+
+.delete {
+	background: red;
+	top: 8px;
+}
+
+.save {
+	background: orange;
+	top: 55px;
+}
+
+.sfb {
+	position: absolute;
+	color: white;
+	height: 42px;
+	width: 42px;
+	right: -20px;
+	border-radius: 21px;
+	overflow: hidden;
+	box-shadow: 0px 0px 4px 0px;
+	z-index: 42;
+	transform: scale(1);
+	transition: all 0.2s cubic-bezier(.5, 0, .5, 1.5);
+}
+
+.sfb.hidden {
+	transform: scale(0);
+}
+
+.sfb.expanded {
+	right: -297px;
+	height: 160px;
+	width: 320px;
+	z-index: 84;
+}
+
+.sfb.expanded:hover {
+	transform: scale(1);
+}
+
+.sfb:hover {
+	transform: scale(1.6);
+	z-index: 84;
+}
+
+.sfb svg {
+	margin: 11px;
+	float: left;
+}
+
+#blocker {
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+	width: 296px;
+	height: 20px;
+	background-color: #070;
+	border-radius: 4px;
+	padding: 12px;
+	color: white;
+}
+
+h1 {
+	margin: 0px;
+}
+
+h3 {
+	margin-top: 16px;
+	margin-bottom: 4px;
+	padding: 0px;
+	font-size: 20px;
+}
+
+input, button, select {
+	width: 300px;
+	font-size: 20px;
+}
+
+button {
+	height: 50px;
+	margin-top: 16px;
+}
+
+input[type="radio"] {
+	width: 16px;
+}
+
+.sides {
+	width: 73px;
+}
+
+#SettingsButton {
+	position: fixed;
+	bottom: 160px;
+	right: 68px;
+	background: #00f;
+	height: 64px;
+	width: 64px;
+	border-radius: 50%;
+	box-shadow: black 0px 0px 6px 0px;
+	z-index: 123;
+	transition: all 0.2s cubic-bezier(.5, 0, .5, 1.5);
+}
+
+#SettingsButton.hidden {
+	bottom: 68px;
+	transform: rotate(64deg);
+	z-index: 111;
+}
+
+#SettingsButton:hover {
+	transform: scale(1.6) rotate(64deg);
+	z-index: 150;
+}
+
+#SettingsButton.hidden:hover {
+	transform: scale(1) rotate(0deg);
+}
+
+#SettingsButton.hidden:hover + #ShowFormButton {
+	z-index: 5000;
+}
+
+#ShowFormButton {
+	background-color: #0c0;
+	color: white;
+	font-size: 50px;
+	font-weight: normal;
+	position: fixed;
+	height: 100px;
+	width: 100px;
+	border-radius: 50px;
+	box-shadow: black 0px 0px 8px 0px;
+	text-align: center;
+	bottom: 50px;
+	right: 50px;
+	z-index: 128;
+	transition: all 0.2s cubic-bezier(.5, 0, .5, 1.5);
+	cursor: pointer;
+}
+
+#ShowFormButton.active {
+	transform: rotate(45deg);
+	background: red;
+}
+
+#ShowFormButton:hover {
+	transform: scale(1.6) rotate(90deg)!important;
+	z-index: 160!important;
+}
+
+#ShowFormButton.active:hover {
+	transform: scale(1.6) rotate(135deg)!important;
+	z-index: 160!important;
+}
+
+#ShowFormButton div {
+	position: absolute;
+	top: 23px;
+	left: 35px;
+}
+
+#backdrop {
+	position: fixed;
+	display: none;
+	height: 100%;
+	width: 100%;
+	z-index: 100;
+	background: rgba(0,0,0,0.65);
+}
+
+#settings {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	z-index: 120;
+	display: none;
+}
+
+#form {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	z-index: 120;
+	display: none;
+}
+
+#legende {
+	border-radius: 16px;
+	margin-top: 16px;
+}
