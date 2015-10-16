@@ -228,7 +228,7 @@ input, select {
 	right: 50%;
 	transform: translate(50%,50%);
 	z-index: 120;
-	height: 192px;
+	height: 242px;
 	width: 80%;
 	max-width: 300px;
 }

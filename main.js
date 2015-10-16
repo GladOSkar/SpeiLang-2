@@ -117,8 +117,13 @@ function valchg(what) {
 	calc();
 }
 
-var felgenDB = new PouchDB('http://192.168.178.20:5984/felgen',{auto_compaction: true});
-var nabenDB = new PouchDB('http://192.168.178.20:5984/naben',{auto_compaction: true});
+if (localStorage.getItem("ip")) {
+	var felgenDB = new PouchDB("http://" + localStorage.getItem("ip") + ":5984/felgen", {auto_compaction: true});
+	var nabenDB = new PouchDB("http://" + localStorage.getItem("ip") + ":5984/naben", {auto_compaction: true});
+} else {
+	var felgenDB = new PouchDB("http://localhost:5984/felgen", {auto_compaction: true});
+	var nabenDB = new PouchDB("http://localhost:5984/naben", {auto_compaction: true});
+};
 
 function cpu(el) {
 	el.parentElement.classList.remove("expanded");
@@ -548,6 +553,8 @@ window.onload = function () {
 
 	felgenfeld.selectedIndex = "0";
 	nabenfeld.selectedIndex = "0";
+
+	ipfeld.value = localStorage.getItem("ip");
 }
 
 function showSettings() {
