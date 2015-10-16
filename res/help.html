@@ -70,6 +70,7 @@
 					<li><a href="#a4c">Datenbank aus Datei Importieren</a></li>
 				</ol>
 			</li>
+			<li><a href="#a5">SpeiLang 2 Einrichten</a></li>
 		</ol>
 
 		<h2 id="a2">Speichenlängen ausrechen</h2>
@@ -119,5 +120,18 @@
 		<h3 id="a4c">Datenbank aus Datei Importieren</h3>
 		<p><b>ACHTUNG! Dies wird die momentan geladene Datenbank komplett vernichten und durch die aus der Datei ersetzen!</b></p>
 		<p>Klicken Sie unten rechts auf den Blauen Kreis mit dem Zahnrad darauf. Es öffnet sich das Einstellungen-Fenster. Klicken Sie jetzt auf "Importieren" und es öffnet sich Ein Fenster, in dem Sie die hochzuladende Datei auswählen können. Wenn Sie sie ausgewählt haben, klicken Sie auf "OK". Bestätigen Sie die Sicherheitsnachfrage mit "OK". Sobald sich das Einstellungen-Fenster schließt sollten die Listen aktualisiert sein. Wenn nicht, warten sie ein paar Sekunden und öffnen Sie SpeiLang 2 neu.</p>
+
+		<h2 id="a5">SpeiLang 2 Einrichten</h2>
+		<p>Um SpeiLang einzurichten müssen folgende Dinge getan werden:</p>
+		<ol style="margin-left: 32px;">
+			<li>CouchDB herunterladen und installieren von <a href="http://couchdb.apache.org/#download">http://couchdb.apache.org/#download</a></li>
+			<li>CORS aktivieren (siehe <a href="http://pouchdb.com/getting-started.html#enabling_cors">http://pouchdb.com/getting-started.html#enabling_cors</a></li>
+			<li>IP-listening erweitern: Datei C:\Program Files (x86)\Apache Software Foundation\CouchDB\etc\couchdb\local.ini öffnen und in Sektion [httpd] "bind_address" einkommentieren und auf wert "0.0.0.0" setzen, sodass die Zeile "bind_address = 0.0.0.0" lautet.</li>
+			<li>SpeiLang 2 Herunterladen von <a href="https://github.com/GladOskar/SpeiLang-2/">https://github.com/GladOskar/SpeiLang-2/</a> (Unten Rechts --> "Download ZIP")</li>
+			<li>Entpacken in Verzeichnis der Wahl</li>
+			<li>Desktopverknüpfung erstellen (Ziel: index.html, Icon: faviconW.ico)</li>
+			<li>In SpeiLang 2 über Einstellungen > Importieren die Datei \devres\db_files\CorrectForImport.json Importieren</li>
+			<li>Fertig!</li>
+		</ol>
 	</body>
 </html>
