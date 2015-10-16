@@ -117,18 +117,8 @@ function valchg(what) {
 	calc();
 }
 
-var felgenDB = new PouchDB('http://localhost:5984/felgen',{auto_compaction: true});
-var nabenDB = new PouchDB('http://localhost:5984/naben',{auto_compaction: true});
-
-/*felgenDB.changes({
-	since: 'now',
-	live: true
-}).on('change', paint);
-
-nabenDB.changes({
-	since: 'now',
-	live: true
-}).on('change', paint);*/
+var felgenDB = new PouchDB('http://192.168.178.20:5984/felgen',{auto_compaction: true});
+var nabenDB = new PouchDB('http://192.168.178.20:5984/naben',{auto_compaction: true});
 
 function cpu(el) {
 	el.parentElement.classList.remove("expanded");
