@@ -287,7 +287,7 @@ input, select {
 	background-color:white;
 	border:solid grey 1px;
 	width:260px;
-	height:25px;
+	height:26px;
 }
 .select-editable select {
 	position:absolute;
