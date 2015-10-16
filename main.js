@@ -1,6 +1,11 @@
-function getLaengen(RFelge, RLochkreisL, RLochkreisR, AL, AR, LochZahl, RSpeichenLoch, KreuzungsZahl) {
-	"use strict";
-
+function getLaengen(RFelge,
+					RLochkreisL,
+					RLochkreisR,
+					AL,
+					AR,
+					LochZahl,
+					RSpeichenLoch,
+					KreuzungsZahl) {
 	var coswinkel =  Math.cos((360 / LochZahl * KreuzungsZahl) / 57.3),
 		LL = Math.sqrt(
 			RFelge * RFelge  +
@@ -19,33 +24,30 @@ function getLaengen(RFelge, RLochkreisL, RLochkreisR, AL, AR, LochZahl, RSpeiche
 	return {links : LL, rechts : LR};
 }
 
-function getVals() {
-	"use strict";
-
-	var vals = [], i;
-
-	for (i = 1; i < 10; i += 1) {
-		vals[i] = document.getElementById("val" + i).value;
+function getval(form,feld) {
+	var sel;
+	if (form == "n") {
+		sel = "#nabenform > input";
+	} else
+	if (form == "f") {
+		sel = "#felgenform > input";
+	} else {
+		sel = "#rechnerform > input";
 	}
-
-	return vals;
+	return document.querySelectorAll(sel)[feld-1].value;
 }
 
 function calc() {
-	"use strict";
-
-	var vals = getVals(), ergebnisse;
-
-	if ((vals[6] === vals[9]) && (everythingisfilledOK("a"))) {
+	if ((getval("n",6) == getval("f",2)) && (everythingisfilledOK("a"))) {
 		ergebnisse = getLaengen(
-			vals[1] * 0.5,		//	1.) FelgenDurchmesser					D1
-			vals[2] * 0.5,		//	2.) NabeLochkreisDurchmesserWDL			D2L
-			vals[3] * 0.5,		//	3.) NabeLochkreisDurchmesserWDR			D2R
-			vals[4],			//	4.) AbstandMitteZuSpeichenLoecherAL		AL
-			vals[5],			//	5.) AbstandMitteZuSpeichenLoecherAR		AR
-			vals[6] * 0.5,		//	6.) AnzahlSpeichenLoecher				Lochzahl
-			vals[7] * 0.5,		//	7.) SpeichenLochDurchmesserNabe			DSL
-			vals[8]				//	8.) AnzahlSpeichenKreuzungen			???(3)
+			getval("f",1) * 0.5,		//	1.) FelgenDurchmesser					D1
+			getval("n",1) * 0.5,		//	2.) NabeLochkreisDurchmesserWDL			D2L
+			getval("n",2) * 0.5,		//	3.) NabeLochkreisDurchmesserWDR			D2R
+			getval("n",3),				//	4.) AbstandMitteZuSpeichenLoecherAL		AL
+			getval("n",4),				//	5.) AbstandMitteZuSpeichenLoecherAR		AR
+			getval("n",6) * 0.5,		//	6.) AnzahlSpeichenLoecher				Lochzahl
+			getval("n",5) * 0.5,		//	7.) SpeichenLochDurchmesserNabe			DSL
+			getval("r",1)				//	8.) AnzahlSpeichenKreuzungen			???(3)
 		);
 		console.log("Links: " + ergebnisse.links + "; Rechts: " + ergebnisse.rechts);
 		outl.value = ergebnisse.links;
@@ -54,7 +56,7 @@ function calc() {
 		blocker.classList.add("hidden");
 	} else {
 		if (everythingisfilledOK("a")) {
-			console.log("Ungleiche Speichenanzahl! (Felge: " + vals[9] + " Löcher & Nabe: " + vals[6] + " Löcher!)");
+			console.log("Ungleiche Speichenanzahl! (Felge: " + getval("f",2) + " Löcher & Nabe: " + getval("n",6) + " Löcher!)");
 
 			blocker.style.backgroundColor = "red";
 			blocker.innerHTML = "Ungleiche Speichenlochanzahl";
@@ -81,7 +83,7 @@ function everythingisfilledOK(where) {
 		l = document.querySelectorAll("#nabenform > input");
 	} else {
 		//check alle felder
-		if (!((val1.value && val9.value) && val8.value)) {
+		if (!((getval("f",1) && getval("f",2)) && getval("r",1))) {
 			ans = false;
 		}
 		l = document.querySelectorAll("#nabenform > input");
@@ -115,10 +117,10 @@ function valchg(what) {
 	calc();
 }
 
-var felgenDB = new PouchDB('http://localhost:5984/felgen');
-var nabenDB = new PouchDB('http://localhost:5984/naben');
+var felgenDB = new PouchDB('http://localhost:5984/felgen',{auto_compaction: true});
+var nabenDB = new PouchDB('http://localhost:5984/naben',{auto_compaction: true});
 
-felgenDB.changes({
+/*felgenDB.changes({
 	since: 'now',
 	live: true
 }).on('change', paint);
@@ -126,7 +128,7 @@ felgenDB.changes({
 nabenDB.changes({
 	since: 'now',
 	live: true
-}).on('change', paint);
+}).on('change', paint);*/
 
 function cpu(el) {
 	el.parentElement.classList.remove("expanded");
@@ -206,25 +208,55 @@ function deletenabe() {
 }
 
 function savefelge() {
-	if (document.querySelector("#felgenform .save").classList.contains("expanded")) {
-		felgenDB.get(felgenfeld.value).then(function(felge) {
-			return felgenDB.put({
-				_id: felge._id,
-				_rev: felge._rev,
-				durchmesser: val1.value,
-				lochzahl: val9.value
+	if ((document.querySelector("#felgenform .save").classList.contains("expanded")) && ((felgenfeld.value) && (felgenfeld.nextElementSibling.value))) {
+		if (felgenfeld.value == felgenfeld.nextElementSibling.value) {
+			felgenDB.get(felgenfeld.value).then(function(felge) {
+				return felgenDB.put({
+					_id: felge._id,
+					_rev: felge._rev,
+					durchmesser: getval("f",1),
+					lochzahl: getval("f",2)
+				});
+			}).then(function(response) {
+				console.log("Speichern:");
+				console.log(response);
+				document.querySelector("#felgenform .save").classList.remove("expanded");
+				readfelgen();
+				paint();
+				document.querySelector("#felgenform .save").addEventListener("click", savefelge);
+			}).catch(function (err) {
+				alert("Fehler beim Eintragen, bitte nochmal versuchen.");
+				console.log(err);
 			});
-		}).then(function(response) {
-			console.log("Speichern:");
-			console.log(response);
-			document.querySelector("#felgenform .save").classList.remove("expanded");
-			readfelgen();
-			paint();
-			document.querySelector("#felgenform .save").addEventListener("click", savefelge);
-		}).catch(function (err) {
-			alert("Fehler beim Eintragen, bitte nochmal versuchen.");
-			console.log(err);
-		});
+		} else {
+			felgenDB.get(felgenfeld.value).then(function(felge) {
+				console.log(felge);
+				felgenDB.remove(felge).then(function(response) {
+					console.log(response);
+					felgenDB.put({
+						_id: felgenfeld.nextElementSibling.value,
+						durchmesser: getval("f",1),
+						lochzahl: getval("f",2)
+					}).then(function(response) {
+						console.log(response);
+						paint();
+						readfelgen();
+						felgenfeld.nextElementSibling.value = "Felge Auswählen...";
+						document.querySelector("#felgenform .save").classList.remove("expanded");
+						document.querySelector("#felgenform .save").addEventListener("click", savefelge);
+					}).catch(function (err) {
+						alert("Fehler beim Eintragen, bitte nochmal versuchen.");
+						console.log(err);
+					});
+				}).catch(function (err) {
+					alert("Fehler beim Eintragen, bitte nochmal versuchen.");
+					console.log(err);
+				});
+			}).catch(function (err) {
+				alert("Fehler beim Eintragen, bitte nochmal versuchen.");
+				console.log(err);
+			});
+		};
 	} else {
 		document.querySelector("#felgenform .save").removeEventListener("click", savefelge);
 		console.log("Felge speichern / überschreiben?");
@@ -244,8 +276,8 @@ function savenewfelge(btn) {
 
 			felgenDB.put({
 				_id: nid,
-				durchmesser: val1.value,
-				lochzahl: val9.value
+				durchmesser: getval("f",1),
+				lochzahl: getval("f",2)
 			}).then(function(response) {
 				console.log("Neue Felge Speichern:");
 				console.log(response);
@@ -270,29 +302,63 @@ function savenewfelge(btn) {
 }
 
 function savenabe() {
-	if (document.querySelector("#nabenform .save").classList.contains("expanded")) {
-		nabenDB.get(nabenfeld.value).then(function(nabe) {
-			return nabenDB.put({
-				_id: nabe._id,
-				_rev: nabe._rev,
-				lochkreisDML: val2.value,
-				lochkreisDMR: val3.value,
-				abstandL: val4.value,
-				abstandR: val5.value,
-				lochzahl: val6.value,
-				speichenlochDM:	val7.value
+	if ((document.querySelector("#nabenform .save").classList.contains("expanded")) && ((nabenfeld.value) && (nabenfeld.nextElementSibling.value))) {
+		if (nabenfeld.value == nabenfeld.nextElementSibling.value) {
+			return nabenDB.get(nabenfeld.value).then(function(nabe) {
+				return nabenDB.put({
+					_id: nabe._id,
+					_rev: nabe._rev,
+					lochkreisDML: getval("n",1),
+					lochkreisDMR: getval("n",2),
+					abstandL: getval("n",3),
+					abstandR: getval("n",4),
+					lochzahl: getval("n",6),
+					speichenlochDM:	getval("n",5)
 				});
-		}).then(function(response) {
-			console.log("Speichern:");
-			console.log(response);
-			document.querySelector("#nabenform .save").classList.remove("expanded");
-			readnaben();
-			paint();
-			document.querySelector("#nabenform .save").addEventListener("click", savenabe);
-		}).catch(function (err) {
-			alert("Fehler beim Eintragen, bitte nochmal versuchen.");
-			console.log(err);
-		});
+			}).then(function(response) {
+				console.log("Speichern:");
+				console.log(response);
+				document.querySelector("#nabenform .save").classList.remove("expanded");
+				readnaben();
+				paint();
+				document.querySelector("#nabenform .save").addEventListener("click", savenabe);
+			}).catch(function (err) {
+				alert("Fehler beim Eintragen, bitte nochmal versuchen.");
+				console.log(err);
+			});
+		} else {
+			nabenDB.get(nabenfeld.value).then(function(nabe) {
+				console.log(nabe);
+				nabenDB.remove(nabe).then(function(response) {
+					console.log(response);
+					nabenDB.put({
+						_id: nabenfeld.nextElementSibling.value,
+						lochkreisDML: getval("n",1),
+						lochkreisDMR: getval("n",2),
+						abstandL: getval("n",3),
+						abstandR: getval("n",4),
+						lochzahl: getval("n",6),
+						speichenlochDM:	getval("n",5)
+					}).then(function(response) {
+						console.log(response);
+						paint();
+						readnaben();
+						nabenfeld.nextElementSibling.value = "Nabe Auswählen...";
+						document.querySelector("#nabenform .save").classList.remove("expanded");
+						document.querySelector("#nabenform .save").addEventListener("click", savenabe);
+					}).catch(function (err) {
+						alert("Fehler beim Eintragen, bitte nochmal versuchen.");
+						console.log(err);
+					});
+				}).catch(function (err) {
+					alert("Fehler beim Eintragen, bitte nochmal versuchen.");
+					console.log(err);
+				});
+			}).catch(function (err) {
+				alert("Fehler beim Eintragen, bitte nochmal versuchen.");
+				console.log(err);
+			});
+		};
 	} else {
 		document.querySelector("#nabenform .save").removeEventListener("click", savenabe);
 		console.log("Nabe speichern / überschreiben?");
@@ -312,12 +378,12 @@ function savenewnabe(btn) {
 
 			nabenDB.put({
 				_id: nid,
-				lochkreisDML: val2.value,
-				lochkreisDMR: val3.value,
-				abstandL: val4.value,
-				abstandR: val5.value,
-				lochzahl: val6.value,
-				speichenlochDM:	val7.value
+				lochkreisDML: getval("n",1),
+				lochkreisDMR: getval("n",2),
+				abstandL: getval("n",3),
+				abstandR: getval("n",4),
+				lochzahl: getval("n",6),
+				speichenlochDM:	getval("n",5)
 			}).then(function(response) {
 				console.log("Neue Nabe Speichern:");
 				console.log(response);
@@ -375,14 +441,12 @@ function readfelgen() {
 			val1.value = teil.durchmesser;
 			val9.value = teil.lochzahl;
 			calc();
-	});
+		});
 	} else {
 		document.querySelector("#felgenform .delete").classList.add("hidden");
 
-		var vi = document.querySelectorAll("#felgenform input");
-		for (i = 0; i < vi.length; i++) {
-			vi[i].value = "";
-		};
+		val1.value = "";
+		val9.value = 36;
 	};
 	document.querySelector("#felgenform .save").classList.add("hidden");
 }
@@ -400,14 +464,16 @@ function readnaben() {
 			val6.value = teil.lochzahl;
 			val7.value = teil.speichenlochDM;
 			calc();
-	});
+		});
 	} else {
 		document.querySelector("#nabenform .delete").classList.add("hidden");
 
-		var vi = document.querySelectorAll("#nabenform input");
-		for (i = 0; i < vi.length; i++) {
+		var vi = document.querySelectorAll("#nabenform > input");
+		for (i = 0; i < vi.length - 2; i++) {
 			vi[i].value = "";
 		};
+		val7.value = 2.5;
+		val6.value = 36;
 	};
 	document.querySelector("#nabenform .save").classList.add("hidden");
 }
@@ -415,6 +481,8 @@ function readnaben() {
 function paint() {
 	var phe = document.createElement("option"),
 		phz = document.createElement("option");
+
+	console.log("erstelle Listen...");
 
 	phe.value = "";
 	phe.innerHTML = "Felge Auswählen...";

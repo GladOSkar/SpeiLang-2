@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+	<head>
+		<title>SpeiLang 2 Hilfe</title>
+		<meta charset="utf-8">
+		<link href="favicon.png" rel="icon" type="image/ico">
+		<style>
+			html {
+				font-family: arial, sans-serif;
+				background: #cef
+			}
+
+			body {
+				margin: 16px auto;
+				width: 80%;
+				max-width: 800px;
+				background: #f0f0f0;
+				padding: 40px;
+				border-radius: 8px;
+				box-shadow: 0px 0px 8px 0px;
+			}
+
+			table {
+				margin-left: 64px;
+				border-spacing: 0;
+				border-collapse: collapse;
+			}
+
+			td,th {
+				padding: 8px;
+				border: 1px solid black;
+			}
+
+			th {font-weight: bold;}
+			li li {list-style-type: lower-alpha;}
+			h2 {margin-left: 16px;}
+			h3 {margin-left: 32px;}
+			p {margin-left: 32px;}
+			b {color: red;}
+		</style>
+	</head>
+	<body>
+		<h1>Anleitung für "SpeiLang 2"</h1>
+		<h2 id="a1">Inhalt</h2>
+		<ol style="border-left: 1px solid black;
+				   margin-left: 16px;">
+			<li><a href="#a1">Inhalt</a></li>
+			<li>
+				<a href="#a2">Speichenlängen ausrechen</a>
+				<ol>
+					<li><a href="#a2a">Messwerte manuell eingeben</a></li>
+					<li><a href="#a2b">Messwerte aus Datenbank lesen</a></li>
+				</ol>
+			</li>
+			<li>
+				<a href="#a3">Datenbank bearbeiten</a>
+				<ol>
+					<li><a href="#a3a">Neues Teil mit manuell eingegebenen Messwerten eintragen</a></li>
+					<li><a href="#a3b">Neues Teil mit vorhandenem Teil als Vorlage eintragen</a></li>
+					<li><a href="#a3c">Werte von Vorhandenem Teil ändern</a></li>
+					<li><a href="#a3d">Teil aus der Datenbank löschen</a></li>
+					<li><a href="#a3e">Teile & Werte direkt in der Datenbank ändern</a></li>
+				</ol>
+			</li>
+			<li>
+				<a href="#a4">Erweitert</a>
+				<ol>
+					<li><a href="#a4a">Einstellungen der Datenbank ändern</a></li>
+					<li><a href="#a4b">Datenbank in Datei Exportieren</a></li>
+					<li><a href="#a4c">Datenbank aus Datei Importieren</a></li>
+				</ol>
+			</li>
+		</ol>
+
+		<h2 id="a2">Speichenlängen ausrechen</h2>
+		<h3 id="a2a">Messwerte manuell eingeben</h3>
+		<p>Füllen sie alle Felder in allen Bereichen des Formulars aus. Das Ergebnis wird dann automatisch angezeigt. Wenn Sie irgendeinen Wert ändern, wird das Ergebnis automatisch angepasst.</p>
+		<h3 id="a2b">Messwerte aus Datenbank lesen</h3>
+		<p>Klicken Sie auf das erste Feld im Bereich Felgen und wählen Sie die gewünschte Felge aus der Liste aus. Dadurch werden die darunter liegenden Felder automatisch gefüllt. Wählen sie dann genauso im Feld Naben eine Nabe und im Feld Rechner die Anzahl der Speichenkreuzungen. Das Ergebnis wird automatisch angezeigt. Wenn Sie irgendeinen Wert ändern, wird das Ergebnis automatisch angepasst.</p>
+		<h2 id="a3">Datenbank bearbeiten</h2>
+		<h3 id="a3a">Neues Teil mit manuell eingegebenen Messwerten eintragen</h3>
+		<p>Füllen sie alle Felder in dem Bereich des Formulars aus, bei dem Sie das Teil eintragen möchten. Sobald Sie dort alle Felder ausgefüllt haben, wird oben Rechts im Feld ein gelber Kreis mit einem Speicher-Symbol auftauchen. Klicken Sie darauf, und es wird sich ein kleines Pop-Up-Fenster öffnen. Tragen Sie in diesem Feld den Namen und die Marke des entsprechenden Teils ein. Der Name darf nicht schon in der Datenbank vorhanden sein, und kann auch eine Beschreibung des Teils enthalten. Zum Beispiel:</p>
+		<table>
+			<tr>
+				<th>Marke</th>
+				<th>Name</th>
+			</tr>
+			<tr>
+				<td>Ambrosio</td>
+				<td>V-Profil ohne Ösen 622-13,5</td>
+			</tr>
+			<tr>
+				<td>H+Son</td>
+				<td>EERO 559</td>
+			</tr>
+			<tr>
+				<td>Ryde</td>
+				<td>Andra 210, ungeöst, gepunzt</td>
+			</tr>
+		</table>
+		<p>Klicken sie danach darunter auf "Speichern". Das Neue Teil ist jetzt in der Datenbank verfügbar.</p>
+		<h3 id="a3b">Neues Teil mit vorhandenem Teil als Vorlage eintragen</h3>
+		<p>Wählen Sie das Teil, das als Vorlage dienen soll so an, als wollten Sie es zum Ausrechen von Speichenlängen benutzen (s.o.). Es wird, wie wenn Sie die Werte manuell eintragen, ein gelber Kreis mit einem Speichern-Symbol auftauchen. Klicken sie diesen an und klicken sie dann auf "Als neue Felge/Nabe Speichern...", und geben sie wie oben beschrieben die Marke und den Namen ein und klicken sie auf "Speichern".</p>
+		<h3 id="a3c">Werte von Vorhandenem Teil ändern</h3>
+		<p>Wählen Sie das Teil, das Sie ändern wollen so an, als wollten Sie es zum Ausrechen von Speichenlängen benutzen (s.o.). Nehmen Sie nun in den entsprechenden Feldern die gewünschten änderungen vor. Klicken sie danach auf den gelben Kreis mit dem Speichern-Symbol oben rechts im Feld, und danach auf "Überschreiben". Falls die Änderungen nicht sofort eintreten, warten Sie einige Sekunden und starten Sie SpeiLang 2 neu.</p>
+		<h3 id="a3d">Teil aus der Datenbank löschen</h3>
+		<p>Wählen Sie das Teil, das Sie löschen wollen so an, als wollten Sie es zum Ausrechen von Speichenlängen benutzen (s.o.). Klicken sie dann auf den roten Kreis mit dem Mülltonnen-Symbol oben rechts im Feld, und danach auf "Löschen".</p>
+		<h3 id="a3e">Teile, Werte & Namen direkt in der Datenbank ändern</h3>
+		<p>Um die Datenbankoberfläche zu öffnen, klicken Sie unten rechts auf den Blauen Kreis mit dem Zahnrad darauf. Es öffnet sich das Einstellungen-Fenster. Klicken Sie hier auf "Datenbankzugriff", und es wird sich ein Browserfenster öffnen.</p>
+		<p>Sie sind nun im CouchDB - Fauxton. Im Hauptfenster kommen Sie direkt zu den einzelnen Datenbanken.</p>
+		<p>Auf den Datenbanken-Seiten sind alle Einträge auf Seiten aufgeteilt aufgelistet. Wenn Sie mit der Maus über einen Eintrag fahren, erscheinen oben rechts im Eintra die Optionen, den Eintrag (Das "Dokument") zu löschen oder es als JSON zu beabeiten.</p>
+
+		<h2 id="a4">Erweitert</h2>
+		<h3 id="a4a">Einstellungen der Datenbank ändern</h3>
+		<p>Um die Datenbankoberfläche zu öffnen, klicken sie unten rechts auf den Blauen Kreis mit dem Zahnrad darauf. Es öffnet sich das Einstellungen-Fenster. Klicken Sie hier auf "Datenbankzugriff", und es wird sich ein Browserfenster öffnen.</p>
+		<p>Auf der Linken Seite kommen Sie zu den Einstellungen der Datenbanken. Dort können Sie oben rechts Einträge hinzufügen oder in jeder Zeile den entsprechenden Eintrag bearbeiten oder entfernen.</p>
+		<h3 id="a4b">Datenbank in Datei Exportieren</h3>
+		<p>Klicken Sie unten rechts auf den Blauen Kreis mit dem Zahnrad darauf. Es öffnet sich das Einstellungen-Fenster. Wenn Sie jetzt auf "Exportieren" klicken, wird die Datenbank als JSON-Datei zum Download angeboten.</p>
+		<h3 id="a4c">Datenbank aus Datei Importieren</h3>
+		<p><b>ACHTUNG! Dies wird die momentan geladene Datenbank komplett vernichten und durch die aus der Datei ersetzen!</b></p>
+		<p>Klicken Sie unten rechts auf den Blauen Kreis mit dem Zahnrad darauf. Es öffnet sich das Einstellungen-Fenster. Klicken Sie jetzt auf "Importieren" und es öffnet sich Ein Fenster, in dem Sie die hochzuladende Datei auswählen können. Wenn Sie sie ausgewählt haben, klicken Sie auf "OK". Bestätigen Sie die Sicherheitsnachfrage mit "OK". Sobald sich das Einstellungen-Fenster schließt sollten die Listen aktualisiert sein. Wenn nicht, warten sie ein paar Sekunden und öffnen Sie SpeiLang 2 neu.</p>
+	</body>
+</html>

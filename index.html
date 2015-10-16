@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="de-DE">
+<html lang="nb">
 	<head>
 		<title>SpeiLang 2</title>
 		<meta charset="utf-8">
-		<link href="res/favicon.png" rel="icon" type="image/ico">
+		<link href="res/favicon.png" rel="icon" type="image/png">
 		<link href="style.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
@@ -63,13 +63,19 @@
 
 			<h1>Felge</h1>
 			<h3>Name</h3>
-			<select id="felgenfeld">
-				<option value="">Felge Auswählen...</option>
+
 			</select>
+			<div class="select-editable">
+				<select id="felgenfeld" onchange="this.nextElementSibling.value = this.childNodes[this.selectedIndex].innerHTML;">
+					<option value="">Felge Auswählen...</option>
+				</select>
+				<input type="text" name="format" value="Felge Auswählen..."/ onkeyup="valchg('f');">
+			</div>
+
 			<h3>Felgendurchmesser</h3>
 			<input id="val1" type="number">
 			<h3>Anzahl Speichenlöcher</h3>
-			<input id="val9" type="number">
+			<input id="val9" type="number" step="4" value="36" min="20" max="48">
 		</div>
 		<div id="nabenform" class="forms">
 			<div class="delete sfb hidden">
@@ -95,9 +101,14 @@
 
 			<h1>Nabe</h1>
 			<h3>Name</h3>
-			<select id="nabenfeld">
-				<option value="">Nabe Auswählen...</option>
-			</select>
+
+			<div class="select-editable">
+				<select id="nabenfeld" onchange="this.nextElementSibling.value = this.childNodes[this.selectedIndex].innerHTML;">
+					<option value="">Nabe Auswählen...</option>
+				</select>
+				<input type="text" name="format" value="Nabe Auswählen..."/ onkeyup="valchg('n');">
+			</div>
+
 			<h3>Lochkreisdurchmesser</h3>
 			L&nbsp;<input id="val2" type="number" class="sides">
 				 <input id="val3" type="number" class="sides">&nbsp;R
@@ -105,9 +116,9 @@
 			L&nbsp;<input id="val4" type="number" class="sides">
 				 <input id="val5" type="number" class="sides">&nbsp;R
 			<h3>Speichenlochdurchmesser</h3>
-			<input id="val7" type="text">
+			<input id="val7" type="number" value="2.5" step=".05">
 			<h3>Anzahl Speichenlöcher</h3>
-			<input id="val6" type="number">
+			<input id="val6" type="number" step="4" value="36" min="20" max="48">
 		</div>
 		<div id="rechnerform" class="forms">
 			<div style="width: 260px"></div>
@@ -138,8 +149,6 @@
 			<a class="btn" href="res/help.html" target="_blank">Hilfe</a>
 		</div>
 		<div id="backdrop"></div>
-		<script src="../db_files/felgenSC-C.json" type="text/javascript" charset="utf-8"></script>
-		<script src="../db_files/nabenSC-C.json" type="text/javascript" charset="utf-8"></script>
 		<script src="lib/pouchdb-4.0.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="main.js" type="text/javascript" charset="utf-8"></script>
 	</body>
