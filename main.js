@@ -548,6 +548,7 @@ window.onload = function () {
 	vi.addEventListener("keyup", function(){valchg("");});
 
 	settings.addEventListener("click", showSettings);
+	settings.addEventListener("touchend", showSettings);
 
 	backdrop.addEventListener("click", showSettings);
 
@@ -555,6 +556,7 @@ window.onload = function () {
 	nabenfeld.selectedIndex = "0";
 
 	ipfeld.value = localStorage.getItem("ip");
+	ipfeld.previousElementSibling.setAttribute("href","http://" + ip + ":5984/_utils/fauxton/")
 }
 
 function showSettings() {
@@ -567,12 +569,14 @@ function showSettings() {
 		closer.classList.add("hidden");
 		setTimeout(function(){
 			settings.addEventListener("click", showSettings);
+			settings.addEventListener("touchend", showSettings);
 		}, 200);
 	} else {
 		console.log("showing settings");
 		backdrop.style.display = "block";
 		settings.classList.add("expanded");
 		settings.removeEventListener("click", showSettings);
+		settings.removeEventListener("touchend", showSettings);
 		setTimeout(function(){
 			closer.classList.remove("hidden");
 		}, 300);
@@ -666,4 +670,11 @@ function importDB(file,final) {
 
 		reader.readAsText(file)
 	};
+}
+
+function setip(ip) {
+	console.log("Setting Server IP to " + ip);
+	localStorage.setItem("ip", ip);
+	ipfeld.previousElementSibling.setAttribute("href","http://" + ip + ":5984/_utils/fauxton/");
+	window.location.reload(false);
 }

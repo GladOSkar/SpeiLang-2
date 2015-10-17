@@ -3,6 +3,7 @@
 	<head>
 		<title>SpeiLang 2</title>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link href="res/favicon.png" rel="icon" type="image/png">
 		<link href="style.css" rel="stylesheet" type="text/css">
 	</head>
@@ -147,7 +148,7 @@
 			<input type="file" id="fileinput" onchange="importDB(this.files[0],false);" hidden>
 			<a class="btn" href="res/help.html" target="_blank">Hilfe</a>
 			<a class="btn" href="http://localhost:5984/_utils/fauxton/" target="_blank">Datenbankzugriff</a>
-			<input type="text" id="ipfeld" value="" style="width: 150px;" placeholder="Server-IP"><div class="btn" onclick="localStorage.setItem('ip', ipfeld.value);showSettings();">Setzen</div>
+			<input type="text" id="ipfeld" value="" style="width: 150px;" placeholder="Server-IP"><div class="btn" onclick="setip(ipfeld.value)">Setzen</div>
 		</div>
 		<div id="backdrop"></div>
 		<script src="lib/pouchdb-4.0.1.min.js" type="text/javascript" charset="utf-8"></script>
