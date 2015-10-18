@@ -1,0 +1,11 @@
+{
+	"short_name": "SL 2",
+	"name": "SpeiLang 2",
+	"icons": [
+		{"src": "/fw144.png", "sizes": "144x144", "type": "image/png"},
+		{"src": "/fw96.png", "sizes": "96x96", "type": "image/png"},
+		{"src": "/fw48.png", "sizes": "48x48", "type": "image/png"}
+	],
+	"start_url": "/../index.html",
+	"display": "standalone"
+}

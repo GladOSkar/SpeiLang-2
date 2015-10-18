@@ -1,0 +1,10 @@
+CACHE MANIFEST
+
+#v3
+
+../index.html
+../style.css
+../main.js
+../lib/pouchdb-5.0.0.min.js
+fw144.png
+manifest.json

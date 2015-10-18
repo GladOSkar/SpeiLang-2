@@ -8,17 +8,22 @@ body {
 	background: #cef
 }
 
+#formwrapper {
+	overflow: auto;
+	text-align: center;
+}
+
 .forms {
-	margin: 7px;`
+	margin: 8px;`
 	width: 280px;
 	background: #f0f0f0;
 	padding: 20px;
 	border-radius: 6px;
 	text-align: center;
-	margin-top: 40px;
-	float: left;
+	vertical-align: top;
 	position: relative;
-	box-shadow: 0px 0px 8px 0px
+	box-shadow: 0px 0px 8px 0px;
+	display: inline-block;
 }
 
 .delete {
@@ -215,6 +220,8 @@ input, select {
 
 #backdrop {
 	position: fixed;
+	top: 0px;
+	left: 0px;
 	display: none;
 	height: 100%;
 	width: 100%;

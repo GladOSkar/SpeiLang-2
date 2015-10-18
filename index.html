@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="de-DE">
+<html lang="de-DE" manifest="res/cache.mf">
 	<head>
 		<title>SpeiLang 2</title>
 		<meta charset="utf-8">
+		<meta name="theme-color" content="blue">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link href="res/favicon.png" rel="icon" type="image/png">
+		<link href="res/fw144.png" rel="icon" type="image/png">
 		<link href="style.css" rel="stylesheet" type="text/css">
+		<link href="res/manifest.json" rel="manifest" type="text/json">
 	</head>
 	<body>
 		<svg style="display:none;">
@@ -39,97 +41,99 @@
 				<use xlink:href="#geartooth" transform="rotate(300, 40, 40)"/>
 			</g>
 		</svg>
-		<div id="felgenform" class="forms">
-			<div class="delete sfb hidden">
-				<svg viewBox="0 0 80 80" height="20px"><use xlink:href="#bin"/></svg>
-				<h2>LÖSCHEN?</h2>
-				<p>Sind sie sich sicher, dass sie diese Felge löschen wollen?</p>
-				<div class="btn" onclick="cpu(this);">Abbrechen</div>
-				<div class="btn" onclick="deletefelge();">Löschen</div>
-			</div>
-			<div class="save sfb hidden">
-				<svg viewBox="0 0 80 80" height="20px"><use xlink:href="#floppy"/></svg>
-				<h2>SPEICHERN?</h2>
-				<p class="ovw">Sind sie sich sicher, dass sie diese Felge überschreiben wollen?</p>
-				<div class="nameinputs">
-					<h3>Marke</h3>
-					<input type="text">
-					<h3>Name</h3>
-					<input type="text">
+		<div id="formwrapper">
+			<div id="felgenform" class="forms">
+				<div class="delete sfb hidden">
+					<svg viewBox="0 0 80 80" height="20px"><use xlink:href="#bin"/></svg>
+					<h2>LÖSCHEN?</h2>
+					<p>Sind sie sich sicher, dass sie diese Felge löschen wollen?</p>
+					<div class="btn" onclick="cpu(this);">Abbrechen</div>
+					<div class="btn" onclick="deletefelge();">Löschen</div>
 				</div>
-				<div class="btn" onclick="cpu(this);">Abbrechen</div>
-				<div class="btn ovwbtn" onclick="savefelge();">Überschreiben</div>
-				<div class="btn" onclick="savenewfelge(this);">Als neue Felge Speichern...</div>
-			</div>
-
-			<h1>Felge</h1>
-			<h3>Name</h3>
-
-			</select>
-			<div class="select-editable">
-				<select id="felgenfeld" onchange="this.nextElementSibling.value = this.childNodes[this.selectedIndex].innerHTML;">
-					<option value="">Felge Auswählen...</option>
-				</select>
-				<input type="text" name="format" value="Felge Auswählen..."/ onkeyup="valchg('f');">
-			</div>
-
-			<h3>Felgendurchmesser</h3>
-			<input id="val1" type="number">
-			<h3>Anzahl Speichenlöcher</h3>
-			<input id="val9" type="number" step="4" value="36" min="20" max="48">
-		</div>
-		<div id="nabenform" class="forms">
-			<div class="delete sfb hidden">
-				<svg viewBox="0 0 80 80" height="20px"><use xlink:href="#bin"/></svg>
-				<h2>LÖSCHEN?</h2>
-				<p>Sind sie sich sicher, dass sie diese Nabe löschen wollen?</p>
-				<div class="btn" onclick="cpu(this);">Abbrechen</div><div class="btn" onclick="deletenabe();">Löschen</div>
-			</div>
-			<div class="save sfb hidden">
-				<svg viewBox="0 0 80 80" height="20px"><use xlink:href="#floppy"/></svg>
-				<h2>SPEICHERN?</h2>
-				<p class="ovw">Sind sie sich sicher, dass sie diese Nabe überschreiben wollen?</p>
-				<div class="nameinputs">
-					<h3>Marke</h3>
-					<input type="text">
-					<h3>Name</h3>
-					<input type="text">
+				<div class="save sfb hidden">
+					<svg viewBox="0 0 80 80" height="20px"><use xlink:href="#floppy"/></svg>
+					<h2>SPEICHERN?</h2>
+					<p class="ovw">Sind sie sich sicher, dass sie diese Felge überschreiben wollen?</p>
+					<div class="nameinputs">
+						<h3>Marke</h3>
+						<input type="text">
+						<h3>Name</h3>
+						<input type="text">
+					</div>
+					<div class="btn" onclick="cpu(this);">Abbrechen</div>
+					<div class="btn ovwbtn" onclick="savefelge();">Überschreiben</div>
+					<div class="btn" onclick="savenewfelge(this);">Als neue Felge Speichern...</div>
 				</div>
-				<div class="btn" onclick="cpu(this);">Abbrechen</div>
-				<div class="btn ovwbtn" onclick="savenabe();">Überschreiben</div>
-				<div class="btn" onclick="savenewnabe(this);">Als neue Nabe Speichern...</div>
-			</div>
 
-			<h1>Nabe</h1>
-			<h3>Name</h3>
+				<h1>Felge</h1>
+				<h3>Name</h3>
 
-			<div class="select-editable">
-				<select id="nabenfeld" onchange="this.nextElementSibling.value = this.childNodes[this.selectedIndex].innerHTML;">
-					<option value="">Nabe Auswählen...</option>
 				</select>
-				<input type="text" name="format" value="Nabe Auswählen..."/ onkeyup="valchg('n');">
-			</div>
+				<div class="select-editable">
+					<select id="felgenfeld" onchange="this.nextElementSibling.value = this.childNodes[this.selectedIndex].innerHTML;">
+						<option value="">Felge Auswählen...</option>
+					</select>
+					<input type="text" name="format" value="Felge Auswählen..."/ onkeyup="valchg('f');">
+				</div>
 
-			<h3>Lochkreisdurchmesser</h3>
-			L&nbsp;<input id="val2" type="number" class="sides">
-				 <input id="val3" type="number" class="sides">&nbsp;R
-			<h3>Innenabstand</h3>
-			L&nbsp;<input id="val4" type="number" class="sides">
-				 <input id="val5" type="number" class="sides">&nbsp;R
-			<h3>Speichenlochdurchmesser</h3>
-			<input id="val7" type="number" value="2.5" step=".05">
-			<h3>Anzahl Speichenlöcher</h3>
-			<input id="val6" type="number" step="4" value="36" min="20" max="48">
-		</div>
-		<div id="rechnerform" class="forms">
-			<div style="width: 260px"></div>
-			<h1>Rechner</h1>
-			<h3>Zahl Speichenkreuzungen</h3>
-			<input id="val8" type="number" value="3" min="0" max="4" style="width: 42px">
-			<h3>Länge:</h3>
-			L&nbsp;<input id="outl" type="text" style="width: 80px;" readonly>
-			<input id="outr" type="text" style="width: 80px;" readonly>&nbsp;R
-			<div id="blocker">Bitte Alles Ausfüllen</div>
+				<h3>Felgendurchmesser</h3>
+				<input id="val1" type="number">
+				<h3>Anzahl Speichenlöcher</h3>
+				<input id="val9" type="number" step="4" value="36" min="20" max="48">
+			</div>
+			<div id="nabenform" class="forms">
+				<div class="delete sfb hidden">
+					<svg viewBox="0 0 80 80" height="20px"><use xlink:href="#bin"/></svg>
+					<h2>LÖSCHEN?</h2>
+					<p>Sind sie sich sicher, dass sie diese Nabe löschen wollen?</p>
+					<div class="btn" onclick="cpu(this);">Abbrechen</div><div class="btn" onclick="deletenabe();">Löschen</div>
+				</div>
+				<div class="save sfb hidden">
+					<svg viewBox="0 0 80 80" height="20px"><use xlink:href="#floppy"/></svg>
+					<h2>SPEICHERN?</h2>
+					<p class="ovw">Sind sie sich sicher, dass sie diese Nabe überschreiben wollen?</p>
+					<div class="nameinputs">
+						<h3>Marke</h3>
+						<input type="text">
+						<h3>Name</h3>
+						<input type="text">
+					</div>
+					<div class="btn" onclick="cpu(this);">Abbrechen</div>
+					<div class="btn ovwbtn" onclick="savenabe();">Überschreiben</div>
+					<div class="btn" onclick="savenewnabe(this);">Als neue Nabe Speichern...</div>
+				</div>
+
+				<h1>Nabe</h1>
+				<h3>Name</h3>
+
+				<div class="select-editable">
+					<select id="nabenfeld" onchange="this.nextElementSibling.value = this.childNodes[this.selectedIndex].innerHTML;">
+						<option value="">Nabe Auswählen...</option>
+					</select>
+					<input type="text" name="format" value="Nabe Auswählen..."/ onkeyup="valchg('n');">
+				</div>
+
+				<h3>Lochkreisdurchmesser</h3>
+				L&nbsp;<input id="val2" type="number" class="sides">
+					 <input id="val3" type="number" class="sides">&nbsp;R
+				<h3>Innenabstand</h3>
+				L&nbsp;<input id="val4" type="number" class="sides">
+					 <input id="val5" type="number" class="sides">&nbsp;R
+				<h3>Speichenlochdurchmesser</h3>
+				<input id="val7" type="number" value="2.5" step=".05">
+				<h3>Anzahl Speichenlöcher</h3>
+				<input id="val6" type="number" step="4" value="36" min="20" max="48">
+			</div>
+			<div id="rechnerform" class="forms">
+				<div style="width: 260px"></div>
+				<h1>Rechner</h1>
+				<h3>Zahl Speichenkreuzungen</h3>
+				<input id="val8" type="number" value="3" min="0" max="4" style="width: 42px">
+				<h3>Länge:</h3>
+				L&nbsp;<input id="outl" type="text" style="width: 80px;" readonly>
+				<input id="outr" type="text" style="width: 80px;" readonly>&nbsp;R
+				<div id="blocker">Bitte Alles Ausfüllen</div>
+			</div>
 		</div>
 		<div id="settings" class="">
 			<svg id="spinnergear" viewBox="0 0 80 80" height="42px">

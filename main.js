@@ -117,26 +117,33 @@ function valchg(what) {
 	calc();
 }
 
-if (localStorage.getItem("ip")) {
-	var felgenDBremote = new PouchDB("http://" + localStorage.getItem("ip") + ":5984/felgen", {auto_compaction: true});
-	var nabenDBremote = new PouchDB("http://" + localStorage.getItem("ip") + ":5984/naben", {auto_compaction: true});
-} else {
-	var felgenDBremote = new PouchDB("http://localhost:5984/felgen", {auto_compaction: true});
-	var nabenDBremote = new PouchDB("http://localhost:5984/naben", {auto_compaction: true});
-};
+var felgenDBremote, nabenDBremote, felgenDB, nabenDB;
 
-var felgenDB = new PouchDB("localfelgen", {auto_compaction: true});
-var nabenDB = new PouchDB("localnaben", {auto_compaction: true});
+function initDBs() {
+	if (localStorage.getItem("ip")) {
+		felgenDBremote = new PouchDB("http://" + localStorage.getItem("ip") + ":5984/felgen", {auto_compaction: true});
+		nabenDBremote = new PouchDB("http://" + localStorage.getItem("ip") + ":5984/naben", {auto_compaction: true});
+	} else {
+		felgenDBremote = new PouchDB("http://localhost:5984/felgen", {auto_compaction: true});
+		nabenDBremote = new PouchDB("http://localhost:5984/naben", {auto_compaction: true});
+	};
 
-felgenDB.sync(felgenDBremote, {
-  live: true,
-  retry: true
-});
+	felgenDB = new PouchDB("localfelgen", {auto_compaction: true});
+	nabenDB = new PouchDB("localnaben", {auto_compaction: true});
 
-nabenDB.sync(nabenDBremote, {
-  live: true,
-  retry: true
-});
+	felgenDB.sync(felgenDBremote, {
+		live: true,
+		retry: true
+	});
+
+	nabenDB.sync(nabenDBremote, {
+		live: true,
+		retry: true
+	});
+
+}
+
+initDBs();
 
 function cpu(el) {
 	el.parentElement.classList.remove("expanded");
@@ -654,11 +661,12 @@ function importDB(file,final) {
 
 					Promise.all([
 						felgenDB.destroy(),
-						nabenDB.destroy()
+						nabenDB.destroy(),
+						felgenDBremote.destroy(),
+						nabenDBremote.destroy()
 					]).then(function(arrayOfResults) {
 						if (arrayOfResults.every(obj => obj.ok)) {
-							felgenDB = new PouchDB('http://localhost:5984/felgen');
-							nabenDB = new PouchDB('http://localhost:5984/naben');
+							initDBs();
 
 							Promise.all([
 								felgenDB.bulkDocs(data[0]),
@@ -668,6 +676,7 @@ function importDB(file,final) {
 								showSettings();
 								spinnergear.classList.remove("spinning");
 							}).catch(function (err) {
+								spinnergear.classList.remove("spinning");
 								alert("Unbekannter Fehler beim einlesen der Datenbank");
 								console.log(err);
 							});
