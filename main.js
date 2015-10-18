@@ -118,12 +118,25 @@ function valchg(what) {
 }
 
 if (localStorage.getItem("ip")) {
-	var felgenDB = new PouchDB("http://" + localStorage.getItem("ip") + ":5984/felgen", {auto_compaction: true});
-	var nabenDB = new PouchDB("http://" + localStorage.getItem("ip") + ":5984/naben", {auto_compaction: true});
+	var felgenDBremote = new PouchDB("http://" + localStorage.getItem("ip") + ":5984/felgen", {auto_compaction: true});
+	var nabenDBremote = new PouchDB("http://" + localStorage.getItem("ip") + ":5984/naben", {auto_compaction: true});
 } else {
-	var felgenDB = new PouchDB("http://localhost:5984/felgen", {auto_compaction: true});
-	var nabenDB = new PouchDB("http://localhost:5984/naben", {auto_compaction: true});
+	var felgenDBremote = new PouchDB("http://localhost:5984/felgen", {auto_compaction: true});
+	var nabenDBremote = new PouchDB("http://localhost:5984/naben", {auto_compaction: true});
 };
+
+var felgenDB = new PouchDB("localfelgen", {auto_compaction: true});
+var nabenDB = new PouchDB("localnaben", {auto_compaction: true});
+
+felgenDB.sync(felgenDBremote, {
+  live: true,
+  retry: true
+});
+
+nabenDB.sync(nabenDBremote, {
+  live: true,
+  retry: true
+});
 
 function cpu(el) {
 	el.parentElement.classList.remove("expanded");
@@ -556,7 +569,7 @@ window.onload = function () {
 	nabenfeld.selectedIndex = "0";
 
 	ipfeld.value = localStorage.getItem("ip");
-	ipfeld.previousElementSibling.setAttribute("href","http://" + ip + ":5984/_utils/fauxton/")
+	ipfeld.previousElementSibling.setAttribute("href","http://" + localStorage.getItem("ip") + ":5984/_utils/fauxton/")
 }
 
 function showSettings() {
