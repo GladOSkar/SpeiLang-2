@@ -134,11 +134,15 @@ function initDBs() {
 	felgenDB.sync(felgenDBremote, {
 		live: true,
 		retry: true
+	}).on('error', function (err) {
+		alert("Fehler beim Synchronisieren mit Felgendatenbank");
 	});
 
 	nabenDB.sync(nabenDBremote, {
 		live: true,
 		retry: true
+	}).on('error', function (err) {
+		alert("Fehler beim Synchronisieren mit Nabendatenbank");
 	});
 
 }
