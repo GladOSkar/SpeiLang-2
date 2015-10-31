@@ -314,3 +314,11 @@ input, select {
 .select-editable select:focus, .select-editable input:focus {
 	outline:none;
 }
+
+#ipfeld {
+	border: none;
+	border-radius: 8px;
+	height: 16px;
+	width: 152px;
+	padding: 8px;
+}
