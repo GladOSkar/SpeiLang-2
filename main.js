@@ -117,34 +117,31 @@ function valchg(what) {
 	calc();
 }
 
-var felgenDBremote, nabenDBremote, felgenDB, nabenDB;
+var felgenDBremote = 0, nabenDBremote = 0, felgenDB, nabenDB;
 
 function initDBs() {
-	if (localStorage.getItem("ip")) {
-		felgenDBremote = new PouchDB("http://" + localStorage.getItem("ip") + ":5984/felgen", {auto_compaction: true});
-		nabenDBremote = new PouchDB("http://" + localStorage.getItem("ip") + ":5984/naben", {auto_compaction: true});
-	} else {
-		felgenDBremote = new PouchDB("http://localhost:5984/felgen", {auto_compaction: true});
-		nabenDBremote = new PouchDB("http://localhost:5984/naben", {auto_compaction: true});
-	};
 
 	felgenDB = new PouchDB("localfelgen", {auto_compaction: true});
 	nabenDB = new PouchDB("localnaben", {auto_compaction: true});
 
-	felgenDB.sync(felgenDBremote, {
-		live: true,
-		retry: true
-	}).on('error', function (err) {
-		alert("Fehler beim Synchronisieren mit Felgendatenbank");
-	});
+	if (localStorage.getItem("ip")) {
+		felgenDBremote = new PouchDB("http://" + localStorage.getItem("ip") + ":5984/felgen", {auto_compaction: true});
+		nabenDBremote = new PouchDB("http://" + localStorage.getItem("ip") + ":5984/naben", {auto_compaction: true});
 
-	nabenDB.sync(nabenDBremote, {
-		live: true,
-		retry: true
-	}).on('error', function (err) {
-		alert("Fehler beim Synchronisieren mit Nabendatenbank");
-	});
+		felgenDB.sync(felgenDBremote, {
+			live: true,
+			retry: true
+		}).on('error', function (err) {
+			alert("Fehler beim Synchronisieren mit Felgendatenbank");
+		});
 
+		nabenDB.sync(nabenDBremote, {
+			live: true,
+			retry: true
+		}).on('error', function (err) {
+			alert("Fehler beim Synchronisieren mit Nabendatenbank");
+		});
+	};
 }
 
 initDBs();
@@ -644,6 +641,22 @@ function exportDB() {
 	});
 }
 
+function deleteDBs(remotes) {
+	if (remotes) {
+		return Promise.all([
+			felgenDB.destroy(),
+			nabenDB.destroy(),
+			felgenDBremote.destroy(),
+			nabenDBremote.destroy()
+		]);
+	} else {
+		return Promise.all([
+			felgenDB.destroy(),
+			nabenDB.destroy()
+		]);
+	};
+}
+
 function importDB(file,final) {
 	if (window.confirm("Sind sie sich sicher, dass sie die momentane Datenbank mit der aus der folgenden Datei ersetzen wollen?\n · Name: " + file.name + "\n · Zuletzt geändert am: " + file.lastModifiedDate.toLocaleDateString() + "\n · Größe: " + file.size + " bytes")) {
 
@@ -663,12 +676,11 @@ function importDB(file,final) {
 
 					spinnergear.classList.add("spinning");
 
-					Promise.all([
-						felgenDB.destroy(),
-						nabenDB.destroy(),
-						felgenDBremote.destroy(),
-						nabenDBremote.destroy()
-					]).then(function(arrayOfResults) {
+					if (felgenDBremote && nabenDBremote) {
+						var remotes = true;
+					}
+
+					deleteDBs(remotes).then(function(arrayOfResults) {
 						if (arrayOfResults.every(obj => obj.ok)) {
 							initDBs();
 
@@ -689,6 +701,8 @@ function importDB(file,final) {
 						};
 					}).catch(function (err) {
 						console.log(err);
+						spinnergear.classList.remove("spinning");
+						alert("Unbekannter Fehler beim einlesen der Datenbank");
 					});
 				};
 			};
