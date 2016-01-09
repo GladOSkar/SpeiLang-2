@@ -689,7 +689,6 @@ function importDB(file,final) {
 								nabenDB.bulkDocs(data[1])
 							]).then(function() {
 								paint();
-								showSettings();
 								spinnergear.classList.remove("spinning");
 							}).catch(function (err) {
 								spinnergear.classList.remove("spinning");
