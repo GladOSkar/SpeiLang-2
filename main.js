@@ -681,7 +681,7 @@ function importDB(file,final) {
 					}
 
 					deleteDBs(remotes).then(function(arrayOfResults) {
-						if (arrayOfResults.every(obj => obj.ok)) {
+						if (arrayOfResults.every(obj => obj.ok)) { //if every objects "ok" property is true in the array
 							initDBs();
 
 							Promise.all([
